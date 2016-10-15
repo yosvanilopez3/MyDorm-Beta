@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2882FCE41DB22BAD001E0786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCE31DB22BAD001E0786 /* AppDelegate.swift */; };
+		2882FCE61DB22BAD001E0786 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCE51DB22BAD001E0786 /* ViewController.swift */; };
+		2882FCE91DB22BAD001E0786 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2882FCE71DB22BAD001E0786 /* Main.storyboard */; };
+		2882FCEC1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCEA1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld */; };
+		2882FCEE1DB22BAD001E0786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882FCED1DB22BAD001E0786 /* Assets.xcassets */; };
+		2882FCF11DB22BAD001E0786 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2882FCEF1DB22BAD001E0786 /* LaunchScreen.storyboard */; };
+		2882FCFC1DB22BAD001E0786 /* MyDorm_BetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCFB1DB22BAD001E0786 /* MyDorm_BetaTests.swift */; };
+		2882FD071DB22BAD001E0786 /* MyDorm_BetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FD061DB22BAD001E0786 /* MyDorm_BetaUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2882FCF81DB22BAD001E0786 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2882FCD81DB22BAD001E0786 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2882FCDF1DB22BAD001E0786;
+			remoteInfo = "MyDorm-Beta";
+		};
+		2882FD031DB22BAD001E0786 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2882FCD81DB22BAD001E0786 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2882FCDF1DB22BAD001E0786;
+			remoteInfo = "MyDorm-Beta";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2882FCE01DB22BAD001E0786 /* MyDorm-Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyDorm-Beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882FCE31DB22BAD001E0786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2882FCE51DB22BAD001E0786 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2882FCE81DB22BAD001E0786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2882FCEB1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDorm_Beta.xcdatamodel; sourceTree = "<group>"; };
+		2882FCED1DB22BAD001E0786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2882FCF01DB22BAD001E0786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2882FCF21DB22BAD001E0786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2882FCF71DB22BAD001E0786 /* MyDorm-BetaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyDorm-BetaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882FCFB1DB22BAD001E0786 /* MyDorm_BetaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDorm_BetaTests.swift; sourceTree = "<group>"; };
+		2882FCFD1DB22BAD001E0786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2882FD021DB22BAD001E0786 /* MyDorm-BetaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyDorm-BetaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882FD061DB22BAD001E0786 /* MyDorm_BetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDorm_BetaUITests.swift; sourceTree = "<group>"; };
+		2882FD081DB22BAD001E0786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2882FCDD1DB22BAD001E0786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882FCF41DB22BAD001E0786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882FCFF1DB22BAD001E0786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2882FCD71DB22BAD001E0786 = {
+			isa = PBXGroup;
+			children = (
+				2882FCE21DB22BAD001E0786 /* MyDorm-Beta */,
+				2882FCFA1DB22BAD001E0786 /* MyDorm-BetaTests */,
+				2882FD051DB22BAD001E0786 /* MyDorm-BetaUITests */,
+				2882FCE11DB22BAD001E0786 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2882FCE11DB22BAD001E0786 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2882FCE01DB22BAD001E0786 /* MyDorm-Beta.app */,
+				2882FCF71DB22BAD001E0786 /* MyDorm-BetaTests.xctest */,
+				2882FD021DB22BAD001E0786 /* MyDorm-BetaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2882FCE21DB22BAD001E0786 /* MyDorm-Beta */ = {
+			isa = PBXGroup;
+			children = (
+				2882FCE31DB22BAD001E0786 /* AppDelegate.swift */,
+				2882FCE51DB22BAD001E0786 /* ViewController.swift */,
+				2882FCE71DB22BAD001E0786 /* Main.storyboard */,
+				2882FCED1DB22BAD001E0786 /* Assets.xcassets */,
+				2882FCEF1DB22BAD001E0786 /* LaunchScreen.storyboard */,
+				2882FCF21DB22BAD001E0786 /* Info.plist */,
+				2882FCEA1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld */,
+			);
+			path = "MyDorm-Beta";
+			sourceTree = "<group>";
+		};
+		2882FCFA1DB22BAD001E0786 /* MyDorm-BetaTests */ = {
+			isa = PBXGroup;
+			children = (
+				2882FCFB1DB22BAD001E0786 /* MyDorm_BetaTests.swift */,
+				2882FCFD1DB22BAD001E0786 /* Info.plist */,
+			);
+			path = "MyDorm-BetaTests";
+			sourceTree = "<group>";
+		};
+		2882FD051DB22BAD001E0786 /* MyDorm-BetaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2882FD061DB22BAD001E0786 /* MyDorm_BetaUITests.swift */,
+				2882FD081DB22BAD001E0786 /* Info.plist */,
+			);
+			path = "MyDorm-BetaUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2882FCDF1DB22BAD001E0786 /* MyDorm-Beta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2882FD0B1DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-Beta" */;
+			buildPhases = (
+				2882FCDC1DB22BAD001E0786 /* Sources */,
+				2882FCDD1DB22BAD001E0786 /* Frameworks */,
+				2882FCDE1DB22BAD001E0786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyDorm-Beta";
+			productName = "MyDorm-Beta";
+			productReference = 2882FCE01DB22BAD001E0786 /* MyDorm-Beta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2882FCF61DB22BAD001E0786 /* MyDorm-BetaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2882FD0E1DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaTests" */;
+			buildPhases = (
+				2882FCF31DB22BAD001E0786 /* Sources */,
+				2882FCF41DB22BAD001E0786 /* Frameworks */,
+				2882FCF51DB22BAD001E0786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2882FCF91DB22BAD001E0786 /* PBXTargetDependency */,
+			);
+			name = "MyDorm-BetaTests";
+			productName = "MyDorm-BetaTests";
+			productReference = 2882FCF71DB22BAD001E0786 /* MyDorm-BetaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2882FD011DB22BAD001E0786 /* MyDorm-BetaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2882FD111DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaUITests" */;
+			buildPhases = (
+				2882FCFE1DB22BAD001E0786 /* Sources */,
+				2882FCFF1DB22BAD001E0786 /* Frameworks */,
+				2882FD001DB22BAD001E0786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2882FD041DB22BAD001E0786 /* PBXTargetDependency */,
+			);
+			name = "MyDorm-BetaUITests";
+			productName = "MyDorm-BetaUITests";
+			productReference = 2882FD021DB22BAD001E0786 /* MyDorm-BetaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2882FCD81DB22BAD001E0786 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Yosvani Lopez";
+				TargetAttributes = {
+					2882FCDF1DB22BAD001E0786 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = DPY5934975;
+						ProvisioningStyle = Automatic;
+					};
+					2882FCF61DB22BAD001E0786 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = DPY5934975;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2882FCDF1DB22BAD001E0786;
+					};
+					2882FD011DB22BAD001E0786 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = DPY5934975;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2882FCDF1DB22BAD001E0786;
+					};
+				};
+			};
+			buildConfigurationList = 2882FCDB1DB22BAD001E0786 /* Build configuration list for PBXProject "MyDorm-Beta" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2882FCD71DB22BAD001E0786;
+			productRefGroup = 2882FCE11DB22BAD001E0786 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2882FCDF1DB22BAD001E0786 /* MyDorm-Beta */,
+				2882FCF61DB22BAD001E0786 /* MyDorm-BetaTests */,
+				2882FD011DB22BAD001E0786 /* MyDorm-BetaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2882FCDE1DB22BAD001E0786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882FCF11DB22BAD001E0786 /* LaunchScreen.storyboard in Resources */,
+				2882FCEE1DB22BAD001E0786 /* Assets.xcassets in Resources */,
+				2882FCE91DB22BAD001E0786 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882FCF51DB22BAD001E0786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882FD001DB22BAD001E0786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2882FCDC1DB22BAD001E0786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882FCE61DB22BAD001E0786 /* ViewController.swift in Sources */,
+				2882FCE41DB22BAD001E0786 /* AppDelegate.swift in Sources */,
+				2882FCEC1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882FCF31DB22BAD001E0786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882FCFC1DB22BAD001E0786 /* MyDorm_BetaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882FCFE1DB22BAD001E0786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882FD071DB22BAD001E0786 /* MyDorm_BetaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2882FCF91DB22BAD001E0786 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2882FCDF1DB22BAD001E0786 /* MyDorm-Beta */;
+			targetProxy = 2882FCF81DB22BAD001E0786 /* PBXContainerItemProxy */;
+		};
+		2882FD041DB22BAD001E0786 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2882FCDF1DB22BAD001E0786 /* MyDorm-Beta */;
+			targetProxy = 2882FD031DB22BAD001E0786 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2882FCE71DB22BAD001E0786 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2882FCE81DB22BAD001E0786 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2882FCEF1DB22BAD001E0786 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2882FCF01DB22BAD001E0786 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2882FD091DB22BAD001E0786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2882FD0A1DB22BAD001E0786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2882FD0C1DB22BAD001E0786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DPY5934975;
+				INFOPLIST_FILE = "MyDorm-Beta/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yosvani.MyDorm-Beta";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2882FD0D1DB22BAD001E0786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DPY5934975;
+				INFOPLIST_FILE = "MyDorm-Beta/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yosvani.MyDorm-Beta";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		2882FD0F1DB22BAD001E0786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DPY5934975;
+				INFOPLIST_FILE = "MyDorm-BetaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yosvani.MyDorm-BetaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDorm-Beta.app/MyDorm-Beta";
+			};
+			name = Debug;
+		};
+		2882FD101DB22BAD001E0786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DPY5934975;
+				INFOPLIST_FILE = "MyDorm-BetaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yosvani.MyDorm-BetaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyDorm-Beta.app/MyDorm-Beta";
+			};
+			name = Release;
+		};
+		2882FD121DB22BAD001E0786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DPY5934975;
+				INFOPLIST_FILE = "MyDorm-BetaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yosvani.MyDorm-BetaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "MyDorm-Beta";
+			};
+			name = Debug;
+		};
+		2882FD131DB22BAD001E0786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = DPY5934975;
+				INFOPLIST_FILE = "MyDorm-BetaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Yosvani.MyDorm-BetaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "MyDorm-Beta";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2882FCDB1DB22BAD001E0786 /* Build configuration list for PBXProject "MyDorm-Beta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882FD091DB22BAD001E0786 /* Debug */,
+				2882FD0A1DB22BAD001E0786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2882FD0B1DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-Beta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882FD0C1DB22BAD001E0786 /* Debug */,
+				2882FD0D1DB22BAD001E0786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2882FD0E1DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882FD0F1DB22BAD001E0786 /* Debug */,
+				2882FD101DB22BAD001E0786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2882FD111DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882FD121DB22BAD001E0786 /* Debug */,
+				2882FD131DB22BAD001E0786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2882FCEA1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2882FCEB1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodel */,
+			);
+			currentVersion = 2882FCEB1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodel */;
+			path = MyDorm_Beta.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2882FCD81DB22BAD001E0786 /* Project object */;
+}
