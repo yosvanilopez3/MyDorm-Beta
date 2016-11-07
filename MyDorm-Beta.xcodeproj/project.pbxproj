@@ -7,14 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15EE9BBC30F66626816427A9 /* Pods_MyDorm_BetaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7CCE8E5EAFCB4DE39C7A32 /* Pods_MyDorm_BetaTests.framework */; };
+		2866BEE91DCEB92100FF23B2 /* StorageCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */; };
+		2866BEF11DCFB5BC00FF23B2 /* StorageOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */; };
+		2866BEF51DCFCC3000FF23B2 /* IndividualPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF41DCFCC3000FF23B2 /* IndividualPriceCell.swift */; };
 		2882FCE41DB22BAD001E0786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCE31DB22BAD001E0786 /* AppDelegate.swift */; };
-		2882FCE61DB22BAD001E0786 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCE51DB22BAD001E0786 /* ViewController.swift */; };
 		2882FCE91DB22BAD001E0786 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2882FCE71DB22BAD001E0786 /* Main.storyboard */; };
 		2882FCEC1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCEA1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld */; };
 		2882FCEE1DB22BAD001E0786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882FCED1DB22BAD001E0786 /* Assets.xcassets */; };
 		2882FCF11DB22BAD001E0786 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2882FCEF1DB22BAD001E0786 /* LaunchScreen.storyboard */; };
 		2882FCFC1DB22BAD001E0786 /* MyDorm_BetaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FCFB1DB22BAD001E0786 /* MyDorm_BetaTests.swift */; };
 		2882FD071DB22BAD001E0786 /* MyDorm_BetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FD061DB22BAD001E0786 /* MyDorm_BetaUITests.swift */; };
+		28A5A13D1DCA6EE2001060B1 /* ObjectListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A5A13C1DCA6EE2001060B1 /* ObjectListVC.swift */; };
+		28C725511DB6B0D400EBB9F3 /* CalenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725501DB6B0D400EBB9F3 /* CalenderVC.swift */; };
+		28C725551DB6BE0600EBB9F3 /* MovingDataInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725541DB6BE0600EBB9F3 /* MovingDataInputVC.swift */; };
+		28C725571DB6C29600EBB9F3 /* StorableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725561DB6C29600EBB9F3 /* StorableObject.swift */; };
+		28C725591DB6C64F00EBB9F3 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725581DB6C64F00EBB9F3 /* Dimensions.swift */; };
+		28C7255B1DB6CAD000EBB9F3 /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C7255A1DB6CAD000EBB9F3 /* SuggestionCell.swift */; };
+		28C7255F1DB709C600EBB9F3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C7255E1DB709C600EBB9F3 /* Order.swift */; };
+		28C725611DB70B0200EBB9F3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725601DB70B0200EBB9F3 /* User.swift */; };
+		28C725661DB7129000EBB9F3 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725651DB7129000EBB9F3 /* RoundedButton.swift */; };
+		28C725AD1DB7248A00EBB9F3 /* SignUpField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725AB1DB7248A00EBB9F3 /* SignUpField.swift */; };
+		28C725AE1DB7248A00EBB9F3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725AC1DB7248A00EBB9F3 /* SignUpView.swift */; };
+		28C725B01DBB523200EBB9F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28C725AF1DBB523200EBB9F3 /* GoogleService-Info.plist */; };
+		28C725B41DBC98FD00EBB9F3 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725B31DBC98FD00EBB9F3 /* DataService.swift */; };
+		28C725B61DBCA14100EBB9F3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725B51DBCA14100EBB9F3 /* Constants.swift */; };
+		28C725B81DBCA24400EBB9F3 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725B71DBCA24400EBB9F3 /* SignUpVC.swift */; };
+		28D0D0BB1DCA9AF3008E909F /* PriceDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D0D0BA1DCA9AF3008E909F /* PriceDisplayVC.swift */; };
+		28D0D0BD1DCA9D43008E909F /* Bibliography in Resources */ = {isa = PBXBuildFile; fileRef = 28D0D0BC1DCA9D43008E909F /* Bibliography */; };
+		28D0D0C31DCB00C7008E909F /* SelectedObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D0D0C21DCB00C7008E909F /* SelectedObjectCell.swift */; };
+		89257E6A1991CA9C8D8B6C30 /* Pods_MyDorm_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EFF7AC9352D33D88879564 /* Pods_MyDorm_Beta.framework */; };
+		8FC269D1D4AD8F54DEA92CAF /* Pods_MyDorm_BetaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E28E847BF8407B61F847AFB /* Pods_MyDorm_BetaUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +58,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageCompany.swift; sourceTree = "<group>"; };
+		2866BEEC1DCF02A200FF23B2 /* MyDorm-Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MyDorm-Beta.entitlements"; sourceTree = "<group>"; };
+		2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageOptionCell.swift; sourceTree = "<group>"; };
+		2866BEF41DCFCC3000FF23B2 /* IndividualPriceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualPriceCell.swift; sourceTree = "<group>"; };
 		2882FCE01DB22BAD001E0786 /* MyDorm-Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyDorm-Beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882FCE31DB22BAD001E0786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2882FCE51DB22BAD001E0786 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2882FCE81DB22BAD001E0786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2882FCEB1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDorm_Beta.xcdatamodel; sourceTree = "<group>"; };
 		2882FCED1DB22BAD001E0786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +75,33 @@
 		2882FD021DB22BAD001E0786 /* MyDorm-BetaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyDorm-BetaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882FD061DB22BAD001E0786 /* MyDorm_BetaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDorm_BetaUITests.swift; sourceTree = "<group>"; };
 		2882FD081DB22BAD001E0786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28A5A13C1DCA6EE2001060B1 /* ObjectListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectListVC.swift; sourceTree = "<group>"; };
+		28C725501DB6B0D400EBB9F3 /* CalenderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderVC.swift; sourceTree = "<group>"; };
+		28C725541DB6BE0600EBB9F3 /* MovingDataInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingDataInputVC.swift; sourceTree = "<group>"; };
+		28C725561DB6C29600EBB9F3 /* StorableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorableObject.swift; sourceTree = "<group>"; };
+		28C725581DB6C64F00EBB9F3 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		28C7255A1DB6CAD000EBB9F3 /* SuggestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
+		28C7255E1DB709C600EBB9F3 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		28C725601DB70B0200EBB9F3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		28C725651DB7129000EBB9F3 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		28C725AB1DB7248A00EBB9F3 /* SignUpField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpField.swift; path = ../../IOSMaterial/IOSMaterial/SignUpField.swift; sourceTree = "<group>"; };
+		28C725AC1DB7248A00EBB9F3 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpView.swift; path = ../../IOSMaterial/IOSMaterial/SignUpView.swift; sourceTree = "<group>"; };
+		28C725AF1DBB523200EBB9F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		28C725B31DBC98FD00EBB9F3 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		28C725B51DBCA14100EBB9F3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		28C725B71DBCA24400EBB9F3 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		28D0D0BA1DCA9AF3008E909F /* PriceDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDisplayVC.swift; sourceTree = "<group>"; };
+		28D0D0BC1DCA9D43008E909F /* Bibliography */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bibliography; sourceTree = "<group>"; };
+		28D0D0C21DCB00C7008E909F /* SelectedObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedObjectCell.swift; sourceTree = "<group>"; };
+		2C95D88456841E217FE7D49D /* Pods-MyDorm-BetaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-BetaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-BetaUITests/Pods-MyDorm-BetaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		49F62F552708ED1955D89A73 /* Pods-MyDorm-Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-Beta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-Beta/Pods-MyDorm-Beta.debug.xcconfig"; sourceTree = "<group>"; };
+		60EFF7AC9352D33D88879564 /* Pods_MyDorm_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDorm_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		686E213B3FB455851AE85874 /* Pods-MyDorm-BetaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-BetaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-BetaTests/Pods-MyDorm-BetaTests.release.xcconfig"; sourceTree = "<group>"; };
+		7ACFF18EF3501F502E690512 /* Pods-MyDorm-Beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-Beta.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-Beta/Pods-MyDorm-Beta.release.xcconfig"; sourceTree = "<group>"; };
+		7E28E847BF8407B61F847AFB /* Pods_MyDorm_BetaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDorm_BetaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A047DA66C1E29D8CA8B6694 /* Pods-MyDorm-BetaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-BetaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-BetaUITests/Pods-MyDorm-BetaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CC7CCE8E5EAFCB4DE39C7A32 /* Pods_MyDorm_BetaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDorm_BetaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C53D10771AFF1758210413 /* Pods-MyDorm-BetaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-BetaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-BetaTests/Pods-MyDorm-BetaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89257E6A1991CA9C8D8B6C30 /* Pods_MyDorm_Beta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EE9BBC30F66626816427A9 /* Pods_MyDorm_BetaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +125,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC269D1D4AD8F54DEA92CAF /* Pods_MyDorm_BetaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2866BEED1DCF0E1200FF23B2 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				28C725651DB7129000EBB9F3 /* RoundedButton.swift */,
+				28C725AB1DB7248A00EBB9F3 /* SignUpField.swift */,
+				28C725AC1DB7248A00EBB9F3 /* SignUpView.swift */,
+			);
+			name = Material;
+			sourceTree = "<group>";
+		};
 		2882FCD71DB22BAD001E0786 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +149,8 @@
 				2882FCFA1DB22BAD001E0786 /* MyDorm-BetaTests */,
 				2882FD051DB22BAD001E0786 /* MyDorm-BetaUITests */,
 				2882FCE11DB22BAD001E0786 /* Products */,
+				ABD6390F24893ED28A151EBE /* Pods */,
+				A793F68D46A67F0B8FA1B09B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +167,20 @@
 		2882FCE21DB22BAD001E0786 /* MyDorm-Beta */ = {
 			isa = PBXGroup;
 			children = (
+				2866BEEC1DCF02A200FF23B2 /* MyDorm-Beta.entitlements */,
 				2882FCE31DB22BAD001E0786 /* AppDelegate.swift */,
-				2882FCE51DB22BAD001E0786 /* ViewController.swift */,
-				2882FCE71DB22BAD001E0786 /* Main.storyboard */,
+				28C725B31DBC98FD00EBB9F3 /* DataService.swift */,
+				28C725B51DBCA14100EBB9F3 /* Constants.swift */,
+				28C725621DB70B0A00EBB9F3 /* Modal  */,
+				28C725631DB70B0A00EBB9F3 /* View */,
+				28C725641DB70B0B00EBB9F3 /* Controller */,
+				2866BEED1DCF0E1200FF23B2 /* Material */,
 				2882FCED1DB22BAD001E0786 /* Assets.xcassets */,
 				2882FCEF1DB22BAD001E0786 /* LaunchScreen.storyboard */,
 				2882FCF21DB22BAD001E0786 /* Info.plist */,
+				28C725AF1DBB523200EBB9F3 /* GoogleService-Info.plist */,
 				2882FCEA1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld */,
+				28D0D0BC1DCA9D43008E909F /* Bibliography */,
 			);
 			path = "MyDorm-Beta";
 			sourceTree = "<group>";
@@ -128,6 +203,65 @@
 			path = "MyDorm-BetaUITests";
 			sourceTree = "<group>";
 		};
+		28C725621DB70B0A00EBB9F3 /* Modal  */ = {
+			isa = PBXGroup;
+			children = (
+				28C7255E1DB709C600EBB9F3 /* Order.swift */,
+				28C725601DB70B0200EBB9F3 /* User.swift */,
+				28C725581DB6C64F00EBB9F3 /* Dimensions.swift */,
+				2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */,
+				28C725561DB6C29600EBB9F3 /* StorableObject.swift */,
+			);
+			name = "Modal ";
+			sourceTree = "<group>";
+		};
+		28C725631DB70B0A00EBB9F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2882FCE71DB22BAD001E0786 /* Main.storyboard */,
+				28D0D0C21DCB00C7008E909F /* SelectedObjectCell.swift */,
+				2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */,
+				2866BEF41DCFCC3000FF23B2 /* IndividualPriceCell.swift */,
+				28C7255A1DB6CAD000EBB9F3 /* SuggestionCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		28C725641DB70B0B00EBB9F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				28C725501DB6B0D400EBB9F3 /* CalenderVC.swift */,
+				28D0D0BA1DCA9AF3008E909F /* PriceDisplayVC.swift */,
+				28C725B71DBCA24400EBB9F3 /* SignUpVC.swift */,
+				28A5A13C1DCA6EE2001060B1 /* ObjectListVC.swift */,
+				28C725541DB6BE0600EBB9F3 /* MovingDataInputVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A793F68D46A67F0B8FA1B09B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60EFF7AC9352D33D88879564 /* Pods_MyDorm_Beta.framework */,
+				CC7CCE8E5EAFCB4DE39C7A32 /* Pods_MyDorm_BetaTests.framework */,
+				7E28E847BF8407B61F847AFB /* Pods_MyDorm_BetaUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABD6390F24893ED28A151EBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49F62F552708ED1955D89A73 /* Pods-MyDorm-Beta.debug.xcconfig */,
+				7ACFF18EF3501F502E690512 /* Pods-MyDorm-Beta.release.xcconfig */,
+				E5C53D10771AFF1758210413 /* Pods-MyDorm-BetaTests.debug.xcconfig */,
+				686E213B3FB455851AE85874 /* Pods-MyDorm-BetaTests.release.xcconfig */,
+				2C95D88456841E217FE7D49D /* Pods-MyDorm-BetaUITests.debug.xcconfig */,
+				8A047DA66C1E29D8CA8B6694 /* Pods-MyDorm-BetaUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2882FD0B1DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-Beta" */;
 			buildPhases = (
+				6A3CDC0489EC634850694AD5 /* [CP] Check Pods Manifest.lock */,
 				2882FCDC1DB22BAD001E0786 /* Sources */,
 				2882FCDD1DB22BAD001E0786 /* Frameworks */,
 				2882FCDE1DB22BAD001E0786 /* Resources */,
+				C28496FF20D99FD59E42E687 /* [CP] Embed Pods Frameworks */,
+				B2897E6485190FA50E628A55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +289,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2882FD0E1DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaTests" */;
 			buildPhases = (
+				D5F77C282D599F5726827366 /* [CP] Check Pods Manifest.lock */,
 				2882FCF31DB22BAD001E0786 /* Sources */,
 				2882FCF41DB22BAD001E0786 /* Frameworks */,
 				2882FCF51DB22BAD001E0786 /* Resources */,
+				819A670FA715CCF93DAA46AA /* [CP] Embed Pods Frameworks */,
+				8EDFFA2FBEB6FC0859A8CEAF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2882FD111DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaUITests" */;
 			buildPhases = (
+				3CA765BF7008B3BBFD2AE74F /* [CP] Check Pods Manifest.lock */,
 				2882FCFE1DB22BAD001E0786 /* Sources */,
 				2882FCFF1DB22BAD001E0786 /* Frameworks */,
 				2882FD001DB22BAD001E0786 /* Resources */,
+				C2CB42118549FDCDFE0294B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,6 +340,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = DPY5934975;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					2882FCF61DB22BAD001E0786 = {
 						CreatedOnToolsVersion = 8.0;
@@ -239,6 +386,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2882FCF11DB22BAD001E0786 /* LaunchScreen.storyboard in Resources */,
+				28C725B01DBB523200EBB9F3 /* GoogleService-Info.plist in Resources */,
+				28D0D0BD1DCA9D43008E909F /* Bibliography in Resources */,
 				2882FCEE1DB22BAD001E0786 /* Assets.xcassets in Resources */,
 				2882FCE91DB22BAD001E0786 /* Main.storyboard in Resources */,
 			);
@@ -260,14 +409,155 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3CA765BF7008B3BBFD2AE74F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A3CDC0489EC634850694AD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		819A670FA715CCF93DAA46AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDorm-BetaTests/Pods-MyDorm-BetaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EDFFA2FBEB6FC0859A8CEAF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDorm-BetaTests/Pods-MyDorm-BetaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2897E6485190FA50E628A55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDorm-Beta/Pods-MyDorm-Beta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C28496FF20D99FD59E42E687 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDorm-Beta/Pods-MyDorm-Beta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2CB42118549FDCDFE0294B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDorm-BetaUITests/Pods-MyDorm-BetaUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5F77C282D599F5726827366 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2882FCDC1DB22BAD001E0786 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2882FCE61DB22BAD001E0786 /* ViewController.swift in Sources */,
+				28C725571DB6C29600EBB9F3 /* StorableObject.swift in Sources */,
+				2866BEF11DCFB5BC00FF23B2 /* StorageOptionCell.swift in Sources */,
+				28C725AD1DB7248A00EBB9F3 /* SignUpField.swift in Sources */,
+				2866BEE91DCEB92100FF23B2 /* StorageCompany.swift in Sources */,
+				28C7255F1DB709C600EBB9F3 /* Order.swift in Sources */,
 				2882FCE41DB22BAD001E0786 /* AppDelegate.swift in Sources */,
+				28C725511DB6B0D400EBB9F3 /* CalenderVC.swift in Sources */,
+				28C725551DB6BE0600EBB9F3 /* MovingDataInputVC.swift in Sources */,
+				28C725B61DBCA14100EBB9F3 /* Constants.swift in Sources */,
+				28C725591DB6C64F00EBB9F3 /* Dimensions.swift in Sources */,
+				28C725661DB7129000EBB9F3 /* RoundedButton.swift in Sources */,
+				28D0D0BB1DCA9AF3008E909F /* PriceDisplayVC.swift in Sources */,
+				28C725B41DBC98FD00EBB9F3 /* DataService.swift in Sources */,
+				28A5A13D1DCA6EE2001060B1 /* ObjectListVC.swift in Sources */,
+				28D0D0C31DCB00C7008E909F /* SelectedObjectCell.swift in Sources */,
+				28C725AE1DB7248A00EBB9F3 /* SignUpView.swift in Sources */,
+				2866BEF51DCFCC3000FF23B2 /* IndividualPriceCell.swift in Sources */,
 				2882FCEC1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld in Sources */,
+				28C7255B1DB6CAD000EBB9F3 /* SuggestionCell.swift in Sources */,
+				28C725611DB70B0200EBB9F3 /* User.swift in Sources */,
+				28C725B81DBCA24400EBB9F3 /* SignUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,8 +705,12 @@
 		};
 		2882FD0C1DB22BAD001E0786 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49F62F552708ED1955D89A73 /* Pods-MyDorm-Beta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MyDorm-Beta/MyDorm-Beta.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DPY5934975;
 				INFOPLIST_FILE = "MyDorm-Beta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -428,8 +722,12 @@
 		};
 		2882FD0D1DB22BAD001E0786 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7ACFF18EF3501F502E690512 /* Pods-MyDorm-Beta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MyDorm-Beta/MyDorm-Beta.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DPY5934975;
 				INFOPLIST_FILE = "MyDorm-Beta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -441,6 +739,7 @@
 		};
 		2882FD0F1DB22BAD001E0786 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5C53D10771AFF1758210413 /* Pods-MyDorm-BetaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -456,6 +755,7 @@
 		};
 		2882FD101DB22BAD001E0786 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 686E213B3FB455851AE85874 /* Pods-MyDorm-BetaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,8 +771,11 @@
 		};
 		2882FD121DB22BAD001E0786 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C95D88456841E217FE7D49D /* Pods-MyDorm-BetaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DPY5934975;
 				INFOPLIST_FILE = "MyDorm-BetaUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -485,8 +788,11 @@
 		};
 		2882FD131DB22BAD001E0786 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A047DA66C1E29D8CA8B6694 /* Pods-MyDorm-BetaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DPY5934975;
 				INFOPLIST_FILE = "MyDorm-BetaUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -516,6 +822,7 @@
 				2882FD0D1DB22BAD001E0786 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2882FD0E1DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +831,7 @@
 				2882FD101DB22BAD001E0786 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2882FD111DB22BAD001E0786 /* Build configuration list for PBXNativeTarget "MyDorm-BetaUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +840,7 @@
 				2882FD131DB22BAD001E0786 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -1,0 +1,6 @@
+framework module Pods_MyDorm_BetaUITests {
+  umbrella header "Pods-MyDorm-BetaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
