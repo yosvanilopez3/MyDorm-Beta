@@ -16,7 +16,7 @@ let URL_BASE = "https://console.firebase.google.com/project/mydorm-beta"
 let KEY_UID = "uid"
 // Main reference to the data base - make reference extensions from here
 let DATA_BASE = FIRDatabase.database()
-var SEGUE_LOGIN = "LoggedIn"
+var SEGUE_LOGIN = "LogIn"
 
 func showErrorAlert(title:String, msg: String, currentView: UIViewController) {
     let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
@@ -25,7 +25,6 @@ func showErrorAlert(title:String, msg: String, currentView: UIViewController) {
     currentView.present(alert, animated: true, completion: nil)
 }
 
-struct DateTime {
-    var date: String = "05/05/17"
-    var time: String = "3:00 PM"
+func formatPrice(price: Double) -> String {
+    return String(format: "%.2f", price)
 }

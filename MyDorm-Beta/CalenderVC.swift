@@ -8,7 +8,13 @@
 
 import UIKit
 import PDTSimpleCalendar
+enum DateType {
+    case Pickup
+    case Dropoff
+}
 class CalenderVC: PDTSimpleCalendarViewController, UINavigationControllerDelegate {
+    var datetype: DateType!
+    
     //create and enum that the calling VC can set as either pick up or drop off 
     //make only the available dates selectable
     override func viewDidLoad() {

@@ -7,16 +7,40 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController, UITextFieldDelegate  {
 // add password and label connections
+    @IBOutlet weak var signupBtn: RoundedButton!
     @IBOutlet weak var emailAddress: SignUpField!
     @IBOutlet weak var password: SignUpField!
     
+    var currentTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailAddress.delegate = self
+        password.delegate = self
         FIRDatabase.database().persistenceEnabled = true
     }
     
+    @IBAction func didTapView(_ sender: AnyObject) {
+        if (currentTextField) != nil {
+            currentTextField.resignFirstResponder()
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        currentTextField = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        currentTextField.resignFirstResponder()
+        if currentTextField == emailAddress {
+            password.becomeFirstResponder()
+        }
+        else if currentTextField == password {
+            attemptSignUp(sender: signupBtn)
+        }
+        return true 
+    }
     override func viewDidAppear(_ animated: Bool) {
         if UserDefaults.standard.value(forKey: KEY_UID) != nil {
             self.performSegue(withIdentifier: SEGUE_LOGIN, sender: nil)

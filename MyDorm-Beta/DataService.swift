@@ -37,7 +37,6 @@ class DataService {
             complete()
         }) { (error) in
             print(error.localizedDescription)
-            complete()
         }
     }
     
@@ -72,7 +71,6 @@ class DataService {
             complete()
         }) { (error) in
             print(error.localizedDescription)
-            complete()
         }
     }
 /*************************************************/

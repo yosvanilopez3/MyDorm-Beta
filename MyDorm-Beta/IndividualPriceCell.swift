@@ -9,16 +9,15 @@
 import UIKit
 
 class IndividualPriceCell: UITableViewCell {
-
+    @IBOutlet weak var itemPrice: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(itemImage: UIImage, price: Double) {
+        self.itemPrice.text = formatPrice(price: price)
+        self.itemImage.image = itemImage
     }
-
 }

@@ -23,6 +23,22 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.storageOptionsTbl.reloadData()
         }
     }
+    @IBAction func backBtnPressed(_ sender: AnyObject) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+/*************************************************/
+/*               Segue Functions                 */
+/*************************************************/
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SeeDetailsSegue" {
+            if let destination = segue.destination as? IndividualPriceDisplayVC {
+                if let button = sender as? UIButton {
+                    destination.priceIndex = storageCompanies[button.tag].getIndividualPrices(order: currentOrder)
+                }
+            }
+        }
+    }
+    
 /*************************************************/
 /*            TableView Functions                */
 /*************************************************/
@@ -37,6 +53,7 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "StorageOptionCell", for: indexPath) as? StorageOptionCell {
             cell.configureCell(company: storageCompanies[indexPath.row], order: currentOrder)
+            cell.seeDetailsBtn.tag = indexPath.row
             return cell
         }
         else {

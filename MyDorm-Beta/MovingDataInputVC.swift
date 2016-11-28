@@ -11,18 +11,18 @@ import Foundation
 import PDTSimpleCalendar
 class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var objectListTextField: UITextField!
-    var calender: Calendar!
     var selectedObjects = [StorableObject]()
     @IBOutlet weak var pickupDateLbl: UIButton!
     @IBOutlet weak var dropoffDateLbl: UIButton!
     @IBOutlet weak var dropoffTimeLbl: UIButton!
     @IBOutlet weak var pickupTimeLbl: UIButton!
-    var pickupDate = DateTime()
-    var dropoffDate = DateTime()
+    var pickupDate = DateTime(date: Date())
+    var dropoffDate =  DateTime(date: Date())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         objectListTextField.delegate = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,20 +30,29 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIText
         setPickupLbl()
         setDropoffLbl()
     }
-    
+/*************************************************/
+/*            Date Set Functions                 */
+/*************************************************/
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, didSelect date: Date!) {
-        pickupDate = DateTime()
-        pickupDate.date = formatDate(date: date)
-        // replace by actual time selection once this is implemented
-        pickupDate.time = ""
+        if let calender = controller as? CalenderVC {
+            if calender.datetype == DateType.Pickup {
+                pickupDate = DateTime(date:date)
+                // replace by actual time selection once this is implemented
+            }
+            else if calender.datetype == DateType.Dropoff {
+                dropoffDate = DateTime(date:date)
+                // replace by actual time selection once this is implemented
+            }
+        controller.navigationController?.popViewController(animated: true)
+        }
     }
     
     func setPickupLbl() {
-        pickupDateLbl.setTitle("Date: \(pickupDate.date)", for: UIControlState.normal)
+        pickupDateLbl.setTitle("\(pickupDate.dateString)", for: UIControlState.normal)
     }
     
     func setDropoffLbl() {
-        dropoffDateLbl.setTitle("Date: \(dropoffDate.date)", for: UIControlState.normal)
+        dropoffDateLbl.setTitle("\(dropoffDate.dateString)", for: UIControlState.normal)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -63,35 +72,49 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIText
                 destination.selectedObjects = selectedObjects
             }
         }
-        if segue.identifier == "SetPickupDate" {
+        else if segue.identifier == "SetPickupDate" {
             if let destination = segue.destination as? CalenderVC {
+                destination.datetype = DateType.Pickup
                 destination.delegate = self
             }
         }
-        if segue.identifier == "SetDropoffDate" {
+        else if segue.identifier == "SetDropoffDate" {
             if let destination = segue.destination as? CalenderVC {
+                destination.datetype = DateType.Dropoff
                 destination.delegate = self
             }
         }
-        if segue.identifier == "PriceDisplay" {
+        else if segue.identifier == "PriceDisplay" {
             if let destination = segue.destination as? PriceDisplayVC {
                 destination.currentOrder = createOrder()
             }
         }
+        else if segue.identifier == "PickupTimeSegue" {
+            // destinationViewController changed to destination
+            // this is used to set up a presentation view controller
+            if let destination = segue.destination as? SelectTimeVC {
+                // change this to load the times available from the company
+                destination.availableTimes = [DateTime(date: Date())]
+                destination.movingDetailsVC = self
+                destination.dateType = DateType.Pickup
+            }
+        }
+        else if segue.identifier == "DropoffTimeSegue" {
+            // destinationViewController changed to destination
+            // this is used to set up a presentation view controller
+            if let destination = segue.destination as? SelectTimeVC {
+                // change this to load the times available from the company
+                destination.availableTimes = [DateTime(date: Date())]
+                destination.movingDetailsVC = self
+                destination.dateType = DateType.Dropoff
+            }
+        }
     }
+
 /*************************************************/
 /*            Utility Functions                  */
 /*************************************************/
-    func formatDate(date: Date) -> String {
-        var formattedDate = date.description
-        formattedDate = formattedDate.replacingOccurrences(of: "-", with: "/")
-        let month = formattedDate.components(separatedBy: "/")[1]
-        let year = formattedDate.components(separatedBy: "/")[0].components(separatedBy: "0")[1]
-        let day = formattedDate.components(separatedBy: "/")[2].components(separatedBy: " ")[0]
-        formattedDate = "\(month)/\(day)/\(year)"
-        print(formattedDate)
-        return formattedDate
-    }
+  
     func getNameList() -> String {
         var list = ""
         for object in selectedObjects {

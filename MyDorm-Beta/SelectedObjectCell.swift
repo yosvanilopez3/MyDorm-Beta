@@ -14,14 +14,14 @@ class SelectedObjectCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.cornerRadius = 15.0
-        layer.borderColor = UIColor(red: 64, green: 132, blue: 159, alpha: 0.6).cgColor
-        layer.borderWidth = 3.0
+        layer.cornerRadius = 10.0
+        layer.borderColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 0.6).cgColor
+        layer.borderWidth = 1.0
         clipsToBounds = true
     }
   
     func configureCell(name: String, detail: String) {
-        objectImage.image = UIImage(named: "Ok")
+        objectImage.image = UIImage(named: "default")
     }
     
 }

@@ -30,6 +30,10 @@ class ObjectListVC: UIViewController, UITableViewDelegate,
         loadAllObjects()
     }
 
+    @IBAction func doneBtn(_ sender: AnyObject) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if let parentVC = viewController as? MovingDataInputVC {
             parentVC.selectedObjects = selectedObjects
@@ -68,7 +72,7 @@ class ObjectListVC: UIViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 18.0
+        return 38.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

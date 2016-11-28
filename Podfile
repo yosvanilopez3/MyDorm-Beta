@@ -5,6 +5,7 @@ target 'MyDorm-Beta' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'PDTSimpleCalendar', '~> 0.9.1'
+  pod 'FirebaseUI/Storage', '~> 0.6'
   pod ‘Firebase/Core’
   pod 'Firebase/Database'
   pod 'Firebase/Auth'

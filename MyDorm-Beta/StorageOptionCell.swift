@@ -14,6 +14,8 @@ class StorageOptionCell: UITableViewCell {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var dropoffDateLbl: UILabel!
     @IBOutlet weak var pickupDateLbl: UILabel!
+    @IBOutlet weak var seeDetailsBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,7 +28,7 @@ class StorageOptionCell: UITableViewCell {
     }
     
     func configureCell(company: StorageCompany, order: Order) {
-      priceLbl.text = String(company.calculateOrderPrice(order: order))
+      priceLbl.text = "$\(formatPrice(price: company.calculateOrderPrice(order: order)))"
       companyNameLbl.text = company.name
     }
     
