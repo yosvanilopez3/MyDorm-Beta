@@ -21,7 +21,9 @@ class SelectedObjectCell: UICollectionViewCell {
     }
   
     func configureCell(name: String, detail: String) {
-        objectImage.image = UIImage(named: "default")
+        DataService.instance.getObjectImage(name: name, complete: { (image) in
+            self.objectImage.image = image
+        })
     }
     
 }

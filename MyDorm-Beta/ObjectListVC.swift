@@ -14,7 +14,7 @@ class ObjectListVC: UIViewController, UITableViewDelegate,
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var suggestionTable: UITableView!
     @IBOutlet weak var selectedCollection: UICollectionView!
-    var allStorableObjects: [StorableObject]!
+    var allStorableObjects = [StorableObject]()
     var suggestions = [StorableObject]()
     var selectedObjects = [StorableObject]()
     
@@ -28,6 +28,7 @@ class ObjectListVC: UIViewController, UITableViewDelegate,
         selectedCollection.delegate = self
         selectedCollection.dataSource = self
         loadAllObjects()
+        searchBar.becomeFirstResponder()
     }
 
     @IBAction func doneBtn(_ sender: AnyObject) {

@@ -8,14 +8,15 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 import UIKit
 
 typealias complete = () -> ()
-
+let DATA_BASE = FIRDatabase.database()
+let STORAGE_BASE = FIRStorage.storage()
 let URL_BASE = "https://console.firebase.google.com/project/mydorm-beta"
 let KEY_UID = "uid"
 // Main reference to the data base - make reference extensions from here
-let DATA_BASE = FIRDatabase.database()
 var SEGUE_LOGIN = "LogIn"
 
 func showErrorAlert(title:String, msg: String, currentView: UIViewController) {

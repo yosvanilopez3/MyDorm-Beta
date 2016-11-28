@@ -8,15 +8,24 @@
 
 import Foundation
 import Firebase
+import UIKit
 class DataService {
     static let instance = DataService()
     private let _USER_BASE = DATA_BASE.reference(withPath: "users")
-    private let _ORDER_BASE = DATA_BASE.reference(withPath: "order")
-    private let _ITEM_BASE = DATA_BASE.reference(withPath: "storableobjects")
-    private let _COMPANY_BASE = DATA_BASE.reference(withPath: "Companies")
-    var storableObjects = [StorableObject]()
-    var storageCompanies = [StorageCompany]()
+    private let ORDER_BASE = DATA_BASE.reference(withPath: "order")
+    private let ITEM_BASE = DATA_BASE.reference(withPath: "storableobjects")
+    private let COMPANY_BASE = DATA_BASE.reference(withPath: "Companies")
+    private let storage = STORAGE_BASE
+    private var _storableObjects = [StorableObject]()
+    private var _storageCompanies = [StorageCompany]()
+    private var downloadedObjectImages = Dictionary <String, UIImage>()
     
+    var storableObjects : [StorableObject] {
+        return _storableObjects
+    }
+    var storageCompanies : [StorageCompany] {
+        return _storageCompanies
+    }
     var USER_BASE: FIRDatabaseReference {
         return _USER_BASE
     }
@@ -26,14 +35,14 @@ class DataService {
 /*************************************************/
     func getStorableObjects(complete: @escaping complete) {
         // read in storable objects
-        _ITEM_BASE.observe(.value, with: { (snapshot) in
+        ITEM_BASE.observe(.value, with: { (snapshot) in
             var loadedobjects = [StorableObject]()
             if let objects = snapshot.value as? Dictionary<String, String> {
                 for object in objects.values {
                     loadedobjects.append(StorableObject(name: object))
                 }
             }
-            self.storableObjects = loadedobjects
+            self._storableObjects = loadedobjects
             complete()
         }) { (error) in
             print(error.localizedDescription)
@@ -41,7 +50,7 @@ class DataService {
     }
     
     func getCompanydata(complete: @escaping complete) {
-        _COMPANY_BASE.observe(.value, with: { (snapshot) in
+        COMPANY_BASE.observe(.value, with: { (snapshot) in
             var loadededcompanies = [StorageCompany]()
             print(snapshot.value)
             if let companies = snapshot.value as? Dictionary<String, Dictionary<String, AnyObject>> {
@@ -67,10 +76,30 @@ class DataService {
                     }
                 }
             }
-            self.storageCompanies = loadededcompanies
+            self._storageCompanies = loadededcompanies
             complete()
         }) { (error) in
             print(error.localizedDescription)
+        }
+    }
+    
+    // attempts to download image that is inquired if image could not be downloaded returns stock image
+    func getObjectImage (name: String, complete: @escaping (UIImage)->()) {
+        if let img = downloadedObjectImages[name] {
+            complete(img)
+        } else {
+            let reference: FIRStorageReference = storage.reference(withPath: name)
+            reference.data(withMaxSize: (4 * 1024 * 1024), completion: { (data, error) in
+                if (error != nil) {
+                    print(error.debugDescription)
+                } else {
+                    if let img = UIImage(data: data!) {
+                        self.downloadedObjectImages[name] = img
+                        complete(img)
+                    }
+                }
+                complete(UIImage(named: "default")!)
+            })
         }
     }
 /*************************************************/
