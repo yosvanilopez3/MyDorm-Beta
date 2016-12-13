@@ -30,6 +30,11 @@ class StorageOptionCell: UITableViewCell {
     func configureCell(company: StorageCompany, order: Order) {
       priceLbl.text = "$\(formatPrice(price: company.calculateOrderPrice(order: order)))"
       companyNameLbl.text = company.name
+        DataService.instance.getCompanyImage(name: company.name, complete: { (image) in
+            self.companyLogo.image = image
+        })
+        
+
     }
     
 }

@@ -19,6 +19,7 @@ class DataService {
     private var _storableObjects = [StorableObject]()
     private var _storageCompanies = [StorageCompany]()
     private var downloadedObjectImages = Dictionary <String, UIImage>()
+    private var downloadedCompanyImages = Dictionary <String, UIImage>()
     
     var storableObjects : [StorableObject] {
         return _storableObjects
@@ -88,8 +89,10 @@ class DataService {
         if let img = downloadedObjectImages[name] {
             complete(img)
         } else {
-            let reference: FIRStorageReference = storage.reference(withPath: name)
-            reference.data(withMaxSize: (4 * 1024 * 1024), completion: { (data, error) in
+            print("here")
+            print(name)
+            let reference: FIRStorageReference = storage.reference(withPath: "\(name.lowercased().replacingOccurrences(of: " ", with: "")).jpg")
+            reference.data(withMaxSize: (80 * 1024 * 1024), completion: { (data, error) in
                 if (error != nil) {
                     print(error.debugDescription)
                 } else {
@@ -102,6 +105,28 @@ class DataService {
             })
         }
     }
+    // attempts to download image that is inquired if image could not be downloaded returns stock image
+    func getCompanyImage (name: String, complete: @escaping (UIImage)->()) {
+        if let img = downloadedCompanyImages[name] {
+            complete(img)
+        } else {
+            print("here")
+            print(name)
+            let reference: FIRStorageReference = storage.reference(withPath: "\(name.lowercased().replacingOccurrences(of: " ", with: "")).jpg")
+            reference.data(withMaxSize: (80 * 1024 * 1024), completion: { (data, error) in
+                if (error != nil) {
+                    print(error.debugDescription)
+                } else {
+                    if let img = UIImage(data: data!) {
+                        self.downloadedCompanyImages[name] = img
+                        complete(img)
+                    }
+                }
+                complete(UIImage(named: "default")!)
+            })
+        }
+    }
+
 /*************************************************/
 /*       FireBase Data Upload Functions          */
 /*************************************************/

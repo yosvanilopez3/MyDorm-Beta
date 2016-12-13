@@ -14,8 +14,8 @@ class SelectedObjectCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.cornerRadius = 10.0
-        layer.borderColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 0.6).cgColor
+        layer.cornerRadius = 5.0
+        layer.borderColor = UIColor(red: 212.0/255.0 , green: 212.0/255.0, blue: 213.0/255.0, alpha: 0.3).cgColor
         layer.borderWidth = 1.0
         clipsToBounds = true
     }

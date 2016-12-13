@@ -7,74 +7,48 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-class SignUpVC: UIViewController, UITextFieldDelegate  {
+class SignUpVC: UIViewController  {
 // add password and label connections
     @IBOutlet weak var signupBtn: RoundedButton!
-    @IBOutlet weak var emailAddress: SignUpField!
-    @IBOutlet weak var password: SignUpField!
+
     
     var currentTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailAddress.delegate = self
-        password.delegate = self
-        FIRDatabase.database().persistenceEnabled = true
+       
     }
+
     
-    @IBAction func didTapView(_ sender: AnyObject) {
-        if (currentTextField) != nil {
-            currentTextField.resignFirstResponder()
-        }
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        currentTextField = textField
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        currentTextField.resignFirstResponder()
-        if currentTextField == emailAddress {
-            password.becomeFirstResponder()
-        }
-        else if currentTextField == password {
-            attemptSignUp(sender: signupBtn)
-        }
-        return true 
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
-            self.performSegue(withIdentifier: SEGUE_LOGIN, sender: nil)
-        }
-    }
+
     
     // connect a button to this
     // this requires lots of changes will do this later
-    @IBAction func attemptSignUp(sender: RoundedButton) {
-        if let emailAddress = emailAddress.text, emailAddress != "" {
-            if let password = password.text, password != "" {
-                FIRAuth.auth()?.createUser(withEmail: emailAddress, password: password, completion: { (user, error) in
-                    if error != nil {
-                            print(emailAddress)
-                        // expand this to account for all possible error codes
-                        showErrorAlert(title: "Could Not Create Account", msg: "Problem creating account", currentView: self)
-                        print(error.debugDescription)
-                        print(error)
-                    } else {
-                        let userUID = user!.uid
-                        UserDefaults.standard.setValue(userUID, forKey: KEY_UID)
-                        // possibly provide a check to see if the account type has a value
-                        let userInfo = ["Email Address": emailAddress]
-                        DataService.instance.createUser(uid: userUID, user: userInfo)
-                        // no need to error check as account exist with this email and password if this point was reached
-                        FIRAuth.auth()?.signIn(withEmail: emailAddress, password: password, completion: nil)
-                        self.performSegue(withIdentifier: SEGUE_LOGIN, sender: nil)
-                    }
-                })
-            } else {
-                showErrorAlert(title: "Invalid Password", msg: "please enter a password", currentView: self)
-            }
-        } else {
-            showErrorAlert(title: "Invalid Email Address", msg: "please enter an email address", currentView: self)
-        }
-    }
+//    @IBAction func attemptSignUp(sender: RoundedButton) {
+//        if let emailAddress = emailAddress.text, emailAddress != "" {
+//            if let password = password.text, password != "" {
+//                FIRAuth.auth()?.createUser(withEmail: emailAddress, password: password, completion: { (user, error) in
+//                    if error != nil {
+//                            print(emailAddress)
+//                        // expand this to account for all possible error codes
+//                        showErrorAlert(title: "Could Not Create Account", msg: "Problem creating account", currentView: self)
+//                        print(error.debugDescription)
+//                        print(error)
+//                    } else {
+//                        let userUID = user!.uid
+//                        UserDefaults.standard.setValue(userUID, forKey: KEY_UID)
+//                        // possibly provide a check to see if the account type has a value
+//                        let userInfo = ["Email Address": emailAddress]
+//                        DataService.instance.createUser(uid: userUID, user: userInfo)
+//                        // no need to error check as account exist with this email and password if this point was reached
+//                        FIRAuth.auth()?.signIn(withEmail: emailAddress, password: password, completion: nil)
+//                        self.performSegue(withIdentifier: SEGUE_LOGIN, sender: nil)
+//                    }
+//                })
+//            } else {
+//                showErrorAlert(title: "Invalid Password", msg: "please enter a password", currentView: self)
+//            }
+//        } else {
+//            showErrorAlert(title: "Invalid Email Address", msg: "please enter an email address", currentView: self)
+//        }
+//    }
 }

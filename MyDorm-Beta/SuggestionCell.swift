@@ -19,7 +19,7 @@ class SuggestionCell: UITableViewCell {
     
    func configureCell(name: String, detail: String) {
         objectName.text = name
-        objectDetail.text = detail
+        objectDetail.text = ""
     }
     
 
