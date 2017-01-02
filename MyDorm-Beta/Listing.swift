@@ -24,9 +24,9 @@ enum RentType {
 
  struct Listing {
     var Location: MKPlacemark? // possibly change this to CLLocation
-    var storageType: StorageType?
+    var storageType = StorageType.InHouse
     var squareFeet: Double?
-    var rentType: RentType?
+    var rentType = RentType.Summer
     var rent: Double?
     var dates: [Date]?
     var restrictedItems = [StorableObject]()

@@ -47,13 +47,13 @@ class LocationSelectionVC: UIViewController,  CLLocationManagerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // functional passing of Listing
-        if segue.identifier == "goToAddressSearch" {
+        if segue.identifier == "searchForAddress" {
             if let destination = segue.destination as? AddressSearchVC {
                 destination.mapView = self.mapView
                 destination.listing = self.listing
             }
         }
-        if segue.identifier == "goToSellerBasicInfo" {
+        if segue.identifier == "addBasicInfo" {
             if let destination = segue.destination as? SellerBasicInfoVC {
                 destination.listing = self.listing 
             }
@@ -61,7 +61,7 @@ class LocationSelectionVC: UIViewController,  CLLocationManagerDelegate {
     }
     override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         // functional retrieval of Listing 
-        if unwindSegue.identifier == "goToAddressSearch" {
+        if unwindSegue.identifier == "searchForAddress" {
             if let source = unwindSegue.source as? AddressSearchVC {
                 self.listing = source.listing
                 // change this to use geocoding

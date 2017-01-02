@@ -9,10 +9,10 @@
 import UIKit
 
 class StandardFormCell: UIView {
-    let SHADOW_COLOR: CGFloat = 157/255
+    let SHADOW_COLOR: CGFloat = 156/255
     override func awakeFromNib() {
-        self.layer.borderColor = UIColor(red: SHADOW_COLOR , green: SHADOW_COLOR, blue: SHADOW_COLOR, alpha: 0.5).cgColor
-        self.layer.borderWidth = 0.3
+        self.layer.borderColor = UIColor(red: SHADOW_COLOR , green: SHADOW_COLOR, blue: SHADOW_COLOR, alpha: 0.6).cgColor
+        self.layer.borderWidth = 0.5
         self.clipsToBounds = true
     }
 }

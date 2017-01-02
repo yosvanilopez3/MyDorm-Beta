@@ -16,7 +16,8 @@ class ObjectListVC: UIViewController, UITableViewDelegate,
     @IBOutlet weak var selectedCollection: UICollectionView!
     var allStorableObjects = [StorableObject]()
     var suggestions = [StorableObject]()
-    var selectedObjects = [StorableObject]()
+    var selectedObjects: [StorableObject]!
+    var UNWIND_SEGUE: String!
     
     //add a clear button that erases all the selected objects 
     override func viewDidLoad() {
@@ -32,13 +33,7 @@ class ObjectListVC: UIViewController, UITableViewDelegate,
     }
 
     @IBAction func doneBtn(_ sender: AnyObject) {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if let parentVC = viewController as? MovingDataInputVC {
-            parentVC.selectedObjects = selectedObjects
-        }
+        performSegue(withIdentifier: UNWIND_SEGUE, sender: nil)
     }
 /*************************************************/
 /*           Searchbar Functions                 */

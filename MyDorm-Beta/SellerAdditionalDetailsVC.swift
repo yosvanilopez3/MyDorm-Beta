@@ -9,11 +9,13 @@
 import UIKit
 
 class SellerAdditionalDetailsVC: UIViewController {
-
+    var listing: Listing!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func reviewListingBtn(_ sender: AnyObject) {
     }
 
 }

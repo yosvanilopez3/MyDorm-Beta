@@ -53,7 +53,6 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "StorageOptionCell", for: indexPath) as? StorageOptionCell {
             cell.configureCell(company: storageCompanies[indexPath.row], order: currentOrder)
-            cell.seeDetailsBtn.tag = indexPath.row
             return cell
         }
         else {

@@ -13,14 +13,14 @@ class DateTime {
     var timeString: String = "3:00 PM"
     
     var dateString: String {
-        return formatDate(date: date)
+        return DateTime.formatDate(date: date)
     }
     
     init(date: Date) {
         self.date = date
     }
     
-    private func formatDate(date: Date) -> String {
+    static func formatDate(date: Date) -> String {
         var formattedDate = date.description
         formattedDate = formattedDate.replacingOccurrences(of: "-", with: "/")
         let month = formattedDate.components(separatedBy: "/")[1]

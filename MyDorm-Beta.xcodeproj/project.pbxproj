@@ -40,6 +40,7 @@
 		28D0D0BB1DCA9AF3008E909F /* PriceDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D0D0BA1DCA9AF3008E909F /* PriceDisplayVC.swift */; };
 		28D0D0BD1DCA9D43008E909F /* Bibliography in Resources */ = {isa = PBXBuildFile; fileRef = 28D0D0BC1DCA9D43008E909F /* Bibliography */; };
 		28D0D0C31DCB00C7008E909F /* SelectedObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D0D0C21DCB00C7008E909F /* SelectedObjectCell.swift */; };
+		28D77C601E090E6C0086D5D5 /* PreviewListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */; };
 		28F0FC861DFA5630007F7993 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0FC851DFA5630007F7993 /* MaterialView.swift */; };
 		28F0FC881DFB39E5007F7993 /* LocationSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0FC871DFB39E5007F7993 /* LocationSelectionVC.swift */; };
 		28F0FC8A1DFB562B007F7993 /* StandardFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0FC891DFB562B007F7993 /* StandardFormCell.swift */; };
@@ -109,6 +110,7 @@
 		28D0D0BA1DCA9AF3008E909F /* PriceDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceDisplayVC.swift; sourceTree = "<group>"; };
 		28D0D0BC1DCA9D43008E909F /* Bibliography */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bibliography; sourceTree = "<group>"; };
 		28D0D0C21DCB00C7008E909F /* SelectedObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedObjectCell.swift; sourceTree = "<group>"; };
+		28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewListingVC.swift; sourceTree = "<group>"; };
 		28F0FC851DFA5630007F7993 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		28F0FC871DFB39E5007F7993 /* LocationSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionVC.swift; sourceTree = "<group>"; };
 		28F0FC891DFB562B007F7993 /* StandardFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardFormCell.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		28F0FC9D1DFCD1EF007F7993 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		28F0FC9F1DFE4396007F7993 /* AddressSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSearchVC.swift; sourceTree = "<group>"; };
 		28F0FCA41DFE4CD1007F7993 /* StandardTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTextCell.swift; sourceTree = "<group>"; };
+		28F634301E19F47E00CCF5AF /* MyDorm-Beta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDorm-Beta-Bridging-Header.h"; sourceTree = "<group>"; };
 		2C95D88456841E217FE7D49D /* Pods-MyDorm-BetaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-BetaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-BetaUITests/Pods-MyDorm-BetaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		49F62F552708ED1955D89A73 /* Pods-MyDorm-Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-Beta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-Beta/Pods-MyDorm-Beta.debug.xcconfig"; sourceTree = "<group>"; };
 		60EFF7AC9352D33D88879564 /* Pods_MyDorm_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDorm_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +200,7 @@
 				2882FCE31DB22BAD001E0786 /* AppDelegate.swift */,
 				28C725B31DBC98FD00EBB9F3 /* DataService.swift */,
 				28C725B51DBCA14100EBB9F3 /* Constants.swift */,
+				28F634301E19F47E00CCF5AF /* MyDorm-Beta-Bridging-Header.h */,
 				28C725621DB70B0A00EBB9F3 /* Modal  */,
 				28C725631DB70B0A00EBB9F3 /* View */,
 				28C725641DB70B0B00EBB9F3 /* Controller */,
@@ -270,6 +274,7 @@
 				28F0FC871DFB39E5007F7993 /* LocationSelectionVC.swift */,
 				28F0FC9F1DFE4396007F7993 /* AddressSearchVC.swift */,
 				28F0FC991DFCB5E5007F7993 /* SellerBasicInfoVC.swift */,
+				28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */,
 				28F0FC9B1DFCD14F007F7993 /* SellerAdditionalDetailsVC.swift */,
 			);
 			name = SellerVCs;
@@ -630,6 +635,7 @@
 				28C725551DB6BE0600EBB9F3 /* MovingDataInputVC.swift in Sources */,
 				28C725B61DBCA14100EBB9F3 /* Constants.swift in Sources */,
 				28C725591DB6C64F00EBB9F3 /* Dimensions.swift in Sources */,
+				28D77C601E090E6C0086D5D5 /* PreviewListingVC.swift in Sources */,
 				2842E49F1DD1915500156A1D /* DateTime.swift in Sources */,
 				2842E4A31DD273A800156A1D /* IndividualPriceDisplayVC.swift in Sources */,
 				28C725661DB7129000EBB9F3 /* RoundedButton.swift in Sources */,
@@ -748,6 +754,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "./MyDorm-Beta/MyDorm-Beta-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -790,6 +797,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "./MyDorm-Beta/MyDorm-Beta-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};

@@ -14,63 +14,30 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
     private let CAS_BASE_URL = "https://fed.princeton.edu/cas"
     override func viewDidLoad() {
         super.viewDidLoad()
-        FIRDatabase.database().persistenceEnabled = true
         loginWebView.delegate = self
-        let url = URL(string: "\(CAS_BASE_URL)/login?service=")
+        
+        let url = URL(string: "\(CAS_BASE_URL)/login?service=http://sample-env.zekwisn7pk.us-west-2.elasticbeanstalk.com")
         let urlRequest = URLRequest(url: url!)
         loginWebView.loadRequest(urlRequest)
-    }
-    func webViewDidStartLoad(_ webView: UIWebView) {
-    print(webView.request?.url)
-    
     }
 
     func webViewDidFinishLoad(_ webView: UIWebView) {
         print("end")
-        print(webView.request?.url)
-        let request = webView.request!
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let httpResponse = response as? HTTPURLResponse, let fields = httpResponse.allHeaderFields as? [String : String] {
-
-                let cookieStorage = HTTPCookieStorage.shared
-                let cookies = cookieStorage.cookies
-                print("Cookies.count: \(cookies?.count)")
-                for cookie in cookies! {
-                    var cookieProperties = [HTTPCookiePropertyKey: AnyObject]()
-                    cookieProperties[HTTPCookiePropertyKey.name] = cookie.name as AnyObject?
-                    cookieProperties[HTTPCookiePropertyKey.value] = cookie.value as AnyObject?
-                    cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain as AnyObject?
-                    cookieProperties[HTTPCookiePropertyKey.path] = cookie.path as AnyObject?
-                    cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
-                    cookieProperties[HTTPCookiePropertyKey.expires] = NSDate().addingTimeInterval(31536000)
-                    
-                    let newCookie = HTTPCookie(properties: cookieProperties)
-                    HTTPCookieStorage.shared.setCookie(newCookie!)
-                    print("name: \(cookie.name) value: \(cookie.value)")
-                    
-                    if cookie.name == "CASTGC" {
-                        self.performSegue(withIdentifier: "LoggedIn", sender: nil)
-//                        self.getServiceTicket(TGT: cookie.value, complete: {
-//                            print("dont bitch")
-//                        })
-                    }
-                }
+        let urlString = webView.request?.url?.absoluteString
+        print(urlString)
+        if (urlString?.contains("ST"))! {
+           if let ticket = urlString?.components(separatedBy: "=")[1] {
+                self.validate(ST: ticket)
             }
         }
-        task.resume()
     }
 
-    func getServiceTicket(TGT: String, complete: complete) {
-        let url_string = "\(CAS_BASE_URL)/v1/tickets/\(TGT)"
+    func validate(ST: String) {
+        let url_string = "\(CAS_BASE_URL)/validate?service=http://sample-env.zekwisn7pk.us-west-2.elasticbeanstalk.com&ticket=\(ST)"
         let url:NSURL = NSURL(string: url_string)!
         let session = URLSession.shared
         
         let request = NSMutableURLRequest(url: url as URL)
-        request.httpMethod = "POST"
-        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
-        
-        let paramString = "service=something"
-        request.httpBody = paramString.data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request as URLRequest) {
             (data, response, error) in
@@ -79,13 +46,43 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
                 print("error")
                 return
             }
-            
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print(dataString)
             
+            if let netid = dataString?.components(separatedBy: "\n")[1]{
+                print(netid)
+            }
         }
-        
         task.resume()
+    }
+    
+    func retreiveUserInfo(netid: String) {
+        let uuid: CFUUID = CFUUIDCreate(nil)
+        let nonce: CFString = CFUUIDCreateString(nil, uuid)
+        let dateFormatter: DateFormatter = DateFormatter()
+        let timestamp = Date()
+        let secretKey = "567c79577d41f13eee2af317ce73ec47"
+        let username = "ylopez"
+        
+        let formattedDate: String = dateFormatter.string(from: timestamp as Date)
+        
+        let text = String((nonce as String)+formattedDate+secretKey)
+        
+        let sha256 = text?.sha256()
+        
+        let passwordDigest = sha256.toBase64()
+        
+        let headers = [
+            "Authorization": "WWSE profile=\"UsernameToken\"",
+            "X-WSSE": "UsernameToken Username=\"admin\", PasswordDigest=\"buctlzbeVflrVCoEfTKB1mkltCI=\", Nonce=\"ZmMzZDg4YzMzYzRmYjMxNQ==\", Created=\"2014-03-22T15:24:49+00:00\""
+        ]
+        
+        let theUrlString = "https://tigerbook.herokuapp.com/api/v1/undergraduates"
+        
+        manager.request(.GET, theUrlString, parameters: nil, encoding: ParameterEncoding.URL, headers: headers).responseJSON { (result) -> Void in
+            print("BEGIN")
+            print("\n\n\n\n\n\n\n\nBEGIN\n\(result)\n\n\n\n\n\nEND")
+            print("STOP")
+        }
         
     }
     func attemptSignUp(email: String ) {

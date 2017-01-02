@@ -70,6 +70,7 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIText
         if segue.identifier == "ChooseObjects" {
             if let destination = segue.destination as? ObjectListVC {
                 destination.selectedObjects = selectedObjects
+                destination.UNWIND_SEGUE = "unwindFromChooseObjects"
             }
         }
         else if segue.identifier == "SetPickupDate" {
@@ -110,7 +111,15 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIText
             }
         }
     }
-
+    
+    @IBAction func unwindToMoving(segue: UIStoryboardSegue) {
+        if segue.identifier == "unwindFromChooseObjects" {
+            if let source = segue.source as? ObjectListVC {
+                self.selectedObjects = source.selectedObjects
+            }
+        }
+    }
+    
 /*************************************************/
 /*            Utility Functions                  */
 /*************************************************/
