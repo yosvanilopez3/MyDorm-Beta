@@ -1,0 +1,38 @@
+func retreiveUserInfo(netid: String) {
+let uuid: CFUUID = CFUUIDCreate(nil)
+let nonce: CFString = CFUUIDCreateString(nil, uuid)
+let dateFormatter: DateFormatter = DateFormatter()
+let timestamp = Date()
+let secretKey = "c823fe0adc2248a6dda10139c5ee9e42"
+let username = "ylopez"
+dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+let formattedDate: String = dateFormatter.string(from: timestamp)
+print(formattedDate)
+let text = String((nonce as String)+formattedDate+secretKey)
+let sha256 = text?.sha256()
+let passwordDigest = sha256?.toBase64()
+let UsernameToken = "UsernameToken Username=\"\(username)\", PasswordDigest=\"\(passwordDigest!)\", Nonce=\"\(nonce as String)\", Created=\"\(formattedDate)\""
+print(UsernameToken)
+
+let urlString = "https://tigerbook.herokuapp.com/student/ylopez"
+if let url = URL(string: urlString) {
+let request = NSMutableURLRequest(url: url as URL)
+request.setValue("WWSE profile=\"UsernameToken\"", forHTTPHeaderField: "Authorization")
+request.setValue(UsernameToken, forHTTPHeaderField: "X-WSSE")
+request.httpMethod = "GET"
+let session = URLSession.shared
+let task = session.dataTask(with: request as URLRequest) {
+(data, response, error) in
+
+guard let _:Data = data, let _:URLResponse = response, error == nil else {
+print("error")
+return
+}
+let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+print("BEGIN")
+print("\n\n\n\n\n\n\n\nBEGIN\n\(dataString)\n\n\n\n\n\nEND")
+print("STOP")
+}
+task.resume()
+}
+}

@@ -11,13 +11,17 @@ import Foundation
 class User {
     private var firstName: String!
     private var lastName: String!
+    private var email: String!
+    private var dorm: String!
     private var _uid: String!
+    
+    
     
     var uid: String {
         return _uid
     }
     
-    init(uid: String) {
+    init(uid: String, userInfo: [String:String]) {
         self._uid = uid
     }
 }

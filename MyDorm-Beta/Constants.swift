@@ -10,7 +10,6 @@ import Foundation
 import FirebaseDatabase
 import FirebaseStorage
 import UIKit
-
 typealias complete = () -> ()
 let SHADOW_COLOR: CGFloat = 157/255
 let BORDER_GREY = UIColor(red: SHADOW_COLOR , green: SHADOW_COLOR, blue: SHADOW_COLOR, alpha: 0.5)
@@ -19,6 +18,7 @@ let STORAGE_BASE = FIRStorage.storage()
 let URL_BASE = "https://console.firebase.google.com/project/mydorm-beta"
 let USER_PASSWORD = "CASAUTHENTICATIONSUCCESS"
 let KEY_UID = "uid"
+
 // Main reference to the data base - make reference extensions from here
 var SEGUE_LOGIN = "LoggedIn"
 
@@ -46,5 +46,15 @@ extension String {
     }
     func toBase64() -> String {
         return Data(self.utf8).base64EncodedString()
+    }
+    func between(_ left: String, _ right: String) -> String? {
+        guard
+            let leftRange = range(of: left), let rightRange = range(of: right, options: .backwards)
+            , left != right && leftRange.upperBound < rightRange.lowerBound
+            else { return nil }
+        
+        let sub = self.substring(from: leftRange.upperBound)
+        let closestToLeftRange = sub.range(of: right)!
+        return sub.substring(to: closestToLeftRange.lowerBound)
     }
 }

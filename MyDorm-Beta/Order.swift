@@ -26,7 +26,7 @@ class Order {
         _dropoff = dropoff
         // these dummy values will be replaced with actual values later
         _minimumSquareFootage = 0.0
-        _user = User(uid: "")
+        _user = User(uid: "", userInfo: [:])
     }
     
 

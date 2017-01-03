@@ -41,6 +41,7 @@
 		28D0D0BD1DCA9D43008E909F /* Bibliography in Resources */ = {isa = PBXBuildFile; fileRef = 28D0D0BC1DCA9D43008E909F /* Bibliography */; };
 		28D0D0C31DCB00C7008E909F /* SelectedObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D0D0C21DCB00C7008E909F /* SelectedObjectCell.swift */; };
 		28D77C601E090E6C0086D5D5 /* PreviewListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */; };
+		28E07E681E1A523C00AB20DB /* Possible Reintroduction Code in Resources */ = {isa = PBXBuildFile; fileRef = 28E07E671E1A523C00AB20DB /* Possible Reintroduction Code */; };
 		28F0FC861DFA5630007F7993 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0FC851DFA5630007F7993 /* MaterialView.swift */; };
 		28F0FC881DFB39E5007F7993 /* LocationSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0FC871DFB39E5007F7993 /* LocationSelectionVC.swift */; };
 		28F0FC8A1DFB562B007F7993 /* StandardFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0FC891DFB562B007F7993 /* StandardFormCell.swift */; };
@@ -111,6 +112,7 @@
 		28D0D0BC1DCA9D43008E909F /* Bibliography */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bibliography; sourceTree = "<group>"; };
 		28D0D0C21DCB00C7008E909F /* SelectedObjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedObjectCell.swift; sourceTree = "<group>"; };
 		28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewListingVC.swift; sourceTree = "<group>"; };
+		28E07E671E1A523C00AB20DB /* Possible Reintroduction Code */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Possible Reintroduction Code"; sourceTree = "<group>"; };
 		28F0FC851DFA5630007F7993 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		28F0FC871DFB39E5007F7993 /* LocationSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionVC.swift; sourceTree = "<group>"; };
 		28F0FC891DFB562B007F7993 /* StandardFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardFormCell.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				2882FCEF1DB22BAD001E0786 /* LaunchScreen.storyboard */,
 				288E83131DEBEAB8001BB607 /* GoogleService-Info.plist */,
 				2882FCF21DB22BAD001E0786 /* Info.plist */,
+				28E07E671E1A523C00AB20DB /* Possible Reintroduction Code */,
 				2882FCEA1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld */,
 				28D0D0BC1DCA9D43008E909F /* Bibliography */,
 			);
@@ -470,6 +473,7 @@
 				2882FCF11DB22BAD001E0786 /* LaunchScreen.storyboard in Resources */,
 				28D0D0BD1DCA9D43008E909F /* Bibliography in Resources */,
 				2882FCEE1DB22BAD001E0786 /* Assets.xcassets in Resources */,
+				28E07E681E1A523C00AB20DB /* Possible Reintroduction Code in Resources */,
 				2882FCE91DB22BAD001E0786 /* Main.storyboard in Resources */,
 				288E83141DEBEAB8001BB607 /* GoogleService-Info.plist in Resources */,
 			);
@@ -756,6 +760,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "./MyDorm-Beta/MyDorm-Beta-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -799,6 +804,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "./MyDorm-Beta/MyDorm-Beta-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
