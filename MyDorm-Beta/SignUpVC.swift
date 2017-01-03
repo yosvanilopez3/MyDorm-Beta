@@ -7,22 +7,25 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import SendBirdSDK
+
 class SignUpVC: UIViewController  {
-// add password and label connections
- 
-    var currentTextField: UITextField!
-    
+    private let SBAPP_ID = "05E49F01-F143-4357-BC7F-479B05841DD6"
+    @IBOutlet weak var logInBtn: RoundedButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         FIRDatabase.database().persistenceEnabled = true
-        
-        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
-            performSegue(withIdentifier: "LogIn", sender: nil)
-        }
+       
     }
 
     @IBAction func signUpBtnPressed(_ sender: AnyObject) {
-         performSegue(withIdentifier: "LogIn", sender: nil)
+        SBDMain.initWithApplicationId(SBAPP_ID)
+        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
+            performSegue(withIdentifier: "PersistentLogIn", sender: nil)
+        }
+        else {
+            performSegue(withIdentifier: "LogIn", sender: nil)
+        }
     }
    
   

@@ -13,6 +13,7 @@
 		2842E4A11DD251E600156A1D /* SelectTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2842E4A01DD251E600156A1D /* SelectTimeVC.swift */; };
 		2842E4A31DD273A800156A1D /* IndividualPriceDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2842E4A21DD273A800156A1D /* IndividualPriceDisplayVC.swift */; };
 		2842E4AB1DDA91E300156A1D /* CASLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2842E4AA1DDA91E300156A1D /* CASLoginVC.swift */; };
+		2846DFB61E1BA23600BA7863 /* HomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846DFB51E1BA23600BA7863 /* HomeScreenVC.swift */; };
 		2866BEE91DCEB92100FF23B2 /* StorageCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */; };
 		2866BEF11DCFB5BC00FF23B2 /* StorageOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */; };
 		2866BEF51DCFCC3000FF23B2 /* IndividualPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF41DCFCC3000FF23B2 /* IndividualPriceCell.swift */; };
@@ -77,6 +78,7 @@
 		2842E4A01DD251E600156A1D /* SelectTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimeVC.swift; sourceTree = "<group>"; };
 		2842E4A21DD273A800156A1D /* IndividualPriceDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualPriceDisplayVC.swift; sourceTree = "<group>"; };
 		2842E4AA1DDA91E300156A1D /* CASLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CASLoginVC.swift; path = ../CASLoginVC.swift; sourceTree = "<group>"; };
+		2846DFB51E1BA23600BA7863 /* HomeScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenVC.swift; sourceTree = "<group>"; };
 		2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageCompany.swift; sourceTree = "<group>"; };
 		2866BEEC1DCF02A200FF23B2 /* MyDorm-Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MyDorm-Beta.entitlements"; sourceTree = "<group>"; };
 		2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageOptionCell.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				2866BEEC1DCF02A200FF23B2 /* MyDorm-Beta.entitlements */,
 				2882FCE31DB22BAD001E0786 /* AppDelegate.swift */,
 				28C725B31DBC98FD00EBB9F3 /* DataService.swift */,
+				28C725601DB70B0200EBB9F3 /* User.swift */,
 				28C725B51DBCA14100EBB9F3 /* Constants.swift */,
 				28F634301E19F47E00CCF5AF /* MyDorm-Beta-Bridging-Header.h */,
 				28C725621DB70B0A00EBB9F3 /* Modal  */,
@@ -242,7 +245,6 @@
 				28C7255E1DB709C600EBB9F3 /* Order.swift */,
 				2842E49E1DD1915500156A1D /* DateTime.swift */,
 				28F0FC9D1DFCD1EF007F7993 /* Listing.swift */,
-				28C725601DB70B0200EBB9F3 /* User.swift */,
 				28C725581DB6C64F00EBB9F3 /* Dimensions.swift */,
 				2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */,
 				28C725561DB6C29600EBB9F3 /* StorableObject.swift */,
@@ -262,6 +264,7 @@
 		28C725641DB70B0B00EBB9F3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2846DFB51E1BA23600BA7863 /* HomeScreenVC.swift */,
 				28C725B71DBCA24400EBB9F3 /* SignUpVC.swift */,
 				2842E4AA1DDA91E300156A1D /* CASLoginVC.swift */,
 				28F0FC951DFC89EF007F7993 /* DelegatedTasksVCs */,
@@ -641,6 +644,7 @@
 				28C725591DB6C64F00EBB9F3 /* Dimensions.swift in Sources */,
 				28D77C601E090E6C0086D5D5 /* PreviewListingVC.swift in Sources */,
 				2842E49F1DD1915500156A1D /* DateTime.swift in Sources */,
+				2846DFB61E1BA23600BA7863 /* HomeScreenVC.swift in Sources */,
 				2842E4A31DD273A800156A1D /* IndividualPriceDisplayVC.swift in Sources */,
 				28C725661DB7129000EBB9F3 /* RoundedButton.swift in Sources */,
 				28D0D0BB1DCA9AF3008E909F /* PriceDisplayVC.swift in Sources */,
