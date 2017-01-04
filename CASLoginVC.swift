@@ -113,7 +113,6 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
                 } else {
                     let userUID = user!.uid
                     UserDefaults.standard.setValue(userUID, forKey: KEY_UID)
-                    let userInfo = ["Email Address": email]
                     DataService.instance.createUser(uid: userUID, user: userInfo)
                     FIRAuth.auth()?.signIn(withEmail: email, password: USER_PASSWORD, completion: nil)
                     self.performSegue(withIdentifier: SEGUE_LOGIN, sender: nil)

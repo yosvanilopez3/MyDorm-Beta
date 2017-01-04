@@ -45,7 +45,7 @@ class AddressSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchResults.count > indexPath.row {
-            listing.Location = searchResults[indexPath.row].placemark
+            listing.location = searchResults[indexPath.row].name
         }
         _ = self.navigationController?.popViewController(animated: true)
     }

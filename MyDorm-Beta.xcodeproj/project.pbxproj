@@ -14,6 +14,7 @@
 		2842E4A31DD273A800156A1D /* IndividualPriceDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2842E4A21DD273A800156A1D /* IndividualPriceDisplayVC.swift */; };
 		2842E4AB1DDA91E300156A1D /* CASLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2842E4AA1DDA91E300156A1D /* CASLoginVC.swift */; };
 		2846DFB61E1BA23600BA7863 /* HomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846DFB51E1BA23600BA7863 /* HomeScreenVC.swift */; };
+		2846DFB81E1C737600BA7863 /* LocationSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846DFB71E1C737600BA7863 /* LocationSearchTVC.swift */; };
 		2866BEE91DCEB92100FF23B2 /* StorageCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */; };
 		2866BEF11DCFB5BC00FF23B2 /* StorageOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */; };
 		2866BEF51DCFCC3000FF23B2 /* IndividualPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF41DCFCC3000FF23B2 /* IndividualPriceCell.swift */; };
@@ -79,6 +80,7 @@
 		2842E4A21DD273A800156A1D /* IndividualPriceDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualPriceDisplayVC.swift; sourceTree = "<group>"; };
 		2842E4AA1DDA91E300156A1D /* CASLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CASLoginVC.swift; path = ../CASLoginVC.swift; sourceTree = "<group>"; };
 		2846DFB51E1BA23600BA7863 /* HomeScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenVC.swift; sourceTree = "<group>"; };
+		2846DFB71E1C737600BA7863 /* LocationSearchTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTVC.swift; sourceTree = "<group>"; };
 		2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageCompany.swift; sourceTree = "<group>"; };
 		2866BEEC1DCF02A200FF23B2 /* MyDorm-Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MyDorm-Beta.entitlements"; sourceTree = "<group>"; };
 		2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageOptionCell.swift; sourceTree = "<group>"; };
@@ -124,7 +126,6 @@
 		28F0FC9D1DFCD1EF007F7993 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		28F0FC9F1DFE4396007F7993 /* AddressSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSearchVC.swift; sourceTree = "<group>"; };
 		28F0FCA41DFE4CD1007F7993 /* StandardTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTextCell.swift; sourceTree = "<group>"; };
-		28F634301E19F47E00CCF5AF /* MyDorm-Beta-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyDorm-Beta-Bridging-Header.h"; sourceTree = "<group>"; };
 		2C95D88456841E217FE7D49D /* Pods-MyDorm-BetaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-BetaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-BetaUITests/Pods-MyDorm-BetaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		49F62F552708ED1955D89A73 /* Pods-MyDorm-Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDorm-Beta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDorm-Beta/Pods-MyDorm-Beta.debug.xcconfig"; sourceTree = "<group>"; };
 		60EFF7AC9352D33D88879564 /* Pods_MyDorm_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDorm_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +206,6 @@
 				28C725B31DBC98FD00EBB9F3 /* DataService.swift */,
 				28C725601DB70B0200EBB9F3 /* User.swift */,
 				28C725B51DBCA14100EBB9F3 /* Constants.swift */,
-				28F634301E19F47E00CCF5AF /* MyDorm-Beta-Bridging-Header.h */,
 				28C725621DB70B0A00EBB9F3 /* Modal  */,
 				28C725631DB70B0A00EBB9F3 /* View */,
 				28C725641DB70B0B00EBB9F3 /* Controller */,
@@ -278,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				28F0FC871DFB39E5007F7993 /* LocationSelectionVC.swift */,
+				2846DFB71E1C737600BA7863 /* LocationSearchTVC.swift */,
 				28F0FC9F1DFE4396007F7993 /* AddressSearchVC.swift */,
 				28F0FC991DFCB5E5007F7993 /* SellerBasicInfoVC.swift */,
 				28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */,
@@ -628,6 +629,7 @@
 			files = (
 				28C725571DB6C29600EBB9F3 /* StorableObject.swift in Sources */,
 				28F0FC881DFB39E5007F7993 /* LocationSelectionVC.swift in Sources */,
+				2846DFB81E1C737600BA7863 /* LocationSearchTVC.swift in Sources */,
 				2866BEF11DCFB5BC00FF23B2 /* StorageOptionCell.swift in Sources */,
 				28F0FC9C1DFCD14F007F7993 /* SellerAdditionalDetailsVC.swift in Sources */,
 				28F0FC901DFC86FD007F7993 /* UIExtensions.swift in Sources */,
@@ -762,7 +764,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "./MyDorm-Beta/MyDorm-Beta-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = "";
 			};
@@ -806,7 +808,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "./MyDorm-Beta/MyDorm-Beta-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;

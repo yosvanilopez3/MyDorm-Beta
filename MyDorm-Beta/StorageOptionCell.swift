@@ -11,8 +11,10 @@ import UIKit
 class StorageOptionCell: UITableViewCell {
     @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var priceLbl: UILabel!
- 
-    
+    @IBOutlet weak var sellerNameLbl: UILabel!
+    @IBOutlet weak var LocationLbl: UILabel!
+    @IBOutlet weak var storageTypeLbl: UILabel!
+    var seller: User!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +24,19 @@ class StorageOptionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(listing: Listing, order: Order) {
+        if let rent = listing.rent {
+            priceLbl.text = "$\(rent)"
+        }
+        storageTypeLbl.text = listing.storageType.rawValue
+        if let uid = listing.uid {
+            DataService.instance.getUserDetails(uid: uid, complete: { (user) in
+                self.sellerNameLbl.text = "\(user.firstName) \(user.lastName)"
+            })
+        }
+        LocationLbl.text = listing.location
     }
     
     func configureCell(company: StorageCompany, order: Order) {

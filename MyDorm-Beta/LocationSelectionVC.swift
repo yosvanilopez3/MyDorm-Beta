@@ -8,70 +8,96 @@
 
 import UIKit
 import MapKit
-class LocationSelectionVC: UIViewController,  CLLocationManagerDelegate {
+import CoreLocation
+
+class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
+    @IBOutlet weak var searchBar: UISearchBar!
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var currentLocationLbl: UILabel!
     var listing = Listing()
-    
+    var geocoder = CLGeocoder()
+    var region: CLRegion!
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
+        searchBar.delegate = self
         // Ask for Authorization from the User.
         self.locationManager.requestAlwaysAuthorization()
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-            // change this to be geocoding of userloaction
-            currentLocationLbl.text = mapView.userLocation.title
-            listing.Location = MKPlacemark(coordinate: mapView.userLocation.coordinate)
+        geocoder.geocodeAddressString(PRINCETON_ADDRESS, completionHandler: { (placemarks, error) in
+                if let marks = placemarks, marks.count > 0 {
+                    self.region = marks[0].region
+                    let addresses = self.getFormattedAddresses(placemarks: marks)
+                    if addresses.count > 0 {
+                            self.listing.location = addresses[0]
+                        }
+                    }
+                })
+            }
+        if let uid = UserDefaults.standard.value(forKey: KEY_UID) as? String {
+            // come up with more secure way to generate a random id
+                listing.uid = uid 
+                listing.listingID = "LID\(uid)\(Int(arc4random_uniform(100000000)))"
         }
+    }
+
+    func getFormattedAddresses(placemarks: [CLPlacemark])-> [String] {
+        var addresses = [String]()
+        for mark in placemarks {
+            if let streetNumber = mark.subThoroughfare, let street = mark.thoroughfare, let city = mark.locality, let state = mark.administrativeArea, let zip = mark.postalCode {
+                addresses.append("\(streetNumber) \(street), \(city), \(state) \(zip)")
+            }
+        }
+        return addresses
+    }
+    
+    @IBAction func didTapSearchBar(_ sender: AnyObject) {
+         performSegue(withIdentifier: "locationSearch", sender: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if listing.Location != nil {
+        if listing.location != nil {
             nextBtn.isEnabled = true
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last as CLLocation! {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             self.mapView.setRegion(region, animated: true)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // functional passing of Listing
-        if segue.identifier == "searchForAddress" {
-            if let destination = segue.destination as? AddressSearchVC {
-                destination.mapView = self.mapView
-                destination.listing = self.listing
-            }
-        }
         if segue.identifier == "addBasicInfo" {
             if let destination = segue.destination as? SellerBasicInfoVC {
                 destination.listing = self.listing 
             }
         }
-    }
-    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        // functional retrieval of Listing 
-        if unwindSegue.identifier == "searchForAddress" {
-            if let source = unwindSegue.source as? AddressSearchVC {
-                self.listing = source.listing
-                // change this to use geocoding
-                self.currentLocationLbl.text = source.listing.Location?.countryCode
+        if segue.identifier == "locationSearch" {
+            if let destination = segue.destination as? LocationSearchTVC {
+                destination.listing = self.listing
+                destination.region = self.region
             }
         }
     }
     
-    @IBAction func goToMyLocationBtn(_ sender: AnyObject) {
+    @IBAction func unwindFromLocationSearch(segue: UIStoryboardSegue) {
+        if segue.identifier == "unwindFromLocationSearch" {
+            if let source = segue.source as? LocationSearchTVC {
+                self.listing = source.listing
+                self.searchBar.text = listing.location
+            }
+        }
     }
+
     @IBAction func cancelBtnPressed(_ sender: AnyObject) {
     }
 

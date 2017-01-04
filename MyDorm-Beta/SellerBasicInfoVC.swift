@@ -14,7 +14,6 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     @IBOutlet weak var allowedItemsView: StandardFormCell!
     @IBOutlet weak var restrictedItemsView: StandardFormCell!
     @IBOutlet weak var spaceTypeSC1: UISegmentedControl!
-    @IBOutlet weak var spaceTypeSC2: UISegmentedControl!
     @IBOutlet weak var rentPeriodSC: UISegmentedControl!
     @IBOutlet weak var datesAvailableInput: UITextField!
     @IBOutlet weak var itemRestrictionInput: UITextField!
@@ -31,8 +30,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     
     func listingIsValid() -> Bool {
         var missingInfoDetails = ""
-        if listing.Location != nil {
-            if listing.storageType != nil, listing.rentType != nil {
+        if listing.location != nil {
                 if listing.squareFeet != nil {
                     if listing.rent != nil {
                         if listing.dates != nil {
@@ -46,10 +44,6 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
                 } else {
                     missingInfoDetails = "Enter square footage"
                 }
-            } else {
-                showErrorAlert(title: "Development Error", msg: "storage or rent type are not selected", currentView: self)
-                return false
-            }
         } else {
             showErrorAlert(title: "Developemt Error", msg: "missing location when location should have been selected", currentView: self)
             return false
@@ -60,7 +54,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     
     @IBAction func nextBtnPressed(_ sender: AnyObject) {
         if listingIsValid() {
-            performSegue(withIdentifier: "inputAdditionalDetails", sender: nil) 
+            performSegue(withIdentifier: "addDetails", sender: nil) 
         }
     }
    
@@ -70,7 +64,6 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     func setupSegmentedControls() {
         rentPeriodSC.removeBorders()
         spaceTypeSC1.removeBorders()
-        spaceTypeSC2.removeBorders()
     }
     
     @IBAction func rentTypeChanged(_ sender: UISegmentedControl) {
@@ -83,46 +76,38 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         }
     }
 
+
     @IBAction func selectionChangedForOne(_ sender: AnyObject) {
-        // unset the bottom segmentcontrol
-        if spaceTypeSC1.selectedSegmentIndex == 0 {
+        if sender.selectedSegmentIndex == 0 {
             listing.storageType = StorageType.InHouse
-        } else if spaceTypeSC1.selectedSegmentIndex == 1 {
+        } else if sender.selectedSegmentIndex == 1 {
             listing.storageType = StorageType.Basement
-        }
-    }
-    @IBAction func selectionChangedForTwo(_ sender: AnyObject) {
-        // unset the top segment control
-        spaceTypeSC1.selectedSegmentIndex = UISegmentedControlNoSegment
-        if spaceTypeSC2.selectedSegmentIndex == 0 {
-            listing.storageType = StorageType.Outdoor
-        } else if spaceTypeSC2.selectedSegmentIndex == 1 {
+        } else if sender.selectedSegmentIndex == 2 {
             listing.storageType = StorageType.OffLocation
+
         }
     }
+   
     /*************************************************/
     /*            Text Field Inputs                  */
     /*************************************************/
     @IBAction func sqftInputChanged(_ sender: UITextField) {
-        if let input = sender.text, input != ""{
-            if let sqft = Double(input) {
-                listing.squareFeet = Double(sqft)
+        if let input = sender.text, input != "" {
+                listing.squareFeet = input
             } else {
                 // invalidate if there is illegal input
                 listing.squareFeet = nil
             }
-        }
     }
     
     @IBAction func rentInputChanged(_ sender: UITextField) {
         if let input = sender.text, input != ""{
-            if let rent = Double(input) {
-                listing.rent = Double(rent)
-            } else {
+                listing.rent = input
+        } else {
                 // invalidate if there is illegal input
                 listing.rent = nil
             }
-        }
+
     }
  
     
@@ -182,7 +167,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         }
     }
     @IBAction func unwindFromSelectAllowedItems(segue: UIStoryboardSegue) {
-        if segue.identifier == "uunwindFromSelectAllowedItems" {
+        if segue.identifier == "unwindFromSelectAllowedItems" {
             if let source = segue.source as? ObjectListVC {
                 listing.allowedItems = source.selectedObjects
             }
@@ -192,7 +177,6 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     /*            Calender Inputs                    */
     /*************************************************/
     func goToCalender() {
-        calender.weekdayHeaderEnabled = true
         present(calender, animated: true, completion: nil)
     }
     

@@ -9,25 +9,27 @@
 import Foundation
 import UIKit
 import MapKit
-enum StorageType {
-    case InHouse
-    case Basement
-    case Outdoor
-    case OffLocation
+enum StorageType: String {
+    case InHouse = "In House"
+    case Basement = "Basement"
+    case OffLocation = "Off Location"
 }
 
-enum RentType {
-    case Summer
-    case Monthly
-    case Daily
+enum RentType: String {
+    case Summer = "Summer"
+    case Monthly = "Monthly"
+    case Daily = "Daily"
 }
 
  struct Listing {
-    var Location: MKPlacemark? // possibly change this to CLLocation
+    // maybe remove the question marks and make more secure
+    var uid: String?
+    var listingID: String?
+    var location: String? // possibly change this to CLLocation
     var storageType = StorageType.InHouse
-    var squareFeet: Double?
+    var squareFeet: String?
     var rentType = RentType.Summer
-    var rent: Double?
+    var rent: String?
     var dates: [Date]?
     var restrictedItems = [StorableObject]()
     var allowedItems = [StorableObject]()

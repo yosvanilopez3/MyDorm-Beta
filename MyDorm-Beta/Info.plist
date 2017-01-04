@@ -43,5 +43,9 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+    <key>NSCameraUsageDescription</key>
+    <string>$(PRODUCT_NAME) needs access to use your camera</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) needs access to use your photo library</string>
 </dict>
 </plist>

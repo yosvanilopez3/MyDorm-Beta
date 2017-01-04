@@ -11,13 +11,15 @@ import Firebase
 import UIKit
 class DataService {
     static let instance = DataService()
-    private let _USER_BASE = DATA_BASE.reference(withPath: "users")
-    private let ORDER_BASE = DATA_BASE.reference(withPath: "order")
-    private let ITEM_BASE = DATA_BASE.reference(withPath: "storableobjects")
+    private let _USER_BASE = DATA_BASE.reference(withPath: "Users")
+    private let ORDER_BASE = DATA_BASE.reference(withPath: "Orders")
+    private let LISTING_BASE = DATA_BASE.reference(withPath: "Listings")
+    private let ITEM_BASE = DATA_BASE.reference(withPath: "Storable Objects")
     private let COMPANY_BASE = DATA_BASE.reference(withPath: "Companies")
     private let storage = STORAGE_BASE
     private var _storableObjects = [StorableObject]()
     private var _storageCompanies = [StorageCompany]()
+    private var _listings = [Listing]()
     private var downloadedObjectImages = Dictionary <String, UIImage>()
     private var downloadedCompanyImages = Dictionary <String, UIImage>()
     
@@ -26,6 +28,9 @@ class DataService {
     }
     var storageCompanies : [StorageCompany] {
         return _storageCompanies
+    }
+    var listings : [Listing] {
+        return _listings
     }
     var USER_BASE: FIRDatabaseReference {
         return _USER_BASE
@@ -57,14 +62,14 @@ class DataService {
             if let companies = snapshot.value as? Dictionary<String, Dictionary<String, AnyObject>> {
                 for company in companies.values {
                     // later on add the pickup and drop off date lists here
-                    if let companyname = company["name"] as? String, let index = company["Price Index"] as? Dictionary<String, Dictionary<String, AnyObject>> {
+                    if let companyname = company["Name"] as? String, let index = company["Price Index"] as? Dictionary<String, Dictionary<String, AnyObject>> {
                         var priceIndex = Dictionary<String, Double>()
                         for item in index.values {
-                            if let name = item["name"] as? String {
+                            if let name = item["Name"] as? String {
                                 for option in item.values {
                                     if let currentOpt = option as? Dictionary<String,
                                         AnyObject> {
-                                        if let price = currentOpt["price"] as? Double {
+                                        if let price = currentOpt["Price"] as? Double {
                                             // need to add something to distinguish prices of different options for each type of item
                                             priceIndex["\(name)"] = price
                                         }
@@ -89,8 +94,6 @@ class DataService {
         if let img = downloadedObjectImages[name] {
             complete(img)
         } else {
-            print("here")
-            print(name)
             let reference: FIRStorageReference = storage.reference(withPath: "\(name.lowercased().replacingOccurrences(of: " ", with: "")).jpg")
             reference.data(withMaxSize: (80 * 1024 * 1024), completion: { (data, error) in
                 if (error != nil) {
@@ -110,8 +113,6 @@ class DataService {
         if let img = downloadedCompanyImages[name] {
             complete(img)
         } else {
-            print("here")
-            print(name)
             let reference: FIRStorageReference = storage.reference(withPath: "\(name.lowercased().replacingOccurrences(of: " ", with: "")).jpg")
             reference.data(withMaxSize: (80 * 1024 * 1024), completion: { (data, error) in
                 if (error != nil) {
@@ -126,6 +127,39 @@ class DataService {
             })
         }
     }
+    func getUserDetails (uid: String, complete: @escaping (User)->()) {
+        var userInfo = [String:Any]()
+        USER_BASE.child(uid).observe(.value, with: { (snapshot) in
+            if let details = snapshot.value as? Dictionary<String, Any> {
+                 userInfo = details
+                }
+            complete(User(uid: uid, userInfo: userInfo))
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+    }
+    func getListings(complete: @escaping complete) {
+        LISTING_BASE.observe(.value, with: { (snapshot) in
+            var listings = [Listing]()
+            if let lists = snapshot.value as? Dictionary<String, (Dictionary<String, String>) > {
+                for listing in lists.values {
+                    var newListing = Listing()
+                    newListing.uid = listing["uid"]
+                    newListing.location = listing["Location"]
+                    newListing.storageType = StorageType(rawValue: listing["Storage Type"]!)!
+                    newListing.rentType = RentType(rawValue: listing["Rent Type"]!)!
+                    newListing.rent = listing["Rent"]
+                    newListing.squareFeet = listing["Square Feet"]
+                    listings.append(newListing)
+                }
+            }
+            self._listings = listings
+            complete()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
 
 /*************************************************/
 /*       FireBase Data Upload Functions          */
@@ -138,5 +172,12 @@ class DataService {
     func createOrder(uid: String, user: Dictionary<String, String>) {
         USER_BASE.child(uid).setValue(user)
     }
-    
+    func createListing(listing: Listing) {
+        USER_BASE.child(listing.uid!).child("Listings").child(listing.listingID!).child("rented").setValue("false")
+        // change these to have better string representation of details
+        // make all of this safe if there is time revamp code base with proper code checking
+        let listinginfo = ["uid": listing.uid!, "Location": listing.location!, "Storage Type":listing.storageType.rawValue, "Rent Type" : listing.rentType.rawValue, "Rent" : listing.rent!, "Square Feet" :  listing.squareFeet!]
+        LISTING_BASE.child(listing.listingID!).setValue(listinginfo)
+        
+    }
 }

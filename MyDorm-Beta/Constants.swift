@@ -18,6 +18,7 @@ let STORAGE_BASE = FIRStorage.storage()
 let URL_BASE = "https://console.firebase.google.com/project/mydorm-beta"
 let USER_PASSWORD = "CASAUTHENTICATIONSUCCESS"
 let KEY_UID = "uid"
+let PRINCETON_ADDRESS = "Princeton, NJ 08544" 
 
 // Main reference to the data base - make reference extensions from here
 var SEGUE_LOGIN = "LoggedIn"
@@ -35,19 +36,7 @@ func formatPrice(price: Double) -> String {
 }
 
 extension String {
-    func sha256() -> String {
-        let data = self.data(using: String.Encoding.utf8)!
-        var digest = [UInt8](repeating: 0, count:Int(CC_SHA256_DIGEST_LENGTH))
-        data.withUnsafeBytes {
-            _ = CC_SHA256($0, CC_LONG(data.count), &digest)
-        }
-        let hexBytes = digest.map { String(format: "%02hhx", $0) }
-        return hexBytes.joined()
-    }
-    func toBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
-    }
-    func between(_ left: String, _ right: String) -> String? {
+       func between(_ left: String, _ right: String) -> String? {
         guard
             let leftRange = range(of: left), let rightRange = range(of: right, options: .backwards)
             , left != right && leftRange.upperBound < rightRange.lowerBound
