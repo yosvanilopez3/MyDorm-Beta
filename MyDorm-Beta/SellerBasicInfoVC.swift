@@ -109,9 +109,6 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
             }
 
     }
- 
-    
-    
     /*************************************************/
     /*            Delegated Inputs                   */
     /*************************************************/
@@ -130,9 +127,11 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         allowedItemsView.addGestureRecognizer(allowedTap)
         restrictedItemsView.addGestureRecognizer(restrictedTap)
     }
+    
     func handleDateTap(gestureReconizer: UITapGestureRecognizer) {
-       goToCalender()
+        goToCalender()
     }
+    
     func handleAllowedTap(gestureReconizer: UITapGestureRecognizer) {
         performSegue(withIdentifier: "selectAllowedItems", sender: nil)
     }
@@ -142,13 +141,13 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectRestrictedItems" {
             if let destination = segue.destination as? ObjectListVC {
-                destination.selectedObjects = listing.restrictedItems
+                destination.listing = listing
                 destination.UNWIND_SEGUE = "unwindFromSelectRestrictedItems"
             }
         }
         if segue.identifier == "selectAllowedItems" {
             if let destination = segue.destination as? ObjectListVC {
-                destination.selectedObjects = listing.allowedItems
+                destination.listing = listing
                 destination.UNWIND_SEGUE = "unwindFromSelectAllowedItems"
             }
         }
@@ -162,14 +161,14 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     @IBAction func unwindFromSelectRestrictedItems(segue: UIStoryboardSegue) {
         if segue.identifier == "unwindFromSelectRestrictedItems" {
             if let source = segue.source as? ObjectListVC {
-                listing.restrictedItems = source.selectedObjects
+                listing = source.listing
             }
         }
     }
     @IBAction func unwindFromSelectAllowedItems(segue: UIStoryboardSegue) {
         if segue.identifier == "unwindFromSelectAllowedItems" {
             if let source = segue.source as? ObjectListVC {
-                listing.allowedItems = source.selectedObjects
+                listing = source.listing
             }
         }
     }
@@ -184,7 +183,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         var dates = [Date]()
         dates.append(date)
         listing.dates = dates
-        datesAvailableInput.text = DateTime.formatDate(date: date)
+        datesAvailableInput.text = date.formatDate()
         self.dismiss(animated: true, completion: nil)
     }
     

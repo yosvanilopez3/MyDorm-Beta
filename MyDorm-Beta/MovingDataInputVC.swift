@@ -9,113 +9,75 @@
 import UIKit
 import Foundation
 import PDTSimpleCalendar
-class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UITextFieldDelegate {
-    @IBOutlet weak var objectListTextField: UITextField!
-    var selectedObjects = [StorableObject]()
+class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UICollectionViewDelegate {
     @IBOutlet weak var pickupDateLbl: UIButton!
     @IBOutlet weak var dropoffDateLbl: UIButton!
-    @IBOutlet weak var dropoffTimeLbl: UIButton!
-    @IBOutlet weak var pickupTimeLbl: UIButton!
-    var pickupDate = DateTime(date: Date())
-    var dropoffDate =  DateTime(date: Date())
-    
+    @IBOutlet weak var selectedCollection: UICollectionView!
+    // potentially use two different calenders or set identifier to distinguish between dropoff and pickup dates
+    var calender = PDTSimpleCalendarViewController()
+    var order = Order() 
     override func viewDidLoad() {
         super.viewDidLoad()
-        objectListTextField.delegate = self
-        
+        selectedCollection.delegate = self
+        calender.delegate = self
+        if let uid = UserDefaults.standard.value(forKey: KEY_UID) as? String {
+            // come up with more secure way to generate a random id
+            order.uid = uid
+            order.orderID = "OID\(uid)\(Int(arc4random_uniform(100000000)))"
+        }
+        // set the date labels
+        pickupDateLbl.setTitle("MM/DD/YYYY", for: UIControlState.normal)
+        dropoffDateLbl.setTitle("MM/DD/YYYY", for: UIControlState.normal)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        objectListTextField.text = getNameList()
-        setPickupLbl()
-        setDropoffLbl()
-    }
+
 /*************************************************/
 /*            Date Set Functions                 */
 /*************************************************/
+ 
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, didSelect date: Date!) {
-        if let calender = controller as? CalenderVC {
-            if calender.datetype == DateType.Pickup {
-                pickupDate = DateTime(date:date)
-                // replace by actual time selection once this is implemented
-            }
-            else if calender.datetype == DateType.Dropoff {
-                dropoffDate = DateTime(date:date)
-                // replace by actual time selection once this is implemented
-            }
-        controller.navigationController?.popViewController(animated: true)
+        if controller.accessibilityLabel == "pickup" {
+                order.pickup = date
+                pickupDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
         }
+        if controller.accessibilityLabel == "dropoff" {
+                order.dropoff = date
+             dropoffDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
-    
-    func setPickupLbl() {
-        pickupDateLbl.setTitle("\(pickupDate.dateString)", for: UIControlState.normal)
-    }
-    
-    func setDropoffLbl() {
-        dropoffDateLbl.setTitle("\(dropoffDate.dateString)", for: UIControlState.normal)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        objectListTextField.endEditing(true)
-        performSegue(withIdentifier: "ChooseObjects", sender: nil)
-    }
-    
-    func createOrder() -> Order {
-        return Order(objects: selectedObjects, pickup: pickupDate, dropoff: dropoffDate)
-    }
+
 /*************************************************/
 /*                Segue Controls                 */
 /*************************************************/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChooseObjects" {
             if let destination = segue.destination as? ObjectListVC {
-                destination.selectedObjects = selectedObjects
+                destination.order = order
                 destination.UNWIND_SEGUE = "unwindFromChooseObjects"
-            }
-        }
-        else if segue.identifier == "SetPickupDate" {
-            if let destination = segue.destination as? CalenderVC {
-                destination.datetype = DateType.Pickup
-                destination.delegate = self
-            }
-        }
-        else if segue.identifier == "SetDropoffDate" {
-            if let destination = segue.destination as? CalenderVC {
-                destination.datetype = DateType.Dropoff
-                destination.delegate = self
             }
         }
         else if segue.identifier == "PriceDisplay" {
             if let destination = segue.destination as? PriceDisplayVC {
-                destination.currentOrder = createOrder()
-            }
-        }
-        else if segue.identifier == "PickupTimeSegue" {
-            // destinationViewController changed to destination
-            // this is used to set up a presentation view controller
-            if let destination = segue.destination as? SelectTimeVC {
-                // change this to load the times available from the company
-                destination.availableTimes = [DateTime(date: Date())]
-                destination.movingDetailsVC = self
-                destination.dateType = DateType.Pickup
-            }
-        }
-        else if segue.identifier == "DropoffTimeSegue" {
-            // destinationViewController changed to destination
-            // this is used to set up a presentation view controller
-            if let destination = segue.destination as? SelectTimeVC {
-                // change this to load the times available from the company
-                destination.availableTimes = [DateTime(date: Date())]
-                destination.movingDetailsVC = self
-                destination.dateType = DateType.Dropoff
+                destination.currentOrder = order
             }
         }
     }
+    @IBAction func addItemsBtnPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "ChooseObjects", sender: nil)
+    }
+    @IBAction func selectPickup(_ sender: AnyObject) {
+        calender.accessibilityLabel = "pickup"
+        present(calender, animated: true, completion: nil)
+    }
     
+    @IBAction func selectDropOff(_ sender: AnyObject) {
+        calender.accessibilityLabel = "dropoff"
+        present(calender, animated: true, completion: nil)
+    }
     @IBAction func unwindToMoving(segue: UIStoryboardSegue) {
         if segue.identifier == "unwindFromChooseObjects" {
             if let source = segue.source as? ObjectListVC {
-                self.selectedObjects = source.selectedObjects
+                self.order = source.order
             }
         }
     }
@@ -123,10 +85,10 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIText
 /*************************************************/
 /*            Utility Functions                  */
 /*************************************************/
-  
+
     func getNameList() -> String {
         var list = ""
-        for object in selectedObjects {
+        for object in order.objects {
             if list.isEmpty {
                 list = "\(object.name)"
             }
@@ -136,4 +98,34 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIText
         }
         return list
     }
+    
+/*************************************************/
+/*          CollectionView Functions             */
+/*************************************************/
+    //build the collection from the center outward
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return order.objects.count
+    }
+    
+    private func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as? SelectedObjectCell {
+            let object = order.objects[indexPath.row]
+            cell.configureCell(name: object.name, detail: "details")
+            cell.deleteBtn.tag = indexPath.row
+            cell.deleteBtn.addTarget(self, action: #selector(deleteCellFromCollection), for: .touchUpInside)
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func deleteCellFromCollection(deleteBtn: UIButton) {
+        order.objects.remove(at: deleteBtn.tag)
+        selectedCollection.reloadData()
+    }
+    
+
    }

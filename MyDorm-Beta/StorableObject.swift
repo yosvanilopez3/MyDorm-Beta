@@ -7,13 +7,14 @@
 //
 
 import Foundation
-
+import UIKit
 class StorableObject {
     private var _objectName: String!
-    private var _dimensions: Dimensions!
     private var _objectType: String!
-    private var _objectSize: String!
-    
+    var height: String!
+    var width: String!
+    var length: String!
+    var image: UIImage?
     var name: String {
         return _objectName
     }

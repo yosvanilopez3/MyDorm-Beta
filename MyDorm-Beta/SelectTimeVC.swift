@@ -27,12 +27,11 @@ class SelectTimeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     @IBAction func doneBtnPressed(_ sender: AnyObject) {
         // fix this it is coded like shit 
         if dateType == DateType.Pickup {
-            movingDetailsVC.pickupTimeLbl.setTitle(availableTimes[timePicker.selectedRow(inComponent: 0)].timeString, for: .normal)
+           
         }
         else if dateType == DateType.Dropoff {
-            movingDetailsVC.dropoffTimeLbl.setTitle(availableTimes[timePicker.selectedRow(inComponent: 0)].timeString, for: .normal)
+            
         }
-
        _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -46,6 +45,4 @@ class SelectTimeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return availableTimes[component].timeString
     }
-    
-   
 }

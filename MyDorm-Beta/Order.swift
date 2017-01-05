@@ -8,26 +8,12 @@
 
 import Foundation
 
-class Order {
-    // set the user through defaults of firebase
-    private var _user: User!
-    private var _objects: [StorableObject]!
-    private var _pickup: DateTime!
-    private var _dropoff: DateTime!
-    private var _minimumSquareFootage: Float!
+struct Order {
+    // force unwrap is fine because the details are only ever accessed after the order is completely built 
+    var uid: String!
+    var orderID: String!
+    var objects = [StorableObject]()
+    var pickup: Date!
+    var dropoff: Date!
     
-    var objects: [StorableObject] {
-        return _objects
-    }
-    
-    init(objects: [StorableObject], pickup: DateTime, dropoff: DateTime) {
-        _objects = objects
-        _pickup = pickup
-        _dropoff = dropoff
-        // these dummy values will be replaced with actual values later
-        _minimumSquareFootage = 0.0
-        _user = User(uid: "", userInfo: [:])
-    }
-    
-
 }

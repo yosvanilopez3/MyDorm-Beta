@@ -27,11 +27,11 @@
 		2882FD071DB22BAD001E0786 /* MyDorm_BetaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882FD061DB22BAD001E0786 /* MyDorm_BetaUITests.swift */; };
 		288E83141DEBEAB8001BB607 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 288E83131DEBEAB8001BB607 /* GoogleService-Info.plist */; };
 		288E83161DED6331001BB607 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E83151DED6331001BB607 /* RoundedImage.swift */; };
+		28A3C07B1E1DB529003D3223 /* MessageChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A3C07A1E1DB529003D3223 /* MessageChannelVC.swift */; };
 		28A5A13D1DCA6EE2001060B1 /* ObjectListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A5A13C1DCA6EE2001060B1 /* ObjectListVC.swift */; };
 		28C725511DB6B0D400EBB9F3 /* CalenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725501DB6B0D400EBB9F3 /* CalenderVC.swift */; };
 		28C725551DB6BE0600EBB9F3 /* MovingDataInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725541DB6BE0600EBB9F3 /* MovingDataInputVC.swift */; };
 		28C725571DB6C29600EBB9F3 /* StorableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725561DB6C29600EBB9F3 /* StorableObject.swift */; };
-		28C725591DB6C64F00EBB9F3 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725581DB6C64F00EBB9F3 /* Dimensions.swift */; };
 		28C7255B1DB6CAD000EBB9F3 /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C7255A1DB6CAD000EBB9F3 /* SuggestionCell.swift */; };
 		28C7255F1DB709C600EBB9F3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C7255E1DB709C600EBB9F3 /* Order.swift */; };
 		28C725611DB70B0200EBB9F3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C725601DB70B0200EBB9F3 /* User.swift */; };
@@ -100,11 +100,11 @@
 		2882FD081DB22BAD001E0786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		288E83131DEBEAB8001BB607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		288E83151DED6331001BB607 /* RoundedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
+		28A3C07A1E1DB529003D3223 /* MessageChannelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageChannelVC.swift; sourceTree = "<group>"; };
 		28A5A13C1DCA6EE2001060B1 /* ObjectListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectListVC.swift; sourceTree = "<group>"; };
 		28C725501DB6B0D400EBB9F3 /* CalenderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderVC.swift; sourceTree = "<group>"; };
 		28C725541DB6BE0600EBB9F3 /* MovingDataInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingDataInputVC.swift; sourceTree = "<group>"; };
 		28C725561DB6C29600EBB9F3 /* StorableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorableObject.swift; sourceTree = "<group>"; };
-		28C725581DB6C64F00EBB9F3 /* Dimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		28C7255A1DB6CAD000EBB9F3 /* SuggestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
 		28C7255E1DB709C600EBB9F3 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		28C725601DB70B0200EBB9F3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -239,13 +239,20 @@
 			path = "MyDorm-BetaUITests";
 			sourceTree = "<group>";
 		};
+		28A3C0791E1DB4F5003D3223 /* Messaging  */ = {
+			isa = PBXGroup;
+			children = (
+				28A3C07A1E1DB529003D3223 /* MessageChannelVC.swift */,
+			);
+			name = "Messaging ";
+			sourceTree = "<group>";
+		};
 		28C725621DB70B0A00EBB9F3 /* Modal  */ = {
 			isa = PBXGroup;
 			children = (
 				28C7255E1DB709C600EBB9F3 /* Order.swift */,
-				2842E49E1DD1915500156A1D /* DateTime.swift */,
 				28F0FC9D1DFCD1EF007F7993 /* Listing.swift */,
-				28C725581DB6C64F00EBB9F3 /* Dimensions.swift */,
+				2842E49E1DD1915500156A1D /* DateTime.swift */,
 				2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */,
 				28C725561DB6C29600EBB9F3 /* StorableObject.swift */,
 			);
@@ -270,6 +277,7 @@
 				28F0FC951DFC89EF007F7993 /* DelegatedTasksVCs */,
 				28F0FC931DFC89B3007F7993 /* SellerVCs */,
 				28F0FC941DFC89C5007F7993 /* BuyerVCs */,
+				28A3C0791E1DB4F5003D3223 /* Messaging  */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,8 +287,8 @@
 			children = (
 				28F0FC871DFB39E5007F7993 /* LocationSelectionVC.swift */,
 				2846DFB71E1C737600BA7863 /* LocationSearchTVC.swift */,
-				28F0FC9F1DFE4396007F7993 /* AddressSearchVC.swift */,
 				28F0FC991DFCB5E5007F7993 /* SellerBasicInfoVC.swift */,
+				28F0FC9F1DFE4396007F7993 /* AddressSearchVC.swift */,
 				28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */,
 				28F0FC9B1DFCD14F007F7993 /* SellerAdditionalDetailsVC.swift */,
 			);
@@ -627,6 +635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A3C07B1E1DB529003D3223 /* MessageChannelVC.swift in Sources */,
 				28C725571DB6C29600EBB9F3 /* StorableObject.swift in Sources */,
 				28F0FC881DFB39E5007F7993 /* LocationSelectionVC.swift in Sources */,
 				2846DFB81E1C737600BA7863 /* LocationSearchTVC.swift in Sources */,
@@ -643,7 +652,6 @@
 				288E83161DED6331001BB607 /* RoundedImage.swift in Sources */,
 				28C725551DB6BE0600EBB9F3 /* MovingDataInputVC.swift in Sources */,
 				28C725B61DBCA14100EBB9F3 /* Constants.swift in Sources */,
-				28C725591DB6C64F00EBB9F3 /* Dimensions.swift in Sources */,
 				28D77C601E090E6C0086D5D5 /* PreviewListingVC.swift in Sources */,
 				2842E49F1DD1915500156A1D /* DateTime.swift in Sources */,
 				2846DFB61E1BA23600BA7863 /* HomeScreenVC.swift in Sources */,

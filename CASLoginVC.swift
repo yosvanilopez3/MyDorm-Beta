@@ -97,7 +97,10 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
     func attemptLogIn(email: String, logIn: @escaping (_ success:Bool, _ data:[String:String]) -> ()) {
         FIRAuth.auth()?.signIn(withEmail: email, password: USER_PASSWORD, completion: { (user, error) in
             if error == nil {
-                //get the users data and login stuff from firebase and setup
+                //get the users data and login stuff from firebase and setup'
+                if UserDefaults.standard.value(forKey: KEY_UID) == nil {
+                    UserDefaults.standard.setValue(user!.uid , forKey: KEY_UID)
+                }
                 logIn(true, [:])
             }
             logIn(false, [:])

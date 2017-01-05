@@ -13,10 +13,7 @@ class PreviewListingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-
- 
 
     @IBAction func submitListing(_ sender: AnyObject) {
         DataService.instance.createListing(listing: listing)

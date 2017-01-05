@@ -47,3 +47,17 @@ extension String {
         return sub.substring(to: closestToLeftRange.lowerBound)
     }
 }
+
+extension Date {
+    func formatDate() -> String {
+        let date = self
+        var formattedDate = date.description
+        formattedDate = formattedDate.replacingOccurrences(of: "-", with: "/")
+        let month = formattedDate.components(separatedBy: "/")[1]
+        let year = formattedDate.components(separatedBy: "/")[0].components(separatedBy: "0")[1]
+        let day = formattedDate.components(separatedBy: "/")[2].components(separatedBy: " ")[0]
+        formattedDate = "\(month)/\(day)/\(year)"
+        print(formattedDate)
+        return formattedDate
+    }
+}

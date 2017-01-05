@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/StorableObject.swift"
-            timestampString = "500108093.924324"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "init(name:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/MovingDataInputVC.swift"
-            timestampString = "503373562.87918"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "getNameList()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,44 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/StorableObject.swift"
-            timestampString = "498522438.121862"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "init(name:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/MovingDataInputVC.swift"
-            timestampString = "500076995.974555"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503369802.41289"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -676,47 +628,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/StorageCompany.swift"
-            timestampString = "500176738.526476"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "calculateOrderPrice(order:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/StorageCompany.swift"
-            timestampString = "500176739.747402"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "calculateOrderPrice(order:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503373562.87918"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -728,11 +648,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503373562.87918"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -744,92 +664,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503373562.87918"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503373562.87918"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503373562.87918"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503373562.87918"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503373562.87918"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDorm-Beta/ObjectListVC.swift"
-            timestampString = "503369802.41289"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1080,13 +920,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/SelectTimeVC.swift"
-            timestampString = "500343741.763059"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "SelectTimeVC"
-            landmarkType = "3">
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "pickerView(_:titleForRow:forComponent:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1288,7 +1128,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/AddressSearchVC.swift"
-                  timestampString = "505220066.536961"
+                  timestampString = "505283176.238032"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -1303,7 +1143,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/AddressSearchVC.swift"
-                  timestampString = "505220066.539052"
+                  timestampString = "505283176.239493"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -1318,7 +1158,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/AddressSearchVC.swift"
-                  timestampString = "505220066.540648"
+                  timestampString = "505283176.2409"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
@@ -1493,7 +1333,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/LocationSelectionVC.swift"
-                  timestampString = "505220066.554257"
+                  timestampString = "505283176.256214"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -1508,7 +1348,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/LocationSelectionVC.swift"
-                  timestampString = "505220066.555568"
+                  timestampString = "505283176.257723"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -1523,7 +1363,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/LocationSelectionVC.swift"
-                  timestampString = "505220066.557002"
+                  timestampString = "505283176.259374"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -1538,7 +1378,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/LocationSelectionVC.swift"
-                  timestampString = "505220066.559223"
+                  timestampString = "505283176.260696"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
@@ -1555,7 +1395,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/MovingDataInputVC.swift"
-            timestampString = "503369544.051674"
+            timestampString = "505276613.536793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -1571,11 +1411,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/SellerBasicInfoVC.swift"
-            timestampString = "505218657.078136"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "addTapGestures()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1587,11 +1427,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/SellerBasicInfoVC.swift"
-            timestampString = "505218657.078136"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "addTapGestures()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1603,11 +1443,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/SellerBasicInfoVC.swift"
-            timestampString = "505218657.078136"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "unwindFromSelectRestrictedItems(segue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1619,11 +1459,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/SellerBasicInfoVC.swift"
-            timestampString = "505218657.078136"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "goToCalender()"
             landmarkType = "7">
             <Locations>
@@ -2080,11 +1920,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/SellerBasicInfoVC.swift"
-            timestampString = "505218657.078136"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "unwindFromSelectRestrictedItems(segue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2096,11 +1936,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyDorm-Beta/SellerBasicInfoVC.swift"
-            timestampString = "505218657.078136"
+            timestampString = "505274838.46732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "unwindFromSelectAllowedItems(segue:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2224,7 +2064,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SellerBasicInfoVC.swift"
-                  timestampString = "505220066.616407"
+                  timestampString = "505283176.329017"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -2239,7 +2079,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SellerBasicInfoVC.swift"
-                  timestampString = "505220066.617761"
+                  timestampString = "505283176.330321"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -2272,7 +2112,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SellerBasicInfoVC.swift"
-                  timestampString = "505220066.620713"
+                  timestampString = "505283176.333407"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -2287,7 +2127,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SellerBasicInfoVC.swift"
-                  timestampString = "505220066.622101"
+                  timestampString = "505283176.334779"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -2320,7 +2160,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SellerBasicInfoVC.swift"
-                  timestampString = "505220066.624821"
+                  timestampString = "505283176.338197"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -2335,7 +2175,7 @@
                   moduleName = "MyDorm-Beta"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SellerBasicInfoVC.swift"
-                  timestampString = "505220066.626292"
+                  timestampString = "505283176.339791"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -2423,6 +2263,318 @@
             endingLineNumber = "151"
             landmarkName = "getListings(complete:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyDorm-Beta/MessageChannelVC.swift"
+            timestampString = "505265720.159009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyDorm-Beta/MessageChannelVC.swift"
+            timestampString = "505264124.272812"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "MessageChannelVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.MessageChannelVC.__deallocating_deinit"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MessageChannelVC.swift"
+                  timestampString = "505283176.360773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.MessageChannelVC.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; MyDorm_Beta.MessageChannelVC"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MessageChannelVC.swift"
+                  timestampString = "505283176.36217"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "221">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.MessageChannelVC.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; MyDorm_Beta.MessageChannelVC"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MessageChannelVC.swift"
+                  timestampString = "505283176.363612"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.MessageChannelVC.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MyDorm_Beta.MessageChannelVC&gt;"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MessageChannelVC.swift"
+                  timestampString = "505283176.365249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "10">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyDorm-Beta/MessageChannelVC.swift"
+            timestampString = "505265720.159009"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "sendMessage(message:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyDorm-Beta/MovingDataInputVC.swift"
+            timestampString = "505274838.46732"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "MovingDataInputVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.MovingDataInputVC.order.getter : MyDorm_Beta.Order"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MovingDataInputVC.swift"
+                  timestampString = "505283176.371585"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "163">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.MovingDataInputVC.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; MyDorm_Beta.MovingDataInputVC"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MovingDataInputVC.swift"
+                  timestampString = "505283176.372919"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "167">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;preserving fragile attribute, Arg[0] = Owned To Guaranteed&gt; of MyDorm_Beta.MovingDataInputVC.order.setter : MyDorm_Beta.Order"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MovingDataInputVC.swift"
+                  timestampString = "505283176.374252"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "74">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Owned To Guaranteed&gt; of MyDorm_Beta.MovingDataInputVC.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MyDorm_Beta.MovingDataInputVC&gt;"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/MovingDataInputVC.swift"
+                  timestampString = "505283176.375971"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "122">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyDorm-Beta/ObjectListVC.swift"
+            timestampString = "505274838.46732"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "loadAllObjects()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyDorm-Beta/SuggestionCell.swift"
+            timestampString = "505283150.15824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "SuggestionCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.SuggestionCell.init (style : __C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; MyDorm_Beta.SuggestionCell"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SuggestionCell.swift"
+                  timestampString = "505283176.382282"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.SuggestionCell.__allocating_init (style : __C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; MyDorm_Beta.SuggestionCell"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SuggestionCell.swift"
+                  timestampString = "505283176.383728"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc MyDorm_Beta.SuggestionCell.init (style : __C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; MyDorm_Beta.SuggestionCell"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SuggestionCell.swift"
+                  timestampString = "505283176.385211"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.SuggestionCell.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MyDorm_Beta.SuggestionCell&gt;"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SuggestionCell.swift"
+                  timestampString = "505283176.386664"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyDorm_Beta.SuggestionCell.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MyDorm_Beta.SuggestionCell&gt;"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SuggestionCell.swift"
+                  timestampString = "505283176.388127"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc MyDorm_Beta.SuggestionCell.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MyDorm_Beta.SuggestionCell&gt;"
+                  moduleName = "MyDorm-Beta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yosvanilopez/Desktop/Fall%202016%20Classes/IW%2008/MyDorm-Beta/MyDorm-Beta/SuggestionCell.swift"
+                  timestampString = "505283176.389435"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "26">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -19,9 +19,6 @@ class AddressSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
-        
-        
     }
   
 /*************************************************/
@@ -31,9 +28,11 @@ class AddressSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return min(searchResults.count, 8)
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "StandardTextCell", for: indexPath) as? StandardTextCell {
             let address = searchResults[indexPath.row]
@@ -52,7 +51,6 @@ class AddressSearchVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func getaddress(place: MKMapItem)-> String {
         //need to add steps to handle possible conditionals more smoothly rather than explicitly using !
-        
         if let dictionary = place.placemark.addressDictionary {
             print(dictionary)
             if let addressLines = dictionary["FormattedAddressLines"] as? [String] {
