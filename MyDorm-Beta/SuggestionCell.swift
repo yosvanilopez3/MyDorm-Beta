@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class SuggestionCell: UITableViewCell {
     @IBOutlet weak var objectName: UILabel!
     @IBOutlet weak var height: UITextField!
@@ -26,9 +25,11 @@ class SuggestionCell: UITableViewCell {
             object.width = w
             object.height = h
             object.length = l
-            order.objects.append(object)
-            DataService.
-            parent.order = order
+            DataService.instance.getObjectImage(name: object.name, complete: { (image) in
+                self.object.image = image
+                self.order.objects.append(self.object)
+                self.parent.order = self.order
+            })
         }
         
     }

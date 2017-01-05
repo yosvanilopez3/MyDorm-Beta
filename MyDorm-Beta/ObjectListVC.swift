@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObjectListVC: UITableViewController, UISearchResultsUpdating, UINavigationControllerDelegate
+class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBarDelegate
 {
     var allStorableObjects = [StorableObject]()
     var suggestions = [StorableObject]()
@@ -19,23 +19,26 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating, UINavigation
     //add a clear button that erases all the selected objects 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.delegate = self
         loadAllObjects()
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.searchController.searchResultsUpdater = self
-            self.searchController.hidesNavigationBarDuringPresentation = true
-            self.hidesBottomBarWhenPushed = true
+            self.searchController.searchBar.delegate = self
             self.searchController.dimsBackgroundDuringPresentation = false
             self.searchController.searchBar.sizeToFit()
             self.tableView.tableHeaderView = self.searchController.searchBar
             self.searchController.searchBar.becomeFirstResponder()
         }
+        self.searchController.searchBar.showsCancelButton = true
     }
-
-    @IBAction func doneBtn(_ sender: AnyObject) {
-        performSegue(withIdentifier: UNWIND_SEGUE, sender: nil)
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if let parentvc = parent as? ObjectListVC {
+            parentvc.order = order
+        }
+      _ = self.navigationController?.popViewController(animated: true)
     }
+    
 /*************************************************/
 /*           Searchbar Functions                 */
 /*************************************************/

@@ -14,7 +14,7 @@ class StorableObject {
     var height: String!
     var width: String!
     var length: String!
-    var image: UIImage?
+    var image: UIImage = UIImage(named:"default")!
     var name: String {
         return _objectName
     }
