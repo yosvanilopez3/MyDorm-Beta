@@ -16,11 +16,12 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     var listing: Listing!
     let searchController = UISearchController(searchResultsController: nil)
     var UNWIND_SEGUE: String!
+    var parentVC: MovingDataInputVC!
     //add a clear button that erases all the selected objects 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllObjects()
-        let deadlineTime = DispatchTime.now() + .seconds(1)
+        let deadlineTime = DispatchTime.now() + .nanoseconds(500000000)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.searchController.searchResultsUpdater = self
             self.searchController.searchBar.delegate = self
@@ -33,20 +34,21 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        if let parentvc = parent as? ObjectListVC {
-            parentvc.order = order
-        }
-      _ = self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
+        parentVC.order = order
     }
     
 /*************************************************/
 /*           Searchbar Functions                 */
 /*************************************************/
     func updateSearchResults(for: UISearchController) {
-        if let input = searchController.searchBar.text {
+        if let input = searchController.searchBar.text, input != "" {
             suggestions = allStorableObjects.filter { $0.name.lowercased().contains(input.lowercased())}
-            tableView.reloadData()
+
+        } else {
+            suggestions = allStorableObjects
         }
+        tableView.reloadData()
     }
     // download them from firebase
     //need to make this thread safe by making get storable objects take a closoure as an arguement
@@ -61,19 +63,31 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
 /*************************************************/
 /*          TableView Functions                  */
 /*************************************************/
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedObject = suggestions[indexPath.row]
-        order.objects.append(selectedObject)
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return suggestions.count
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? SuggestionCell {
+            if let object = cell.object, let h = cell.height.text, h != "", let w = cell.width.text, w != "", let l = cell.length.text, l != "" {
+                object.width = w
+                object.height = h
+                object.length = l
+                    DataService.instance.getObjectImage(name: object.name, complete: { (image) in
+                        object.image = image
+                        self.order.objects.append(object)
+                        self.searchController.isActive = false
+                        self.searchBarCancelButtonClicked(self.searchController.searchBar)
+                    })
+            }
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestionCell", for: indexPath) as? SuggestionCell {
-            cell.configureCell(object: suggestions[indexPath.row], order: order, parent: self)
+            cell.configureCell(object: suggestions[indexPath.row], order: order)
             return cell
         }
         return UITableViewCell()

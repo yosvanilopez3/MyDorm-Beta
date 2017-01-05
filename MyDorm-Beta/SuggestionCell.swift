@@ -20,28 +20,14 @@ class SuggestionCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBAction func objectWasAdded(_ sender: UIButton) {
-        if let h = height.text, h != "", let w = width.text, w != "", let l = length.text, l != "" {
-            object.width = w
-            object.height = h
-            object.length = l
-            DataService.instance.getObjectImage(name: object.name, complete: { (image) in
-                self.object.image = image
-                self.order.objects.append(self.object)
-                self.parent.order = self.order
-            })
-        }
-        
-    }
     
-    func configureCell(object: StorableObject, order: Order, parent: ObjectListVC) {
+    func configureCell(object: StorableObject, order: Order) {
         objectName.text = object.name
         height.text = object.height
         width.text = object.width
         length.text = object.length
         self.object = object
         self.order = order
-        self.parent = parent
     }
     
 

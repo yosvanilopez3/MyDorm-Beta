@@ -23,16 +23,16 @@ enum RentType: String {
 
  struct Listing {
     // maybe remove the question marks and make more secure
-    var uid: String?
-    var listingID: String?
-    var location: String? // possibly change this to CLLocation
+    var uid: String!
+    var listingID: String!
+    var location: String! // possibly change this to CLLocation
     var storageType = StorageType.InHouse
-    var squareFeet: String?
+    var squareFeet: String!
     var rentType = RentType.Summer
-    var rent: String?
-    var dates: [Date]?
+    var rent: String!
+    var date: Date!
     var restrictedItems = [StorableObject]()
     var allowedItems = [StorableObject]()
-    var images = [UIImage]()
+    var image = UIImage()
     var description: String = ""
 }

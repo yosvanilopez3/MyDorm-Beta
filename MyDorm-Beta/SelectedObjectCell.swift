@@ -20,10 +20,8 @@ class SelectedObjectCell: UICollectionViewCell {
         clipsToBounds = true
     }
   
-    func configureCell(name: String, detail: String) {
-        DataService.instance.getObjectImage(name: name, complete: { (image) in
-            self.objectImage.image = image
-        })
+    func configureCell(object: StorableObject, detail: String) {
+            self.objectImage.image = object.image
     }
     
 }

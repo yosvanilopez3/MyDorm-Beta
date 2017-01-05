@@ -8,16 +8,21 @@
 
 import UIKit
 
-class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     var listing: Listing!
     @IBOutlet weak var listingImage: UIImageView!
     @IBOutlet weak var addImageBtn: UIButton!
     var imagePicker: UIImagePickerController!
-    
+    @IBOutlet weak var descriptionTxtBox: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        descriptionTxtBox.delegate = self
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        listing.description = textView.text
     }
     
     @IBAction func reviewListingBtn(_ sender: AnyObject) {
@@ -26,8 +31,8 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
 
     @IBAction func addPictureButton(_ sender: AnyObject) {
         present(imagePicker, animated: true, completion: nil)
-        
     }
+    
     @IBAction func backBtnPressed(_ sender: AnyObject) {
            self.navigationController?.dismiss(animated: true, completion: nil)
         }
@@ -39,6 +44,7 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
             listingImage.image = pickedImage
             listingImage.alpha = 1.0
             addImageBtn.alpha = 0.0
+            listing.image = pickedImage
         }
         
     }

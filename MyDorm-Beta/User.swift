@@ -32,6 +32,9 @@ class User {
     var dorm: String {
         return _dorm
     }
+    var name: String {
+        return "\(firstName) \(lastName)"
+    }
     
     init(uid: String, userInfo: [String:Any]) {
         if let first = userInfo["First Name"] as? String {

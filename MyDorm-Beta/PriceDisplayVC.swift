@@ -10,7 +10,7 @@ import UIKit
 // in the future there would be a price index for each company and each then a calculation would be done for each 
 class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var storageOptionsTbl: UITableView!
-    var currentOrder: Order!
+    var order: Order!
     var storageCompanies = [StorageCompany]()
     var listings = [Listing]()
     override func viewDidLoad() {
@@ -37,7 +37,17 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "SeeDetailsSegue" {
             if let destination = segue.destination as? IndividualPriceDisplayVC {
                 if let button = sender as? UIButton {
-                    destination.priceIndex = storageCompanies[button.tag].getIndividualPrices(order: currentOrder)
+                    destination.priceIndex = storageCompanies[button.tag].getIndividualPrices(order: order)
+                }
+            }
+        }
+        if segue.identifier == "viewListing" {
+            if let destination = segue.destination as? PreviewListingVC, let index = sender as? Int {
+                // migrate to all being listings even storage company ones
+                if index < storageCompanies.count {
+                    
+                } else {
+                    destination.listing = listings[index - storageCompanies.count]
                 }
             }
         }
@@ -47,7 +57,7 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 /*            TableView Functions                */
 /*************************************************/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "viewListing", sender: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,9 +67,9 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "StorageOptionCell", for: indexPath) as? StorageOptionCell {
             if indexPath.row < storageCompanies.count {
-                cell.configureCell(company: storageCompanies[indexPath.row], order: currentOrder)
+                cell.configureCell(company: storageCompanies[indexPath.row], order: order)
             } else {
-                cell.configureCell(listing: listings[indexPath.row - storageCompanies.count], order: currentOrder)
+                cell.configureCell(listing: listings[indexPath.row - storageCompanies.count], order: order)
             }
               return cell
         }

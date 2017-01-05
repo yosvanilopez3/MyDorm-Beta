@@ -9,17 +9,17 @@
 import UIKit
 import Foundation
 import PDTSimpleCalendar
-class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UICollectionViewDelegate {
+class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var pickupDateLbl: UIButton!
     @IBOutlet weak var dropoffDateLbl: UIButton!
     @IBOutlet weak var selectedCollection: UICollectionView!
     // potentially use two different calenders or set identifier to distinguish between dropoff and pickup dates
     var calender = PDTSimpleCalendarViewController()
-    var order = Order() 
+    var order: Order!
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedCollection.delegate = self
         calender.delegate = self
+        order = Order()
         if let uid = UserDefaults.standard.value(forKey: KEY_UID) as? String {
             // come up with more secure way to generate a random id
             order.uid = uid
@@ -28,8 +28,13 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         // set the date labels
         pickupDateLbl.setTitle("MM/DD/YYYY", for: UIControlState.normal)
         dropoffDateLbl.setTitle("MM/DD/YYYY", for: UIControlState.normal)
+        selectedCollection.delegate = self
+        selectedCollection.dataSource = self
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        selectedCollection.reloadData()
+        print(order.objects.count)
+    }
 /*************************************************/
 /*            Date Set Functions                 */
 /*************************************************/
@@ -53,12 +58,12 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         if segue.identifier == "ChooseObjects" {
             if let destination = segue.destination as? ObjectListVC {
                 destination.order = order
-                destination.UNWIND_SEGUE = "unwindFromChooseObjects"
+                destination.parentVC = self
             }
         }
         else if segue.identifier == "PriceDisplay" {
             if let destination = segue.destination as? PriceDisplayVC {
-                destination.currentOrder = order
+                destination.order = order
             }
         }
     }
@@ -78,6 +83,7 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         if segue.identifier == "unwindFromChooseObjects" {
             if let source = segue.source as? ObjectListVC {
                 self.order = source.order
+                self.selectedCollection.reloadData()
             }
         }
     }
@@ -107,10 +113,9 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         return order.objects.count
     }
     
-    private func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as? SelectedObjectCell {
-            let object = order.objects[indexPath.row]
-            cell.configureCell(name: object.name, detail: "details")
+            cell.configureCell(object: order.objects[indexPath.row], detail: "details")
             cell.deleteBtn.tag = indexPath.row
             cell.deleteBtn.addTarget(self, action: #selector(deleteCellFromCollection), for: .touchUpInside)
             return cell

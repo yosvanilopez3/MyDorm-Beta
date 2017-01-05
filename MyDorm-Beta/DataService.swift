@@ -98,13 +98,13 @@ class DataService {
             reference.data(withMaxSize: (80 * 1024 * 1024), completion: { (data, error) in
                 if (error != nil) {
                     print(error.debugDescription)
+                    complete(UIImage(named: "default")!)
                 } else {
                     if let img = UIImage(data: data!) {
                         self.downloadedObjectImages[name] = img
                         complete(img)
                     }
                 }
-                complete(UIImage(named: "default")!)
             })
         }
     }

@@ -33,7 +33,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         if listing.location != nil {
                 if listing.squareFeet != nil {
                     if listing.rent != nil {
-                        if listing.dates != nil {
+                        if listing.date != nil {
                             return true
                         } else {
                             missingInfoDetails = "Select dates available"
@@ -180,9 +180,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     }
     
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, didSelect date: Date!) {
-        var dates = [Date]()
-        dates.append(date)
-        listing.dates = dates
+        listing.date = date
         datesAvailableInput.text = date.formatDate()
         self.dismiss(animated: true, completion: nil)
     }

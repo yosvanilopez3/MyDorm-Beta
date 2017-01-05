@@ -204,7 +204,6 @@
 				2866BEEC1DCF02A200FF23B2 /* MyDorm-Beta.entitlements */,
 				2882FCE31DB22BAD001E0786 /* AppDelegate.swift */,
 				28C725B31DBC98FD00EBB9F3 /* DataService.swift */,
-				28C725601DB70B0200EBB9F3 /* User.swift */,
 				28C725B51DBCA14100EBB9F3 /* Constants.swift */,
 				28C725621DB70B0A00EBB9F3 /* Modal  */,
 				28C725631DB70B0A00EBB9F3 /* View */,
@@ -250,6 +249,7 @@
 		28C725621DB70B0A00EBB9F3 /* Modal  */ = {
 			isa = PBXGroup;
 			children = (
+				28C725601DB70B0200EBB9F3 /* User.swift */,
 				28C7255E1DB709C600EBB9F3 /* Order.swift */,
 				28F0FC9D1DFCD1EF007F7993 /* Listing.swift */,
 				2842E49E1DD1915500156A1D /* DateTime.swift */,
@@ -289,8 +289,8 @@
 				2846DFB71E1C737600BA7863 /* LocationSearchTVC.swift */,
 				28F0FC991DFCB5E5007F7993 /* SellerBasicInfoVC.swift */,
 				28F0FC9F1DFE4396007F7993 /* AddressSearchVC.swift */,
-				28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */,
 				28F0FC9B1DFCD14F007F7993 /* SellerAdditionalDetailsVC.swift */,
+				28D77C5F1E090E6C0086D5D5 /* PreviewListingVC.swift */,
 			);
 			name = SellerVCs;
 			sourceTree = "<group>";

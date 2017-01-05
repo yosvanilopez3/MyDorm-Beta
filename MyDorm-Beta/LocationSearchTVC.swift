@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-class LocationSearchTVC: UITableViewController, UISearchResultsUpdating {
+class LocationSearchTVC: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     let searchController = UISearchController(searchResultsController: nil)
     var geocoder = CLGeocoder()
     var results = [String]()
@@ -16,19 +16,21 @@ class LocationSearchTVC: UITableViewController, UISearchResultsUpdating {
     var region: CLRegion!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let deadlineTime = DispatchTime.now() + .seconds(1)
+        let deadlineTime = DispatchTime.now() + .nanoseconds(600000000)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.searchController.searchResultsUpdater = self
-            self.searchController.hidesNavigationBarDuringPresentation = true
-            self.hidesBottomBarWhenPushed = true
             self.searchController.dimsBackgroundDuringPresentation = false
+            self.searchController.searchBar.delegate = self
             self.searchController.searchBar.sizeToFit()
             self.tableView.tableHeaderView = self.searchController.searchBar
             self.searchController.searchBar.becomeFirstResponder()
         }
-        
+    
     }
-
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
     func updateSearchResults(for: UISearchController) {
         if let address = searchController.searchBar.text {
             geocoder.geocodeAddressString(address, in: region) { (placemarks, error) in
