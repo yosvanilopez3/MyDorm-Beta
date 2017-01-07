@@ -57,7 +57,7 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
     }
     
     func retreiveUserInfo(netid: String) {
-        let email = "\(netid)@princeton.edu"
+        let email = "jhlin@princeton.edu"
         // work out persistence login logic
         attemptLogIn(email: email) { (success, data) in
             if success {
@@ -73,7 +73,7 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
                     let lastname = name.components(separatedBy: " ")[1]
                     var dorm = data.components(separatedBy: "Dorm")[1]
                     dorm = dorm.between(">", "<br")!
-                    return ["Email": email, "First Name": firstname, "Last Name":lastname, "Dorm": dorm]
+                    return ["Email": email, "First Name": firstname, "Last Name":lastname, "Dorm": dorm, "Current LID Count": "0", "Current OID Count": "0"]
                 }
                 if let url = URL(string: urlString) {
                     let request = NSMutableURLRequest(url: url as URL)

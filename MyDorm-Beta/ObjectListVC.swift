@@ -21,8 +21,9 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllObjects()
-        let deadlineTime = DispatchTime.now() + .nanoseconds(500000000)
+        let deadlineTime = DispatchTime.now() + .nanoseconds(600000000)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.navigationController?.isNavigationBarHidden = true
             self.searchController.searchResultsUpdater = self
             self.searchController.searchBar.delegate = self
             self.searchController.dimsBackgroundDuringPresentation = false
@@ -34,6 +35,7 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.navigationController?.isNavigationBarHidden = false
         _ = self.navigationController?.popViewController(animated: true)
         parentVC.order = order
     }
@@ -80,7 +82,9 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
                         self.order.objects.append(object)
                         self.searchController.isActive = false
                         self.searchBarCancelButtonClicked(self.searchController.searchBar)
+                        
                     })
+                tableView.allowsSelection = false
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)

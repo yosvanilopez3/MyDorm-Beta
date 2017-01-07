@@ -14,8 +14,10 @@ target 'MyDorm-Beta' do
   pod 'Firebase/Auth'
 
 # SendBird
-  pod 'SendBirdSDK'
+  pod 'SendBirdSDK’
 
+# MessageViewController
+pod 'JSQMessagesViewController'
   target 'MyDorm-BetaTests' do
     inherit! :search_paths
     # Pods for testing

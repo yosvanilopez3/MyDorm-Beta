@@ -14,10 +14,12 @@ class LocationSearchTVC: UITableViewController, UISearchResultsUpdating, UISearc
     var results = [String]()
     var listing: Listing!
     var region: CLRegion!
+    var parentVC: LocationSelectionVC!
     override func viewDidLoad() {
         super.viewDidLoad()
         let deadlineTime = DispatchTime.now() + .nanoseconds(600000000)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.navigationController?.isNavigationBarHidden = true
             self.searchController.searchResultsUpdater = self
             self.searchController.dimsBackgroundDuringPresentation = false
             self.searchController.searchBar.delegate = self
@@ -29,7 +31,12 @@ class LocationSearchTVC: UITableViewController, UISearchResultsUpdating, UISearc
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.navigationController?.isNavigationBarHidden = false
         _ = self.navigationController?.popViewController(animated: true)
+        if listing.location !=  nil {
+            parentVC.listing = listing
+            parentVC.searchBar.text = listing.location
+        }
     }
     func updateSearchResults(for: UISearchController) {
         if let address = searchController.searchBar.text {
@@ -71,7 +78,7 @@ class LocationSearchTVC: UITableViewController, UISearchResultsUpdating, UISearc
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         listing.location = results[indexPath.row]
-        performSegue(withIdentifier: "unwindFromLocationSearch", sender: nil)
-        }
+        searchController.isActive = false 
+        searchBarCancelButtonClicked(self.searchController.searchBar)
     }
-
+}

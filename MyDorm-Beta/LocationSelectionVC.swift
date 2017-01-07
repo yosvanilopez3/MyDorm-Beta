@@ -14,7 +14,7 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIBarButtonItem!
     var listing = Listing()
     var geocoder = CLGeocoder()
     var region: CLRegion!
@@ -22,9 +22,6 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
         super.viewDidLoad()
         mapView.showsUserLocation = true
         searchBar.delegate = self
-        // Ask for Authorization from the User.
-        self.locationManager.requestAlwaysAuthorization()
-        // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -39,6 +36,7 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
                     }
                 })
             }
+        
         if let uid = UserDefaults.standard.value(forKey: KEY_UID) as? String {
             // come up with more secure way to generate a random id
                 listing.uid = uid 
@@ -63,6 +61,8 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
     override func viewDidAppear(_ animated: Bool) {
         if listing.location != nil {
             nextBtn.isEnabled = true
+            // center on the chosen location 
+            // potentially allow them to chose location on map
         }
     }
     
@@ -85,20 +85,9 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
             if let destination = segue.destination as? LocationSearchTVC {
                 destination.listing = self.listing
                 destination.region = self.region
+                destination.parentVC = self
             }
         }
-    }
-    
-    @IBAction func unwindFromLocationSearch(segue: UIStoryboardSegue) {
-        if segue.identifier == "unwindFromLocationSearch" {
-            if let source = segue.source as? LocationSearchTVC {
-                self.listing = source.listing
-                self.searchBar.text = listing.location
-            }
-        }
-    }
-
-    @IBAction func cancelBtnPressed(_ sender: AnyObject) {
     }
 
 }

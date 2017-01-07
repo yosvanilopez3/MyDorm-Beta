@@ -16,6 +16,7 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var descriptionTxtBox: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
         descriptionTxtBox.delegate = self
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self

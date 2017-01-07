@@ -58,7 +58,6 @@ class DataService {
     func getCompanydata(complete: @escaping complete) {
         COMPANY_BASE.observe(.value, with: { (snapshot) in
             var loadededcompanies = [StorageCompany]()
-            print(snapshot.value)
             if let companies = snapshot.value as? Dictionary<String, Dictionary<String, AnyObject>> {
                 for company in companies.values {
                     // later on add the pickup and drop off date lists here

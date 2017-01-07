@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PDTSimpleCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +52,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1AD19B9868C6449AF95E7199C2479D6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1ED4DFAAD25E1999D0244868457A351E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23BA9083ED0D2392A167A8AFA04427FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2CC10094EB306D639CCEDE5061ADD20E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4880FD3328206B7505C447DE25E49E20</key>
+		<key>59CDDB315DD2B098E0CD9ED56B026F4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>E6E03A0BE3BB4130C4A9BFCE93BEA808</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EECAD1CC915FA770E9AF237AA60797A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -22,10 +22,9 @@ enum RentType: String {
 }
 
  struct Listing {
-    // maybe remove the question marks and make more secure
     var uid: String!
     var listingID: String!
-    var location: String! // possibly change this to CLLocation
+    var location: String!
     var storageType = StorageType.InHouse
     var squareFeet: String!
     var rentType = RentType.Summer

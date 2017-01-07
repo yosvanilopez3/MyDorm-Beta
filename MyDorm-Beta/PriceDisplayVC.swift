@@ -41,6 +41,7 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+        
         if segue.identifier == "viewListing" {
             if let destination = segue.destination as? PreviewListingVC, let index = sender as? Int {
                 // migrate to all being listings even storage company ones
@@ -49,6 +50,7 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 } else {
                     destination.listing = listings[index - storageCompanies.count]
                 }
+                destination.order = self.order
             }
         }
     }
