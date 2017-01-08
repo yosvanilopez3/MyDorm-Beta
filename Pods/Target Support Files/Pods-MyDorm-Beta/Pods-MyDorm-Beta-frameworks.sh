@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PDTSimpleCalendar/PDTSimpleCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher/GTMSessionFetcher.framework"
@@ -98,4 +99,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PDTSimpleCalendar/PDTSimpleCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
 fi

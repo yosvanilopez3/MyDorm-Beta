@@ -31,6 +31,7 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         selectedCollection.delegate = self
         selectedCollection.dataSource = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         selectedCollection.reloadData()
         print(order.objects.count)

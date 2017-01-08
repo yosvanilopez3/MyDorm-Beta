@@ -18,8 +18,9 @@ let STORAGE_BASE = FIRStorage.storage()
 let URL_BASE = "https://console.firebase.google.com/project/mydorm-beta"
 let USER_PASSWORD = "CASAUTHENTICATIONSUCCESS"
 let KEY_UID = "uid"
-let PRINCETON_ADDRESS = "Princeton, NJ 08544" 
-
+let PRINCETON_ADDRESS = "Princeton, NJ 08544"
+let STRIPE_PUBLISHABLE_KEY = "pk_live_neUbIKSqsGTZRsqv6ByeSjDb"
+let STRIPE_SECRET_KEY = "sk_live_cDLHhM298LXZM0ERQhzF2rGS"
 // Main reference to the data base - make reference extensions from here
 var SEGUE_LOGIN = "LoggedIn"
 

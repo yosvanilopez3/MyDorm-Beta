@@ -17,6 +17,10 @@
 		2846DFB81E1C737600BA7863 /* LocationSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846DFB71E1C737600BA7863 /* LocationSearchTVC.swift */; };
 		284E61BB1E1E711B00743D6A /* Agreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E61BA1E1E711B00743D6A /* Agreement.swift */; };
 		284E61BF1E1F306400743D6A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E61BE1E1F306400743D6A /* ChatViewController.swift */; };
+		284E61C31E21A3A100743D6A /* PaymentInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E61C21E21A3A100743D6A /* PaymentInfoVC.swift */; };
+		284E61C71E21B67800743D6A /* BackendAPIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E61C61E21B67800743D6A /* BackendAPIAdapter.swift */; };
+		284E61C91E21B94900743D6A /* PaymentUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E61C81E21B94900743D6A /* PaymentUIComponents.swift */; };
+		284E61CB1E21BBF600743D6A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284E61CA1E21BBF600743D6A /* SettingViewController.swift */; };
 		2866BEE91DCEB92100FF23B2 /* StorageCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */; };
 		2866BEF11DCFB5BC00FF23B2 /* StorageOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */; };
 		2866BEF51DCFCC3000FF23B2 /* IndividualPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2866BEF41DCFCC3000FF23B2 /* IndividualPriceCell.swift */; };
@@ -84,6 +88,10 @@
 		2846DFB71E1C737600BA7863 /* LocationSearchTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTVC.swift; sourceTree = "<group>"; };
 		284E61BA1E1E711B00743D6A /* Agreement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agreement.swift; sourceTree = "<group>"; };
 		284E61BE1E1F306400743D6A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		284E61C21E21A3A100743D6A /* PaymentInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentInfoVC.swift; sourceTree = "<group>"; };
+		284E61C61E21B67800743D6A /* BackendAPIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendAPIAdapter.swift; sourceTree = "<group>"; };
+		284E61C81E21B94900743D6A /* PaymentUIComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentUIComponents.swift; sourceTree = "<group>"; };
+		284E61CA1E21BBF600743D6A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2866BEE81DCEB92100FF23B2 /* StorageCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageCompany.swift; sourceTree = "<group>"; };
 		2866BEEC1DCF02A200FF23B2 /* MyDorm-Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MyDorm-Beta.entitlements"; sourceTree = "<group>"; };
 		2866BEF01DCFB5BC00FF23B2 /* StorageOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageOptionCell.swift; sourceTree = "<group>"; };
@@ -276,6 +284,10 @@
 				2846DFB51E1BA23600BA7863 /* HomeScreenVC.swift */,
 				28C725B71DBCA24400EBB9F3 /* SignUpVC.swift */,
 				284E61BE1E1F306400743D6A /* ChatViewController.swift */,
+				284E61C61E21B67800743D6A /* BackendAPIAdapter.swift */,
+				284E61C21E21A3A100743D6A /* PaymentInfoVC.swift */,
+				284E61C81E21B94900743D6A /* PaymentUIComponents.swift */,
+				284E61CA1E21BBF600743D6A /* SettingViewController.swift */,
 				2842E4AA1DDA91E300156A1D /* CASLoginVC.swift */,
 				28F0FC951DFC89EF007F7993 /* DelegatedTasksVCs */,
 				28F0FC931DFC89B3007F7993 /* SellerVCs */,
@@ -639,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284E61BB1E1E711B00743D6A /* Agreement.swift in Sources */,
+				284E61C71E21B67800743D6A /* BackendAPIAdapter.swift in Sources */,
 				28C725571DB6C29600EBB9F3 /* StorableObject.swift in Sources */,
 				28F0FC881DFB39E5007F7993 /* LocationSelectionVC.swift in Sources */,
 				2846DFB81E1C737600BA7863 /* LocationSearchTVC.swift in Sources */,
@@ -655,6 +668,7 @@
 				288E83161DED6331001BB607 /* RoundedImage.swift in Sources */,
 				28C725551DB6BE0600EBB9F3 /* MovingDataInputVC.swift in Sources */,
 				28C725B61DBCA14100EBB9F3 /* Constants.swift in Sources */,
+				284E61C31E21A3A100743D6A /* PaymentInfoVC.swift in Sources */,
 				28D77C601E090E6C0086D5D5 /* PreviewListingVC.swift in Sources */,
 				2842E49F1DD1915500156A1D /* DateTime.swift in Sources */,
 				2846DFB61E1BA23600BA7863 /* HomeScreenVC.swift in Sources */,
@@ -666,6 +680,7 @@
 				28A5A13D1DCA6EE2001060B1 /* ObjectListVC.swift in Sources */,
 				28D0D0C31DCB00C7008E909F /* SelectedObjectCell.swift in Sources */,
 				2842E4AB1DDA91E300156A1D /* CASLoginVC.swift in Sources */,
+				284E61C91E21B94900743D6A /* PaymentUIComponents.swift in Sources */,
 				28F0FC9A1DFCB5E5007F7993 /* SellerBasicInfoVC.swift in Sources */,
 				284E61BF1E1F306400743D6A /* ChatViewController.swift in Sources */,
 				28F0FC9E1DFCD1EF007F7993 /* Listing.swift in Sources */,
@@ -673,6 +688,7 @@
 				2866BEF51DCFCC3000FF23B2 /* IndividualPriceCell.swift in Sources */,
 				2882FCEC1DB22BAD001E0786 /* MyDorm_Beta.xcdatamodeld in Sources */,
 				28C7255B1DB6CAD000EBB9F3 /* SuggestionCell.swift in Sources */,
+				284E61CB1E21BBF600743D6A /* SettingViewController.swift in Sources */,
 				28C725611DB70B0200EBB9F3 /* User.swift in Sources */,
 				28C725B81DBCA24400EBB9F3 /* SignUpVC.swift in Sources */,
 			);

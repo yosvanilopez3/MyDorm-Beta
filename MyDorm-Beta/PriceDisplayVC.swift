@@ -84,8 +84,30 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 1
     }
 /*************************************************/
-/*            Utility Functions                  */
+/*        Storage Smart Match Algorithm          */
 /*************************************************/
-
+    // come up with the storage algorithm potentially do a bit of research to have some sources to write about the algorithm 
+    func matchOrder(order: Order, listings: [Listing]) -> [Listing] {
+        struct Block {
+            var max_height = 0
+            var floorspace = 0
+        }
+        
+        func createBlock(objects: [StorableObject]) -> Block {
+            var block = Block()
+            for object in objects {
+                if let height = Int(object.height), height > block.max_height {
+                    block.max_height = height
+                }
+                if let w = Int(object.width), let l = Int(object.length) {
+                    block.floorspace = block.floorspace + l*w
+                }
+            }
+            return block
+        }
+        let objects = order.objects
+        
+        return [Listing]()
+    }
 
 }

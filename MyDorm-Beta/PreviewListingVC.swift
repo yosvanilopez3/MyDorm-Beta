@@ -44,12 +44,9 @@ class PreviewListingVC: UIViewController {
             // switch tabs to the home tab 
         }
     }
+    
     @IBAction func requestListing(_ sender: AnyObject) {
         performSegue(withIdentifier: "openMessaging", sender: nil)
-    }
-
-    @IBAction func backBtn(_ sender: AnyObject) {
-        _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

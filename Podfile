@@ -18,6 +18,10 @@ target 'MyDorm-Beta' do
 
 # MessageViewController
 pod 'JSQMessagesViewController'
+
+# Stripe 
+ pod ’Stripe'
+
   target 'MyDorm-BetaTests' do
     inherit! :search_paths
     # Pods for testing

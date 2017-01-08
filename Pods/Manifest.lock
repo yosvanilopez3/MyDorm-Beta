@@ -55,6 +55,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SendBirdSDK (3.0.25)
+  - Stripe (9.2.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -64,6 +65,7 @@ DEPENDENCIES:
   - JSQMessagesViewController
   - PDTSimpleCalendar (~> 0.9.1)
   - SendBirdSDK
+  - Stripe
 
 SPEC CHECKSUMS:
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
@@ -83,7 +85,8 @@ SPEC CHECKSUMS:
   PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SendBirdSDK: c443b69487c57c15af0b162b5b34566ab817c21a
+  Stripe: a47770e82db059d0e7e160f9aabc2997055ee911
 
-PODFILE CHECKSUM: 9d0b4abd2508923cd01e25fe351497aa69ca3f2d
+PODFILE CHECKSUM: 774f0020aaa5e88990d89bb2f0398667fdcfcc7e
 
 COCOAPODS: 1.0.1
