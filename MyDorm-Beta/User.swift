@@ -15,8 +15,6 @@ class User {
     private var _dorm: String!
     private var _uid: String!
     
-    
-    
     var uid: String {
         return _uid
     }

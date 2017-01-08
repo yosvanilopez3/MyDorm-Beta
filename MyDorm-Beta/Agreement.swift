@@ -12,7 +12,4 @@ class Agreegment {
     var OID: String!
     var myID: String!
     var otherID: String!
-    
-    
-    
 }

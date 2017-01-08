@@ -21,8 +21,4 @@ class StorableObject {
     init (name: String) {
         self._objectName = name
     }
-    
-    
-    
-    
 }
