@@ -11,9 +11,9 @@ import UIKit
 class StorableObject {
     private var _objectName: String!
     private var _objectType: String!
-    var height: String = "9"
-    var width: String = "9"
-    var length: String = "9"
+    var height: String = "12"
+    var width: String = "12"
+    var length: String = "12"
     var image: UIImage = UIImage(named:"default")!
     var name: String {
         return _objectName

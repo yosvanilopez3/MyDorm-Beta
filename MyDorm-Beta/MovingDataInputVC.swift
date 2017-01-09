@@ -34,7 +34,6 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
     
     override func viewDidAppear(_ animated: Bool) {
         selectedCollection.reloadData()
-        print(order.objects.count)
     }
 /*************************************************/
 /*            Date Set Functions                 */
@@ -42,14 +41,27 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
  
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, didSelect date: Date!) {
         if controller.accessibilityLabel == "pickup" {
-                order.pickup = date
-                pickupDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
+            order.pickup = date
+            pickupDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
+            if order.dropoff != nil {
+                if order.pickup > order.dropoff {
+                    order.dropoff = date
+                    dropoffDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
+                }
+            }
         }
         if controller.accessibilityLabel == "dropoff" {
-                order.dropoff = date
+             order.dropoff = date
              dropoffDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
+            if order.pickup != nil {
+                if order.pickup > order.dropoff {
+                    order.pickup = date
+                    pickupDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
+                }
+            }
+
         }
-        self.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
 /*************************************************/
@@ -72,13 +84,15 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         performSegue(withIdentifier: "ChooseObjects", sender: nil)
     }
     @IBAction func selectPickup(_ sender: AnyObject) {
+        calender.weekdayHeaderEnabled = true 
         calender.accessibilityLabel = "pickup"
-        present(calender, animated: true, completion: nil)
+        self.navigationController?.pushViewController(calender, animated: true)
     }
     
     @IBAction func selectDropOff(_ sender: AnyObject) {
+        calender.weekdayHeaderEnabled = true
         calender.accessibilityLabel = "dropoff"
-        present(calender, animated: true, completion: nil)
+        self.navigationController?.pushViewController(calender, animated: true)
     }
     @IBAction func unwindToMoving(segue: UIStoryboardSegue) {
         if segue.identifier == "unwindFromChooseObjects" {

@@ -13,7 +13,7 @@ class PreviewListingVC: UIViewController {
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var rentLbl: UILabel!
-    @IBOutlet weak var sqFtLbl: UILabel!
+    @IBOutlet weak var cbFtLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     @IBOutlet weak var ownerNameLbl: UILabel!
@@ -23,30 +23,43 @@ class PreviewListingVC: UIViewController {
     var order: Order!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
         addressLbl.text = listing.location
         image.image = listing.image
-        rentLbl.text = "\(listing.rent) / \(listing.rentType.rawValue)"
-        sqFtLbl.text = listing.squareFeet
-        dateLbl.text = listing.date?.formatDate()
+        rentLbl.text = "$\(listing.rent!)/\(listing.rentType.rawValue)"
+        cbFtLbl.text = listing.cubicFeet
         typeLbl.text = listing.storageType.rawValue
         descriptionTxtBox.text = listing.description
-        DataService.instance.getUserDetails(uid: listing.uid!) { (user) in
-                self.ownerNameLbl.text = user.name
-                self.owner = user
+        if let date = listing.date {
+            dateLbl.text = date
+            if let uid = listing.uid {
+                DataService.instance.getUserDetails(uid: uid) { (user) in
+                        self.ownerNameLbl.text = user.name
+                        self.owner = user
+                }
+            } else {
+                showErrorAlert(title: "Development Error", msg: "Listing has no owner", currentView: self)
+            }
+        } else {
+            showErrorAlert(title: "Development Error", msg: "Listing has no availability date", currentView: self)
         }
-
     }
     
     @IBAction func submitListing(_ sender: AnyObject) {
         if order == nil {
-            DataService.instance.createListing(listing: listing)
+            // come up with more secure way to generate a random id
+               listing.listingID = "LID\(listing.uid)\(Int(arc4random_uniform(100000000)))"
+            DataService.instance.createListing(listing: listing, currentVC: self)
             _ = self.navigationController?.popToRootViewController(animated: true)
-            // switch tabs to the home tab 
+            // switch tabs to the home tab
+             self.tabBarController?.selectedIndex = 1
         }
     }
     
     @IBAction func requestListing(_ sender: AnyObject) {
-        performSegue(withIdentifier: "openMessaging", sender: nil)
+        if order != nil {
+            performSegue(withIdentifier: "openMessaging", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

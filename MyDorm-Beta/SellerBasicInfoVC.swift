@@ -22,6 +22,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     var listing: Listing!
     
     override func viewDidLoad() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
         super.viewDidLoad()
         setupSegmentedControls()
         addTapGestures()
@@ -31,7 +32,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     func listingIsValid() -> Bool {
         var missingInfoDetails = ""
         if listing.location != nil {
-                if listing.squareFeet != nil {
+                if listing.cubicFeet != nil {
                     if listing.rent != nil {
                         if listing.date != nil {
                             return true
@@ -42,7 +43,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
                         missingInfoDetails = "Enter rent amount"
                     }
                 } else {
-                    missingInfoDetails = "Enter square footage"
+                    missingInfoDetails = "Enter cubic footage"
                 }
         } else {
             showErrorAlert(title: "Developemt Error", msg: "missing location when location should have been selected", currentView: self)
@@ -91,20 +92,20 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     /*************************************************/
     /*            Text Field Inputs                  */
     /*************************************************/
-    @IBAction func sqftInputChanged(_ sender: UITextField) {
+    @IBAction func cbftInputChanged(_ sender: UITextField) {
         if let input = sender.text, input != "" {
-                listing.squareFeet = input
+                listing.cubicFeet = input
             } else {
                 // invalidate if there is illegal input
-                listing.squareFeet = nil
+                listing.cubicFeet = nil
             }
     }
     
     @IBAction func rentInputChanged(_ sender: UITextField) {
         if let input = sender.text, input != ""{
                 listing.rent = input
+                print(input)
         } else {
-                // invalidate if there is illegal input
                 listing.rent = nil
             }
 
@@ -176,13 +177,14 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     /*            Calender Inputs                    */
     /*************************************************/
     func goToCalender() {
-        present(calender, animated: true, completion: nil)
+        calender.weekdayHeaderEnabled = true
+        self.navigationController?.pushViewController(calender, animated: true)
     }
     
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, didSelect date: Date!) {
-        listing.date = date
+        listing.date = date.formatDate()
         datesAvailableInput.text = date.formatDate()
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

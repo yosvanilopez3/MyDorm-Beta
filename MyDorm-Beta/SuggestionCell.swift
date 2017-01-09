@@ -22,7 +22,7 @@ class SuggestionCell: UITableViewCell {
     
     
     func configureCell(object: StorableObject, order: Order) {
-        objectName.text = object.name
+        objectName.text = object.name.capitalized
         height.text = object.height
         width.text = object.width
         length.text = object.length

@@ -107,6 +107,7 @@ class DataService {
             })
         }
     }
+    
     // attempts to download image that is inquired if image could not be downloaded returns stock image
     func getCompanyImage (name: String, complete: @escaping (UIImage)->()) {
         if let img = downloadedCompanyImages[name] {
@@ -126,6 +127,7 @@ class DataService {
             })
         }
     }
+    
     func getUserDetails (uid: String, complete: @escaping (User)->()) {
         var userInfo = [String:Any]()
         USER_BASE.child(uid).observe(.value, with: { (snapshot) in
@@ -138,23 +140,27 @@ class DataService {
         }
         
     }
-    func getListings(complete: @escaping complete) {
+    func getListings(complete: @escaping ([Listing])->()) {
         LISTING_BASE.observe(.value, with: { (snapshot) in
             var listings = [Listing]()
             if let lists = snapshot.value as? Dictionary<String, (Dictionary<String, String>) > {
-                for listing in lists.values {
-                    var newListing = Listing()
-                    newListing.uid = listing["uid"]
-                    newListing.location = listing["Location"]
-                    newListing.storageType = StorageType(rawValue: listing["Storage Type"]!)!
-                    newListing.rentType = RentType(rawValue: listing["Rent Type"]!)!
-                    newListing.rent = listing["Rent"]
-                    newListing.squareFeet = listing["Square Feet"]
-                    listings.append(newListing)
+                for key in lists.keys {
+                    if let listing = lists[key] {
+                        var newListing = Listing()
+                        newListing.listingID = key
+                        newListing.uid = listing["uid"]
+                        newListing.location = listing["Location"]
+                        newListing.storageType = StorageType(rawValue: listing["Storage Type"]!)!
+                        newListing.rentType = RentType(rawValue: listing["Rent Type"]!)!
+                        newListing.rent = listing["Rent"]
+                        newListing.cubicFeet = listing["Cubic Feet"]
+                        newListing.date = listing["Date Available"]
+                        listings.append(newListing)
+                    }
                 }
             }
             self._listings = listings
-            complete()
+            complete(listings)
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -171,12 +177,11 @@ class DataService {
     func createOrder(uid: String, user: Dictionary<String, String>) {
         USER_BASE.child(uid).setValue(user)
     }
-    func createListing(listing: Listing) {
-        USER_BASE.child(listing.uid!).child("Listings").child(listing.listingID!).child("rented").setValue("false")
-        // change these to have better string representation of details
-        // make all of this safe if there is time revamp code base with proper code checking
-        let listinginfo = ["uid": listing.uid!, "Location": listing.location!, "Storage Type":listing.storageType.rawValue, "Rent Type" : listing.rentType.rawValue, "Rent" : listing.rent!, "Square Feet" :  listing.squareFeet!]
-        LISTING_BASE.child(listing.listingID!).setValue(listinginfo)
-        
+    func createListing(listing: Listing, currentVC: UIViewController) {
+        if let LID = listing.listingID, let UID = listing.uid {
+            USER_BASE.child(UID).child("Listings").child(LID).child("Rented").setValue("false")
+            let listinginfo = ["uid": UID, "Location": listing.location, "Storage Type":listing.storageType.rawValue, "Rent Type" : listing.rentType.rawValue, "Rent" : listing.rent, "Date Available": listing.date, "Cubic Feet": listing.cubicFeet] as [String: String]
+                LISTING_BASE.child(LID).setValue(listinginfo)
+            } 
     }
 }

@@ -17,6 +17,7 @@ class LocationSearchTVC: UITableViewController, UISearchResultsUpdating, UISearc
     var parentVC: LocationSelectionVC!
     override func viewDidLoad() {
         super.viewDidLoad()
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         let deadlineTime = DispatchTime.now() + .nanoseconds(600000000)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.navigationController?.isNavigationBarHidden = true
@@ -35,7 +36,6 @@ class LocationSearchTVC: UITableViewController, UISearchResultsUpdating, UISearc
         _ = self.navigationController?.popViewController(animated: true)
         if listing.location !=  nil {
             parentVC.listing = listing
-            parentVC.searchBar.text = listing.location
         }
     }
     func updateSearchResults(for: UISearchController) {
@@ -78,7 +78,7 @@ class LocationSearchTVC: UITableViewController, UISearchResultsUpdating, UISearc
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         listing.location = results[indexPath.row]
-        searchController.isActive = false 
         searchBarCancelButtonClicked(self.searchController.searchBar)
+        searchController.isActive = false
     }
 }

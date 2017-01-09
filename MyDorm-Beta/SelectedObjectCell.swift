@@ -20,8 +20,10 @@ class SelectedObjectCell: UICollectionViewCell {
         clipsToBounds = true
     }
   
-    func configureCell(object: StorableObject, detail: String) {
+    func configureCell(object: StorableObject, detail: String, deleteBtnEnabled: Bool = true) {
+            deleteBtn.isHidden = !(deleteBtnEnabled)
             self.objectImage.image = object.image
+        
     }
     
 }

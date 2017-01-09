@@ -26,10 +26,10 @@ enum RentType: String {
     var listingID: String!
     var location: String!
     var storageType = StorageType.InHouse
-    var squareFeet: String!
+    var cubicFeet: String!
     var rentType = RentType.Summer
     var rent: String!
-    var date: Date!
+    var date: String!
     var restrictedItems = [StorableObject]()
     var allowedItems = [StorableObject]()
     var image = UIImage()

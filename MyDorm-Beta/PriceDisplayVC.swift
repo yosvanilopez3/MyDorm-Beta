@@ -8,7 +8,7 @@
 
 import UIKit
 // in the future there would be a price index for each company and each then a calculation would be done for each 
-class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var storageOptionsTbl: UITableView!
     var order: Order!
     var storageCompanies = [StorageCompany]()
@@ -22,14 +22,21 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.storageCompanies = DataService.instance.storageCompanies
             self.storageOptionsTbl.reloadData()
         }
-        DataService.instance.getListings { 
-            self.listings = DataService.instance.listings
+        DataService.instance.getListings {listings in
+            self.listings = self.matchOrder(order: self.order, listings: listings)
             self.storageOptionsTbl.reloadData()
         }
+        // implement own back button
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+     
     }
-    @IBAction func backBtnPressed(_ sender: AnyObject) {
-        _ = self.navigationController?.popViewController(animated: true)
+    
+    func back(sender: UIBarButtonItem) {
+        _ = navigationController?.popViewController(animated: true)
     }
+
 /*************************************************/
 /*               Segue Functions                 */
 /*************************************************/
@@ -88,26 +95,38 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 /*************************************************/
     // come up with the storage algorithm potentially do a bit of research to have some sources to write about the algorithm 
     func matchOrder(order: Order, listings: [Listing]) -> [Listing] {
-        struct Block {
-            var max_height = 0
-            var floorspace = 0
-        }
-        
-        func createBlock(objects: [StorableObject]) -> Block {
-            var block = Block()
+        func createBlock(objects: [StorableObject]) -> Double {
+            var cubicftNeeded = 0.0
             for object in objects {
-                if let height = Int(object.height), height > block.max_height {
-                    block.max_height = height
-                }
-                if let w = Int(object.width), let l = Int(object.length) {
-                    block.floorspace = block.floorspace + l*w
+                if let w = Double(object.width), let l = Double(object.length), let h = Double(object.height) {
+                    cubicftNeeded += (l * w * h)/(12.0*12.0*12.0)
                 }
             }
-            return block
+            print(cubicftNeeded)
+            return cubicftNeeded
         }
-        let objects = order.objects
-        
-        return [Listing]()
+        let idealfit = (0.75)*createBlock(objects: order.objects)
+        print(idealfit)
+        var fitMap = Dictionary<Double, [Listing]>()
+        for list in listings {
+            if let cbft = Double(list.cubicFeet) {
+                let difference = Double.abs((cbft - idealfit))
+                if fitMap[difference] != nil {
+                    fitMap[difference]?.append(list)
+                } else {
+                    fitMap[difference] = [list]
+                }
+            }
+        }
+        var orderedListings = [Listing]()
+        let orderedKeys = fitMap.keys.sorted {
+            $0 < $1
+        }
+        for key in orderedKeys {
+            for list in fitMap[key]! {
+                orderedListings.append(list)
+            }
+        }
+        return orderedListings
     }
-
 }

@@ -32,53 +32,33 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
                     let addresses = self.getFormattedAddresses(placemarks: marks)
                     if addresses.count > 0 {
                             self.listing.location = addresses[0]
+                            if self.listing.location != nil {
+                                self.nextBtn.isEnabled = true
+                                self.centerMapOnAddress(address: self.listing.location)
+                                self.searchBar.text = self.listing.location
+                            }
                         }
                     }
                 })
             }
-        
+        // all listings made by this user will contain the same uid 
         if let uid = UserDefaults.standard.value(forKey: KEY_UID) as? String {
-            // come up with more secure way to generate a random id
-                listing.uid = uid 
-                listing.listingID = "LID\(uid)\(Int(arc4random_uniform(100000000)))"
+            listing.uid = uid
         }
-    }
-
-    func getFormattedAddresses(placemarks: [CLPlacemark])-> [String] {
-        var addresses = [String]()
-        for mark in placemarks {
-            if let streetNumber = mark.subThoroughfare, let street = mark.thoroughfare, let city = mark.locality, let state = mark.administrativeArea, let zip = mark.postalCode {
-                addresses.append("\(streetNumber) \(street), \(city), \(state) \(zip)")
-            }
-        }
-        return addresses
-    }
-    
-    @IBAction func didTapSearchBar(_ sender: AnyObject) {
-         performSegue(withIdentifier: "locationSearch", sender: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if listing.location != nil {
             nextBtn.isEnabled = true
-            // center on the chosen location 
-            // potentially allow them to chose location on map
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last as CLLocation! {
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.mapView.setRegion(region, animated: true)
+            centerMapOnAddress(address: listing.location)
+            searchBar.text = listing.location
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addBasicInfo" {
             if let destination = segue.destination as? SellerBasicInfoVC {
-                destination.listing = self.listing 
+                destination.listing = self.listing
             }
         }
         if segue.identifier == "locationSearch" {
@@ -89,5 +69,44 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
             }
         }
     }
+/*************************************************/
+/*           Map Functions                 */
+/*************************************************/
+    func getFormattedAddresses(placemarks: [CLPlacemark])-> [String] {
+        var addresses = [String]()
+        for mark in placemarks {
+            if let streetNumber = mark.subThoroughfare, let street = mark.thoroughfare, let city = mark.locality, let state = mark.administrativeArea, let zip = mark.postalCode {
+                addresses.append("\(streetNumber) \(street), \(city), \(state) \(zip)")
+            }
+        }
+        return addresses
+    }
+    
+    func centerMapOnAddress(address: String) {
+        // could make completion handler to simplify the CLGeocoding but no exactly proficient with completion handlers yet so that will be left for a potential beta version
+        CLGeocoder().geocodeAddressString(address){ placeMark, error in
+            if let mark = placeMark, mark.count > 0 {
+                if let location = mark[0].location {
+                    let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
+                    self.mapView.setRegion(coordinateRegion, animated: true)
+                }
+            }
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last as CLLocation! {
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            self.mapView.setRegion(region, animated: true)
+        }
+    }
+    
+    @IBAction func didTapSearchBar(_ sender: AnyObject) {
+         performSegue(withIdentifier: "locationSearch", sender: nil)
+    }
+
 
 }

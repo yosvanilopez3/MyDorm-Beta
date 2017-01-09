@@ -9,8 +9,11 @@
 import UIKit
 import SendBirdSDK
 
-class HomeScreenVC: UIViewController {
-
+class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var agreementTable: UITableView!
+    @IBOutlet weak var listingTable: UITableView!
+    @IBOutlet weak var orderTable: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let uid = UserDefaults.standard.value(forKey: KEY_UID) as? String {
@@ -18,7 +21,7 @@ class HomeScreenVC: UIViewController {
                 
             })
         } else {
-            print("In App With No UID Development Error")
+                showErrorAlert(title: "Development Error", msg: "In App With No UID ", currentView: self)
         }
         
     }

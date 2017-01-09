@@ -15,8 +15,8 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
     var imagePicker: UIImagePickerController!
     @IBOutlet weak var descriptionTxtBox: UITextView!
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+        super.viewDidLoad()
         descriptionTxtBox.delegate = self
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -34,10 +34,6 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func backBtnPressed(_ sender: AnyObject) {
-           self.navigationController?.dismiss(animated: true, completion: nil)
-        }
-
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -53,6 +49,7 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
         if segue.identifier == "seePreview" {
             if let destination = segue.destination as? PreviewListingVC{
                 destination.listing = listing
+                print(listing.rent)
             }
         }
     }
