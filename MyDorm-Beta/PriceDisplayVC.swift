@@ -41,14 +41,6 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 /*               Segue Functions                 */
 /*************************************************/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SeeDetailsSegue" {
-            if let destination = segue.destination as? IndividualPriceDisplayVC {
-                if let button = sender as? UIButton {
-                    destination.priceIndex = storageCompanies[button.tag].getIndividualPrices(order: order)
-                }
-            }
-        }
-        
         if segue.identifier == "viewListing" {
             if let destination = segue.destination as? PreviewListingVC, let index = sender as? Int {
                 // migrate to all being listings even storage company ones

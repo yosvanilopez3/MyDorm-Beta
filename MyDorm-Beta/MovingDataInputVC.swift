@@ -35,6 +35,13 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
     override func viewDidAppear(_ animated: Bool) {
         selectedCollection.reloadData()
     }
+    
+    @IBAction func continueBtnPressed(_ sender: AnyObject) {
+        if orderIsValid() {
+            performSegue(withIdentifier: "PriceDisplay", sender: nil)
+        }
+    }
+    
 /*************************************************/
 /*            Date Set Functions                 */
 /*************************************************/
@@ -63,7 +70,26 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         }
         _ = self.navigationController?.popViewController(animated: true)
     }
+    func orderIsValid() -> Bool {
+        var missingInfoDetails = ""
+            if order.objects.count < 1 {
+                missingInfoDetails = "pick an Item"
+            }
+            if order.pickup == nil {
+                missingInfoDetails = "Select pick"
+            }
+            if order.dropoff == nil {
+                missingInfoDetails = "select drop"
+            }
 
+        if missingInfoDetails == "" {
+            return true
+        } else {
+            showErrorAlert(title: "Missing Information", msg: missingInfoDetails, currentView: self)
+            return false
+        }
+    }
+    
 /*************************************************/
 /*                Segue Controls                 */
 /*************************************************/

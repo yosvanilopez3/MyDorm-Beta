@@ -89,12 +89,28 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
                 if let location = mark[0].location {
                     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 2000, 2000)
                     self.mapView.setRegion(coordinateRegion, animated: true)
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = location.coordinate
+                    self.mapView.addAnnotation(annotation)
                 }
             }
         }
         
     }
     
+    func createAnnotationForLocation(address: String) {
+        CLGeocoder().geocodeAddressString(address){ placeMark, error in
+            if let mark = placeMark, mark.count > 0 {
+                if let location = mark[0].location {
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = location.coordinate
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
+        }
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last as CLLocation! {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)

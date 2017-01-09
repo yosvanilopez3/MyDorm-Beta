@@ -11,13 +11,10 @@ import PDTSimpleCalendar
 class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, PDTSimpleCalendarViewDelegate {
     
     @IBOutlet weak var datesAvailableView: StandardFormCell!
-    @IBOutlet weak var allowedItemsView: StandardFormCell!
-    @IBOutlet weak var restrictedItemsView: StandardFormCell!
     @IBOutlet weak var spaceTypeSC1: UISegmentedControl!
     @IBOutlet weak var rentPeriodSC: UISegmentedControl!
     @IBOutlet weak var datesAvailableInput: UITextField!
-    @IBOutlet weak var itemRestrictionInput: UITextField!
-    @IBOutlet weak var itemsAllowedInput: UITextField!
+
     var calender = PDTSimpleCalendarViewController()
     var listing: Listing!
     
@@ -27,6 +24,15 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         setupSegmentedControls()
         addTapGestures()
         calender.delegate = self
+        // implement own back button
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func listingIsValid() -> Bool {
@@ -115,18 +121,10 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     /*************************************************/
     func addTapGestures() {
         let datesTap = UITapGestureRecognizer(target: self, action:  #selector(handleDateTap(gestureReconizer:)))
-        let allowedTap = UITapGestureRecognizer(target: self, action:  #selector(handleAllowedTap(gestureReconizer:)))
-        let restrictedTap = UITapGestureRecognizer(target: self, action: #selector(handleRestrictedTap(gestureReconizer:)))
         datesTap.delegate = self
-        allowedTap.delegate = self
-        restrictedTap.delegate = self
         datesAvailableView.isUserInteractionEnabled = true
-        allowedItemsView.isUserInteractionEnabled = true
-        restrictedItemsView.isUserInteractionEnabled = true
         // add tap as a gestureRecognizer to tapView
         datesAvailableView.addGestureRecognizer(datesTap)
-        allowedItemsView.addGestureRecognizer(allowedTap)
-        restrictedItemsView.addGestureRecognizer(restrictedTap)
     }
     
     func handleDateTap(gestureReconizer: UITapGestureRecognizer) {
@@ -144,12 +142,6 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
             if let destination = segue.destination as? ObjectListVC {
                 destination.listing = listing
                 destination.UNWIND_SEGUE = "unwindFromSelectRestrictedItems"
-            }
-        }
-        if segue.identifier == "selectAllowedItems" {
-            if let destination = segue.destination as? ObjectListVC {
-                destination.listing = listing
-                destination.UNWIND_SEGUE = "unwindFromSelectAllowedItems"
             }
         }
         if segue.identifier == "addDetails" {

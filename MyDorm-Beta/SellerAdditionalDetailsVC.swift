@@ -20,6 +20,15 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
         descriptionTxtBox.delegate = self
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        // implement own back button
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func textViewDidChange(_ textView: UITextView) {

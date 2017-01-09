@@ -14,7 +14,11 @@ class User {
     private var _email: String!
     private var _dorm: String!
     private var _uid: String!
-    
+
+    var listings = [Listing]()
+    var orders = [Order]()
+    var agreements = [Agreegment]()
+
     var uid: String {
         return _uid
     }
@@ -48,6 +52,19 @@ class User {
             _dorm = room
         }
         self._uid = uid
+        if let orders = userInfo["Orders"] as? Dictionary<String, Dictionary<String, String>> {
+            for key in orders.keys {
+                var order = Order()
+                order.uid = uid
+                order.orderID = key
+                // force unwrap is okay because we are iterating through keys
+                let details = orders[key]!
+                order.dropoff = details["Drop Off"]
+                order.pickup = details["Pick Up"]
+                // change get storable objects to return desired list 
+                order.objects = DataService.instance
+            }
+        }
     }
 }
     

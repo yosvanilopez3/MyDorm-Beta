@@ -140,7 +140,7 @@ class DataService {
         }
         
     }
-    func getListings(complete: @escaping ([Listing])->()) {
+    func getListings(uid: String = "", complete: @escaping ([Listing])->()) {
         LISTING_BASE.observe(.value, with: { (snapshot) in
             var listings = [Listing]()
             if let lists = snapshot.value as? Dictionary<String, (Dictionary<String, String>) > {
@@ -171,7 +171,8 @@ class DataService {
 /*************************************************/
 
     func createUser(uid: String, user: Dictionary<String, String>) {
-        USER_BASE.child(uid).setValue(user)
+        let userData: Dictionary<String, Any> = user
+        USER_BASE.child(uid).setValue(userData)
     }
     
     func createOrder(uid: String, user: Dictionary<String, String>) {

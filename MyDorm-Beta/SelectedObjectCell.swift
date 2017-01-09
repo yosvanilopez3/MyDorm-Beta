@@ -11,6 +11,8 @@ import UIKit
 class SelectedObjectCell: UICollectionViewCell {
     @IBOutlet weak var objectImage: UIImageView!
     @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var objectNameLbl: UILabel!
+    @IBOutlet weak var objectDimensionLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +25,8 @@ class SelectedObjectCell: UICollectionViewCell {
     func configureCell(object: StorableObject, detail: String, deleteBtnEnabled: Bool = true) {
             deleteBtn.isHidden = !(deleteBtnEnabled)
             self.objectImage.image = object.image
-        
+            objectNameLbl.text = object.name
+            objectDimensionLbl.text = "\(object.length)x\(object.width)x\(object.height)" 
     }
     
 }

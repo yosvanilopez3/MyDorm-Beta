@@ -43,6 +43,15 @@ class PreviewListingVC: UIViewController {
         } else {
             showErrorAlert(title: "Development Error", msg: "Listing has no availability date", currentView: self)
         }
+        // implement own back button
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func submitListing(_ sender: AnyObject) {

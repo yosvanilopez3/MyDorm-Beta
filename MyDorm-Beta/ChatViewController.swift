@@ -18,15 +18,23 @@ class ChatViewController: JSQMessagesViewController, SBDChannelDelegate {
     var messageStream = UITextView()
     var messageInput = UITextField()
     var messages = [JSQMessage]()
+    var username: String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.senderId = myID
         if !Reachability.isConnectedToNetwork() {
             // makes this show connection error view controller
             print("no internet connection")
         }
         else {
             SBDMain.connect(withUserId: myID, completionHandler: { (user, error) in
+
+                if let currentUser = user {
+                    self.username = currentUser.nickname
+                
                 if let my = self.myID, let other = self.otherID {
+                    print(my)
+                    print(other)
                     SBDGroupChannel.createChannel(withUserIds: [my, other], isDistinct: true) { (channel, error) in
                         if error != nil {
                             NSLog("Error: %@", error!)
@@ -41,18 +49,31 @@ class ChatViewController: JSQMessagesViewController, SBDChannelDelegate {
                             } else {
                                 if let msgs = messages {
                                     for message in msgs {
-                                        self.displayMessage(message: message, sender: my, displayName: my)
+                                        print(message.description)
+                                        if message.description.contains(self.username) {
+                                                self.displayMessage(message: message, sender: self.myID, displayName: self.username)
+                                        } else {
+                                            self.displayMessage(message: message, sender: "other", displayName: self.username)
+                                        }
                                     }
                                 }
                             }
                         })
                     }
                 }
+              }
             })
-            self.senderId = myID
         }
+        // implement own back button
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
     }
-
+    
+    func back(sender: UIBarButtonItem) {
+        _ = navigationController?.popViewController(animated: true)
+    }
 /*************************************************/
 /*      JSQMessagesViewController Functions      */
 /*************************************************/

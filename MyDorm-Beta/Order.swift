@@ -13,7 +13,7 @@ struct Order {
     var uid: String!
     var orderID: String!
     var objects = [StorableObject]()
-    var pickup: Date!
-    var dropoff: Date!
+    var pickup: String!
+    var dropoff: String!
     
 }
