@@ -17,15 +17,12 @@ class DataService {
     private let ITEM_BASE = DATA_BASE.reference(withPath: "Storable Objects")
     private let COMPANY_BASE = DATA_BASE.reference(withPath: "Companies")
     private let storage = STORAGE_BASE
-    private var _storableObjects = [StorableObject]()
+    private var storableObjects: [StorableObject]?
     private var _storageCompanies = [StorageCompany]()
     private var _listings = [Listing]()
     private var downloadedObjectImages = Dictionary <String, UIImage>()
     private var downloadedCompanyImages = Dictionary <String, UIImage>()
-    
-    var storableObjects : [StorableObject] {
-        return _storableObjects
-    }
+
     var storageCompanies : [StorageCompany] {
         return _storageCompanies
     }
@@ -39,8 +36,11 @@ class DataService {
 /*************************************************/
 /*      FireBase Data Download Functions         */
 /*************************************************/
-    func getStorableObjects(complete: @escaping complete) {
+    func getStorableObjects(complete: @escaping ([StorableObject])-> ()) {
         // read in storable objects
+        if storableObjects != nil {
+            complete(storableObjects!)
+        }
         ITEM_BASE.observe(.value, with: { (snapshot) in
             var loadedobjects = [StorableObject]()
             if let objects = snapshot.value as? Dictionary<String, String> {
@@ -48,8 +48,8 @@ class DataService {
                     loadedobjects.append(StorableObject(name: object))
                 }
             }
-            self._storableObjects = loadedobjects
-            complete()
+            self.storableObjects = loadedobjects
+            complete(loadedobjects)
         }) { (error) in
             print(error.localizedDescription)
         }

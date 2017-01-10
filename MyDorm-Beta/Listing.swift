@@ -31,7 +31,6 @@ enum RentType: String {
     var rent: String!
     var date: String!
     var restrictedItems = [StorableObject]()
-    var allowedItems = [StorableObject]()
     var image = UIImage()
     var description: String = ""
 }

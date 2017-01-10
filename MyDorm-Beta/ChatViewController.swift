@@ -19,6 +19,7 @@ class ChatViewController: JSQMessagesViewController, SBDChannelDelegate {
     var messageInput = UITextField()
     var messages = [JSQMessage]()
     var username: String!
+    var agreement: Agreement!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.senderId = myID
@@ -56,6 +57,7 @@ class ChatViewController: JSQMessagesViewController, SBDChannelDelegate {
                                             self.displayMessage(message: message, sender: "other", displayName: self.username)
                                         }
                                     }
+                                    
                                 }
                             }
                         })
@@ -64,13 +66,16 @@ class ChatViewController: JSQMessagesViewController, SBDChannelDelegate {
               }
             })
         }
+        agreement = createAgreement()
         // implement own back button
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
-        
     }
     
+    func createAgreement() -> Agreement {
+        return Agreement()
+    }
     func back(sender: UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
     }
@@ -166,6 +171,7 @@ class ChatViewController: JSQMessagesViewController, SBDChannelDelegate {
         if let msg = JSQMessage(senderId: sender, displayName: displayName, text: text) {
             messages.append(msg)
             finishSendingMessage()
+            finishReceivingMessage()
         }
     }
 }

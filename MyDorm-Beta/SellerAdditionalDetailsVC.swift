@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,  UITextViewDelegate {
     var listing: Listing!
     @IBOutlet weak var listingImage: UIImageView!
     @IBOutlet weak var addImageBtn: UIButton!
@@ -34,8 +34,10 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
     func textViewDidChange(_ textView: UITextView) {
         listing.description = textView.text
     }
-    
-    @IBAction func reviewListingBtn(_ sender: AnyObject) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+
+    }
+    @IBAction func reviewListingBtn(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "seePreview", sender: nil)
     }
 
@@ -59,6 +61,8 @@ class SellerAdditionalDetailsVC: UIViewController, UIImagePickerControllerDelega
             if let destination = segue.destination as? PreviewListingVC{
                 destination.listing = listing
                 print(listing.rent)
+                let submitButton = UIBarButtonItem(title: "Submit", style: UIBarButtonItemStyle.plain, target: destination, action: #selector(destination.submitBtnPressed(sender:)))
+                destination.navigationItem.rightBarButtonItem = submitButton
             }
         }
     }

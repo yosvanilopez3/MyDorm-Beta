@@ -17,7 +17,7 @@ class User {
 
     var listings = [Listing]()
     var orders = [Order]()
-    var agreements = [Agreegment]()
+    var agreements = [Agreement]()
 
     var uid: String {
         return _uid
@@ -52,17 +52,22 @@ class User {
             _dorm = room
         }
         self._uid = uid
-        if let orders = userInfo["Orders"] as? Dictionary<String, Dictionary<String, String>> {
+        if let orders = userInfo["Orders"] as? Dictionary<String, Dictionary<String, Any>> {
             for key in orders.keys {
                 var order = Order()
                 order.uid = uid
                 order.orderID = key
                 // force unwrap is okay because we are iterating through keys
                 let details = orders[key]!
-                order.dropoff = details["Drop Off"]
-                order.pickup = details["Pick Up"]
+                order.dropoff = details["Drop Off"] as! String!
+                order.pickup = details["Pick Up"] as! String!
                 // change get storable objects to return desired list 
-                order.objects = DataService.instance
+                DataService.instance.getStorableObjects(complete: { (objects) in
+                    let objectNameList = (details["Objects"] as! Dictionary<String, String>).keys
+                    order.objects = objects.filter {
+                        objectNameList.contains($0.name)
+                    }
+                })
             }
         }
     }

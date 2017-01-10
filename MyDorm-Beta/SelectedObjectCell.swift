@@ -24,8 +24,9 @@ class SelectedObjectCell: UICollectionViewCell {
   
     func configureCell(object: StorableObject, detail: String, deleteBtnEnabled: Bool = true) {
             deleteBtn.isHidden = !(deleteBtnEnabled)
+            deleteBtn.isEnabled = deleteBtnEnabled
             self.objectImage.image = object.image
-            objectNameLbl.text = object.name
+            objectNameLbl.text = object.name.capitalized
             objectDimensionLbl.text = "\(object.length)x\(object.width)x\(object.height)" 
     }
     

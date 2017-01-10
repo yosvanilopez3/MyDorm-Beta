@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Agreegment {
+class Agreement {
     var LID: String!
     var OID: String!
     var myID: String!

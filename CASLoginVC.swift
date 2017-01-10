@@ -57,7 +57,7 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
     }
     
     func retreiveUserInfo(netid: String) {
-        let email = "pmejia@princeton.edu"
+        let email = "mja3@princeton.edu"
         // work out persistence login logic
         attemptLogIn(email: email) { (success, data) in
             if success {

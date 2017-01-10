@@ -36,7 +36,7 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         selectedCollection.reloadData()
     }
     
-    @IBAction func continueBtnPressed(_ sender: AnyObject) {
+    @IBAction func nextBtnPressed(_ sender: AnyObject) {
         if orderIsValid() {
             performSegue(withIdentifier: "PriceDisplay", sender: nil)
         }
@@ -48,21 +48,21 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
  
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, didSelect date: Date!) {
         if controller.accessibilityLabel == "pickup" {
-            order.pickup = date
+            order.pickup = date.formatDate()
             pickupDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
             if order.dropoff != nil {
                 if order.pickup > order.dropoff {
-                    order.dropoff = date
+                    order.dropoff = date.formatDate()
                     dropoffDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
                 }
             }
         }
         if controller.accessibilityLabel == "dropoff" {
-             order.dropoff = date
+             order.dropoff = date.formatDate()
              dropoffDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
             if order.pickup != nil {
                 if order.pickup > order.dropoff {
-                    order.pickup = date
+                    order.pickup = date.formatDate()
                     pickupDateLbl.setTitle(date.formatDate(), for: UIControlState.normal)
                 }
             }
@@ -73,13 +73,13 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
     func orderIsValid() -> Bool {
         var missingInfoDetails = ""
             if order.objects.count < 1 {
-                missingInfoDetails = "pick an Item"
+                missingInfoDetails = "Must pick atleast one item"
             }
-            if order.pickup == nil {
-                missingInfoDetails = "Select pick"
+            else if order.pickup == nil {
+                missingInfoDetails = "Must select pick-up date"
             }
-            if order.dropoff == nil {
-                missingInfoDetails = "select drop"
+            else if order.dropoff == nil {
+                missingInfoDetails = "Must select drop-off date"
             }
 
         if missingInfoDetails == "" {
@@ -120,14 +120,6 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         calender.accessibilityLabel = "dropoff"
         self.navigationController?.pushViewController(calender, animated: true)
     }
-    @IBAction func unwindToMoving(segue: UIStoryboardSegue) {
-        if segue.identifier == "unwindFromChooseObjects" {
-            if let source = segue.source as? ObjectListVC {
-                self.order = source.order
-                self.selectedCollection.reloadData()
-            }
-        }
-    }
     
 /*************************************************/
 /*            Utility Functions                  */
@@ -158,7 +150,7 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as? SelectedObjectCell {
             cell.configureCell(object: order.objects[indexPath.row], detail: "details")
             cell.deleteBtn.tag = indexPath.row
-            cell.deleteBtn.addTarget(self, action: #selector(deleteCellFromCollection), for: .touchUpInside)
+            cell.deleteBtn.addTarget(self, action: #selector(deleteCellFromCollection), for: .allTouchEvents)
             return cell
         }
         return UICollectionViewCell()
@@ -169,6 +161,7 @@ class MovingDataInputVC: UIViewController, PDTSimpleCalendarViewDelegate, UIColl
     }
     
     func deleteCellFromCollection(deleteBtn: UIButton) {
+        deleteBtn.isEnabled = false
         order.objects.remove(at: deleteBtn.tag)
         selectedCollection.reloadData()
     }

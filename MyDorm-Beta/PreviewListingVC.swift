@@ -27,7 +27,7 @@ class PreviewListingVC: UIViewController {
         addressLbl.text = listing.location
         image.image = listing.image
         rentLbl.text = "$\(listing.rent!)/\(listing.rentType.rawValue)"
-        cbFtLbl.text = listing.cubicFeet
+        cbFtLbl.text = "\(listing.cubicFeet!) cbft"
         typeLbl.text = listing.storageType.rawValue
         descriptionTxtBox.text = listing.description
         if let date = listing.date {
@@ -54,23 +54,19 @@ class PreviewListingVC: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func submitListing(_ sender: AnyObject) {
-        if order == nil {
-            // come up with more secure way to generate a random id
-               listing.listingID = "LID\(listing.uid)\(Int(arc4random_uniform(100000000)))"
-            DataService.instance.createListing(listing: listing, currentVC: self)
-            _ = self.navigationController?.popToRootViewController(animated: true)
-            // switch tabs to the home tab
-             self.tabBarController?.selectedIndex = 1
-        }
+    func submitBtnPressed(sender: UIBarButtonItem) {
+        // come up with more secure way to generate a random id
+        listing.listingID = "LID\(listing.uid)\(Int(arc4random_uniform(100000000)))"
+        DataService.instance.createListing(listing: listing, currentVC: self)
+        _ = self.navigationController?.popToRootViewController(animated: true)
+        // switch tabs to the home tab
+        self.tabBarController?.selectedIndex = 1
+    }
+   func requestBtnPressed(sender: UIBarButtonItem) {
+         performSegue(withIdentifier: "openMessaging", sender: nil)
     }
     
-    @IBAction func requestListing(_ sender: AnyObject) {
-        if order != nil {
-            performSegue(withIdentifier: "openMessaging", sender: nil)
-        }
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openMessaging" {
             if let destination = segue.destination as? ChatViewController {
@@ -80,6 +76,7 @@ class PreviewListingVC: UIViewController {
                 destination.senderDisplayName = owner.uid
                 // again come up with better way to generate unique number
                 destination.UNIQUE_HANDLER_ID = "AID\(owner.uid)\(order.uid)\(Int(arc4random_uniform(100000000)))"
+                destination.navigationItem.title = owner.name
                 
             }
         }

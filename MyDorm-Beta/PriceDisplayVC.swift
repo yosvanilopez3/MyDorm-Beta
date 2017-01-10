@@ -50,6 +50,8 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                     destination.listing = listings[index - storageCompanies.count]
                 }
                 destination.order = self.order
+                let requestButton = UIBarButtonItem(title: "Request", style: UIBarButtonItemStyle.plain, target: destination, action: #selector(destination.requestBtnPressed(sender:)))
+                destination.navigationItem.rightBarButtonItem = requestButton
             }
         }
     }

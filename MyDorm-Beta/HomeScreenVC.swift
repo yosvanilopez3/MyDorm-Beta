@@ -15,13 +15,14 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var orderTable: UITableView!
     var listings = [Listing]()
     var orders = [Order]()
-    var agreements = [Agreegment]()
+    var agreements = [Agreement]()
     
     enum tableType: Int {
        case Agreement = 0
        case Listing = 1
        case Order = 2
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         agreementTable.tag = tableType.Agreement.rawValue
@@ -35,19 +36,21 @@ class HomeScreenVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         orderTable.delegate = self
         if let uid = UserDefaults.standard.value(forKey: KEY_UID) as? String {
             SBDMain.connect(withUserId: uid, completionHandler: { (user, error) in
+            
+            })
             DataService.instance.getUserDetails(uid: uid, complete: { (user) in
-              
- 
+                DataService.instance.getListings(complete: { (listings) in
+                    self.listings = listings.filter{
+                        $0.uid == uid
+                    }
+                })
+                self.orders = user.orders
             })
-            DataService.instance.getListings(uid: uid, complete: { (listings) in
-                    self.listings = listings
-            })
-            })
+           
+          
         } else {
                 showErrorAlert(title: "Development Error", msg: "In App With No UID ", currentView: self)
         }
-       
-        
     }
     
  

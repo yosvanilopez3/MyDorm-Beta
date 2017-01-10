@@ -16,7 +16,7 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     var listing: Listing!
     let searchController = UISearchController(searchResultsController: nil)
     var UNWIND_SEGUE: String!
-    var parentVC: MovingDataInputVC!
+    var parentVC: UIViewController!
     //add a clear button that erases all the selected objects 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,12 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.navigationController?.isNavigationBarHidden = false
         _ = self.navigationController?.popViewController(animated: true)
-        parentVC.order = order
+        if let movingVC = parentVC as? MovingDataInputVC{
+           movingVC.order = order
+        }
+        else if let basicInfoVC = parentVC as? SellerBasicInfoVC {
+            basicInfoVC.listing = listing
+        }
     }
     
 /*************************************************/
@@ -55,8 +60,8 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     // download them from firebase
     //need to make this thread safe by making get storable objects take a closoure as an arguement
     func loadAllObjects() {
-        DataService.instance.getStorableObjects { 
-           self.allStorableObjects = DataService.instance.storableObjects
+        DataService.instance.getStorableObjects { objects in
+           self.allStorableObjects = objects
            self.suggestions = self.allStorableObjects
            self.tableView.reloadData()
         }
@@ -79,7 +84,12 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
                 object.length = l
                     DataService.instance.getObjectImage(name: object.name, complete: { (image) in
                         object.image = image
-                        self.order.objects.append(object)
+                        if self.order != nil {
+                            self.order.objects.append(object)
+                        }
+                        else if self.listing != nil {
+                            self.listing.restrictedItems.append(object)
+                        }
                         self.searchController.isActive = false
                         self.searchBarCancelButtonClicked(self.searchController.searchBar)
                         
@@ -91,7 +101,7 @@ class ObjectListVC: UITableViewController, UISearchResultsUpdating,  UISearchBar
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestionCell", for: indexPath) as? SuggestionCell {
-            cell.configureCell(object: suggestions[indexPath.row], order: order)
+            cell.configureCell(object: suggestions[indexPath.row])
             return cell
         }
         return UITableViewCell()

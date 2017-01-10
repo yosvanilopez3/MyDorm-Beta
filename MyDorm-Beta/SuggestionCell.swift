@@ -29,6 +29,12 @@ class SuggestionCell: UITableViewCell {
         self.object = object
         self.order = order
     }
-    
+    func configureCell(object: StorableObject) {
+        objectName.text = object.name.capitalized
+        height.text = object.height
+        width.text = object.width
+        length.text = object.length
+        self.object = object
+    }
 
 }

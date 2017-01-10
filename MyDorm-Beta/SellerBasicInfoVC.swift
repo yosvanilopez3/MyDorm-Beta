@@ -8,22 +8,24 @@
 
 import UIKit
 import PDTSimpleCalendar
-class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, PDTSimpleCalendarViewDelegate {
+class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate, PDTSimpleCalendarViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var datesAvailableView: StandardFormCell!
     @IBOutlet weak var spaceTypeSC1: UISegmentedControl!
     @IBOutlet weak var rentPeriodSC: UISegmentedControl!
     @IBOutlet weak var datesAvailableInput: UITextField!
-
+    @IBOutlet weak var restrictedCollection: UICollectionView!
     var calender = PDTSimpleCalendarViewController()
     var listing: Listing!
-    
+    var currentTextField: UITextField!
     override func viewDidLoad() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
         super.viewDidLoad()
         setupSegmentedControls()
         addTapGestures()
         calender.delegate = self
+        restrictedCollection.dataSource = self
+        restrictedCollection.delegate = self
         // implement own back button
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
@@ -35,6 +37,17 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         _ = navigationController?.popViewController(animated: true)
     }
     
+    
+    
+    
+    @IBAction func addRestrictedItem(_ sender: AnyObject) {
+        performSegue(withIdentifier: "selectRestrictedItems", sender: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        restrictedCollection.reloadData()
+    }
+
     func listingIsValid() -> Bool {
         var missingInfoDetails = ""
         if listing.location != nil {
@@ -98,6 +111,10 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     /*************************************************/
     /*            Text Field Inputs                  */
     /*************************************************/
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        currentTextField = textField
+    }
+    
     @IBAction func cbftInputChanged(_ sender: UITextField) {
         if let input = sender.text, input != "" {
                 listing.cubicFeet = input
@@ -109,10 +126,10 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     
     @IBAction func rentInputChanged(_ sender: UITextField) {
         if let input = sender.text, input != ""{
-                listing.rent = input
+            listing.rent = input
                 print(input)
         } else {
-                listing.rent = nil
+            listing.rent = nil
             }
 
     }
@@ -120,28 +137,38 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     /*            Delegated Inputs                   */
     /*************************************************/
     func addTapGestures() {
-        let datesTap = UITapGestureRecognizer(target: self, action:  #selector(handleDateTap(gestureReconizer:)))
+        let datesTap = UITapGestureRecognizer(target: self, action:  #selector(handleDateTap(gestureRecognizer:)))
+        let viewTap = UITapGestureRecognizer(target: self, action:
+        #selector(handleViewTap(gestureRecognizer:)))
         datesTap.delegate = self
+        viewTap.delegate = self
+        view.isUserInteractionEnabled = true
         datesAvailableView.isUserInteractionEnabled = true
         // add tap as a gestureRecognizer to tapView
+        
+        self.view.addGestureRecognizer(viewTap)
+        datesAvailableView.addGestureRecognizer(viewTap)
+        spaceTypeSC1.addGestureRecognizer(viewTap)
+        rentPeriodSC.addGestureRecognizer(viewTap)
+        restrictedCollection.addGestureRecognizer(viewTap)
         datesAvailableView.addGestureRecognizer(datesTap)
     }
     
-    func handleDateTap(gestureReconizer: UITapGestureRecognizer) {
+    func handleViewTap(gestureRecognizer: UITapGestureRecognizer) {
+        if currentTextField != nil {
+            currentTextField.endEditing(true)
+        }
+    }
+    
+    func handleDateTap(gestureRecognizer: UITapGestureRecognizer) {
         goToCalender()
     }
     
-    func handleAllowedTap(gestureReconizer: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "selectAllowedItems", sender: nil)
-    }
-    func handleRestrictedTap(gestureReconizer: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "selectRestrictedItems", sender: nil)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectRestrictedItems" {
             if let destination = segue.destination as? ObjectListVC {
                 destination.listing = listing
-                destination.UNWIND_SEGUE = "unwindFromSelectRestrictedItems"
+                destination.parentVC = self
             }
         }
         if segue.identifier == "addDetails" {
@@ -151,20 +178,7 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
         }
 
     }
-    @IBAction func unwindFromSelectRestrictedItems(segue: UIStoryboardSegue) {
-        if segue.identifier == "unwindFromSelectRestrictedItems" {
-            if let source = segue.source as? ObjectListVC {
-                listing = source.listing
-            }
-        }
-    }
-    @IBAction func unwindFromSelectAllowedItems(segue: UIStoryboardSegue) {
-        if segue.identifier == "unwindFromSelectAllowedItems" {
-            if let source = segue.source as? ObjectListVC {
-                listing = source.listing
-            }
-        }
-    }
+
     /*************************************************/
     /*            Calender Inputs                    */
     /*************************************************/
@@ -176,7 +190,34 @@ class SellerBasicInfoVC: UIViewController, UITextFieldDelegate, UIGestureRecogni
     func simpleCalendarViewController(_ controller: PDTSimpleCalendarViewController!, didSelect date: Date!) {
         listing.date = date.formatDate()
         datesAvailableInput.text = date.formatDate()
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    /*************************************************/
+    /*          CollectionView Functions             */
+    /*************************************************/
+    
+    //build the collection from the center outward
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return listing.restrictedItems.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedCell", for: indexPath) as? SelectedObjectCell {
+            cell.configureCell(object: listing.restrictedItems[indexPath.row], detail: "details")
+            cell.deleteBtn.tag = indexPath.row
+            cell.deleteBtn.addTarget(self, action: #selector(deleteCellFromCollection), for: .touchUpInside)
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func deleteCellFromCollection(deleteBtn: UIButton) {
+       listing.restrictedItems.remove(at: deleteBtn.tag)
+       restrictedCollection.reloadData()
+    }
+
 }
