@@ -552,9 +552,7 @@
                         <outlet property="datesAvailableInput" destination="xqa-Jc-C71" id="vf6-ql-oUN"/>
                         <outlet property="datesAvailableView" destination="dvk-Kw-DkQ" id="avE-kr-Mma"/>
                         <outlet property="rentPeriodSC" destination="3lN-bM-sQE" id="dUE-Qc-E2h"/>
-                        <outlet property="rentView" destination="Xox-Nm-AV2" id="AiW-dy-8Zz"/>
                         <outlet property="restrictedCollection" destination="eCV-05-N1b" id="GUu-pb-UFB"/>
-                        <outlet property="sizeView" destination="dxU-AR-0QQ" id="egI-1i-zkH"/>
                         <outlet property="spaceTypeSC1" destination="4p7-Ld-mhP" id="Fqm-bl-4aP"/>
                         <segue destination="mOl-3K-UcT" kind="show" identifier="selectRestrictedItems" id="KJr-YE-onb"/>
                         <segue destination="CYx-dO-K2y" kind="show" identifier="addDetails" id="32X-uM-A0H"/>
