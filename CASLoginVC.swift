@@ -50,14 +50,14 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             
             if let netid = dataString?.components(separatedBy: "\n")[1]{
-                self.retreiveUserInfo(netid: netid)
+                self.retreiveUserInfo(netid: "pvasquez")
             }
         }
         task.resume()
     }
     
     func retreiveUserInfo(netid: String) {
-        let email = "mja3@princeton.edu"
+        let email = "pvasquez@princeton.edu"
         // work out persistence login logic
         attemptLogIn(email: email) { (success, data) in
             if success {
