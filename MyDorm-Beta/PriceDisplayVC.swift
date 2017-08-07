@@ -99,12 +99,11 @@ class PriceDisplayVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(cubicftNeeded)
             return cubicftNeeded
         }
-        let idealfit = (0.75)*createBlock(objects: order.objects)
-        print(idealfit)
+        let block = createBlock(objects: order.objects)
         var fitMap = Dictionary<Double, [Listing]>()
         for list in listings {
             if let cbft = Double(list.cubicFeet) {
-                let difference = Double.abs((cbft - idealfit))
+                let difference = Double.abs((cbft * (0.75) - block))
                 if fitMap[difference] != nil {
                     fitMap[difference]?.append(list)
                 } else {

@@ -19,9 +19,11 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         loginWebView.delegate = self
-        let url = URL(string: "\(CAS_BASE_URL)/login?service=\(INTERMEDIATE_WEBPAGE)")
-        let urlRequest = URLRequest(url: url!)
-        loginWebView.loadRequest(urlRequest)
+        retreiveUserInfo(netid: "ylopez");
+        //Princeton Login
+        //let url = URL(string: "\(CAS_BASE_URL)/login?service=\(INTERMEDIATE_WEBPAGE)")
+        //let urlRequest = URLRequest(url: url!)
+        //loginWebView.loadRequest(urlRequest)
     }
 
     func webViewDidFinishLoad(_ webView: UIWebView) {
@@ -50,47 +52,48 @@ class CASLoginVC: UIViewController, UIWebViewDelegate{
             let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             
             if let netid = dataString?.components(separatedBy: "\n")[1]{
-                self.retreiveUserInfo(netid: "mja3")
+                self.retreiveUserInfo(netid: netid)
             }
         }
         task.resume()
     }
     
     func retreiveUserInfo(netid: String) {
-        let email = "mja3@princeton.edu"
+        let email = "\(netid)@princeton.edu"
         // work out persistence login logic
         attemptLogIn(email: email) { (success, data) in
             if success {
                 self.performSegue(withIdentifier: SEGUE_LOGIN, sender: nil)
             }
-            else {
-                let urlString = "https://tigerbook.herokuapp.com/student/\(netid)"
-                func getUserInfo(data: String) -> [String:String] {
-                    // alot of explicit handling of thing that should be handled more safely make sure to find safe way to handle all these things
-                    var name = data.components(separatedBy: "h1")[1]
-                    name = name.between(">", " '")!
-                    let firstname = name.components(separatedBy: " ")[0]
-                    let lastname = name.components(separatedBy: " ")[1]
-                    var dorm = data.components(separatedBy: "Dorm")[1]
-                    dorm = dorm.between(">", "<br")!
-                    return ["Email": email, "First Name": firstname, "Last Name":lastname, "Dorm": dorm, "Current LID Count": "0", "Current OID Count": "0"]
-                }
-                if let url = URL(string: urlString) {
-                    let request = NSMutableURLRequest(url: url as URL)
-                    request.httpMethod = "GET"
-                    let session = URLSession.shared
-                    let task = session.dataTask(with: request as URLRequest) {
-                        (data, response, error) in
-                        guard let _:Data = data, let _:URLResponse = response, error == nil else {
-                            print("error")
-                            return
-                        }
-                        let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                        self.attemptSignUp(userInfo: getUserInfo(data: dataString as! String))
-                    }
-                    task.resume()
-                }
-            }
+            // only available with princeton login
+//            else {
+//                let urlString = "https://tigerbook.herokuapp.com/student/\(netid)"
+//                func getUserInfo(data: String) -> [String:String] {
+//                    // alot of explicit handling of thing that should be handled more safely make sure to find safe way to handle all these things
+//                    var name = data.components(separatedBy: "h1")[1]
+//                    name = name.between(">", " '")!
+//                    let firstname = name.components(separatedBy: " ")[0]
+//                    let lastname = name.components(separatedBy: " ")[1]
+//                    var dorm = data.components(separatedBy: "Dorm")[1]
+//                    dorm = dorm.between(">", "<br")!
+//                    return ["Email": email, "First Name": firstname, "Last Name":lastname, "Dorm": dorm, "Current LID Count": "0", "Current OID Count": "0"]
+//                }
+//                if let url = URL(string: urlString) {
+//                    let request = NSMutableURLRequest(url: url as URL)
+//                    request.httpMethod = "GET"
+//                    let session = URLSession.shared
+//                    let task = session.dataTask(with: request as URLRequest) {
+//                        (data, response, error) in
+//                        guard let _:Data = data, let _:URLResponse = response, error == nil else {
+//                            print("error")
+//                            return
+//                        }
+//                        let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+//                        self.attemptSignUp(userInfo: getUserInfo(data: dataString as! String))
+//                    }
+//                    task.resume()
+//                }
+//            }
         }
     }
     

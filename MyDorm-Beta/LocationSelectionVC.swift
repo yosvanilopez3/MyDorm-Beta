@@ -20,6 +20,7 @@ class LocationSelectionVC: UIViewController,   UISearchBarDelegate {
     var region: CLRegion!
     override func viewDidLoad() {
         super.viewDidLoad()
+        listing.location = "3 Elm Rd, Princeton, NJ 8540"
         mapView.showsUserLocation = true
         searchBar.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
